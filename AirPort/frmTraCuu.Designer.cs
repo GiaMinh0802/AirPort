@@ -149,7 +149,7 @@ namespace AirPort
             this.btnTimKiem.FlatAppearance.BorderSize = 0;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Location = new System.Drawing.Point(142, 34);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(82, 78);
             this.btnTimKiem.TabIndex = 5;
@@ -189,7 +189,7 @@ namespace AirPort
             this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.White;
             this.btnThoat.Location = new System.Drawing.Point(1809, 6);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(6);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(82, 78);
             this.btnThoat.TabIndex = 8;
@@ -291,7 +291,7 @@ namespace AirPort
             // txtMaChuyenBay
             // 
             this.txtMaChuyenBay.Location = new System.Drawing.Point(260, 44);
-            this.txtMaChuyenBay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtMaChuyenBay.Margin = new System.Windows.Forms.Padding(6);
             this.txtMaChuyenBay.Name = "txtMaChuyenBay";
             this.txtMaChuyenBay.ReadOnly = true;
             this.txtMaChuyenBay.Size = new System.Drawing.Size(298, 31);
@@ -304,7 +304,7 @@ namespace AirPort
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnThoat;
-            this.ClientSize = new System.Drawing.Size(2169, 1238);
+            this.ClientSize = new System.Drawing.Size(1910, 1057);
             this.Controls.Add(this.gbxThaoTac);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbxDSChyenBay);
