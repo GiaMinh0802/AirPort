@@ -21,5 +21,26 @@ namespace AirPort
         {
             this.Parent.Dispose();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMuaVe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDatVe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTraCuu_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmTraCuu();
+            frm.Show();
+        }
     }
 }

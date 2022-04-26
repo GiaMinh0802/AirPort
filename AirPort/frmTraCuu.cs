@@ -34,5 +34,15 @@ namespace AirPort
             }
             txtMaChuyenBay.Focus();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnChonChuyenBay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

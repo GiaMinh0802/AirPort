@@ -88,6 +88,7 @@ namespace AirPort
             this.btnSua.Size = new System.Drawing.Size(82, 78);
             this.btnSua.TabIndex = 7;
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // panel1
             // 
@@ -126,6 +127,7 @@ namespace AirPort
             this.btnThoat.Size = new System.Drawing.Size(82, 78);
             this.btnThoat.TabIndex = 40;
             this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gbxTTThamSo
             // 

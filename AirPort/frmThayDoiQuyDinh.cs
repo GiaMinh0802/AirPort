@@ -16,5 +16,15 @@ namespace AirPort
         {
             InitializeComponent();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Parent.Dispose();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

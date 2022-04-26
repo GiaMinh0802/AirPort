@@ -60,20 +60,20 @@ namespace AirPort
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(7, 139);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Location = new System.Drawing.Point(10, 217);
+            this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(123, 17);
+            this.label15.Size = new System.Drawing.Size(186, 25);
             this.label15.TabIndex = 87;
             this.label15.Text = "Ngày khởi hành từ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 172);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(10, 269);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(104, 25);
             this.label3.TabIndex = 87;
             this.label3.Text = "Ngày đến";
             // 
@@ -81,18 +81,20 @@ namespace AirPort
             // 
             this.dtpNgayKHTu.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayKHTu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayKHTu.Location = new System.Drawing.Point(174, 134);
+            this.dtpNgayKHTu.Location = new System.Drawing.Point(261, 209);
+            this.dtpNgayKHTu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpNgayKHTu.Name = "dtpNgayKHTu";
-            this.dtpNgayKHTu.Size = new System.Drawing.Size(199, 22);
+            this.dtpNgayKHTu.Size = new System.Drawing.Size(296, 31);
             this.dtpNgayKHTu.TabIndex = 3;
             // 
             // dtpNgayKHDen
             // 
             this.dtpNgayKHDen.CustomFormat = "dd/MM/yyyy";
             this.dtpNgayKHDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayKHDen.Location = new System.Drawing.Point(174, 169);
+            this.dtpNgayKHDen.Location = new System.Drawing.Point(261, 264);
+            this.dtpNgayKHDen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpNgayKHDen.Name = "dtpNgayKHDen";
-            this.dtpNgayKHDen.Size = new System.Drawing.Size(199, 22);
+            this.dtpNgayKHDen.Size = new System.Drawing.Size(296, 31);
             this.dtpNgayKHDen.TabIndex = 4;
             // 
             // gbxThaoTac
@@ -101,9 +103,11 @@ namespace AirPort
             this.gbxThaoTac.Controls.Add(this.btnChonChuyenBay);
             this.gbxThaoTac.Controls.Add(this.lbTimKiem);
             this.gbxThaoTac.Controls.Add(this.btnTimKiem);
-            this.gbxThaoTac.Location = new System.Drawing.Point(12, 565);
+            this.gbxThaoTac.Location = new System.Drawing.Point(18, 883);
+            this.gbxThaoTac.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbxThaoTac.Name = "gbxThaoTac";
-            this.gbxThaoTac.Size = new System.Drawing.Size(380, 101);
+            this.gbxThaoTac.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbxThaoTac.Size = new System.Drawing.Size(570, 158);
             this.gbxThaoTac.TabIndex = 2;
             this.gbxThaoTac.TabStop = false;
             this.gbxThaoTac.Text = "Thao tác";
@@ -111,26 +115,30 @@ namespace AirPort
             // lbBanVe
             // 
             this.lbBanVe.AutoSize = true;
-            this.lbBanVe.Location = new System.Drawing.Point(206, 78);
+            this.lbBanVe.Location = new System.Drawing.Point(309, 122);
+            this.lbBanVe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbBanVe.Name = "lbBanVe";
-            this.lbBanVe.Size = new System.Drawing.Size(118, 17);
+            this.lbBanVe.Size = new System.Drawing.Size(180, 25);
             this.lbBanVe.TabIndex = 93;
             this.lbBanVe.Text = "Chọn chuyến bay";
             // 
             // btnChonChuyenBay
             // 
-            this.btnChonChuyenBay.Location = new System.Drawing.Point(229, 22);
+            this.btnChonChuyenBay.Location = new System.Drawing.Point(344, 34);
+            this.btnChonChuyenBay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnChonChuyenBay.Name = "btnChonChuyenBay";
-            this.btnChonChuyenBay.Size = new System.Drawing.Size(55, 50);
+            this.btnChonChuyenBay.Size = new System.Drawing.Size(82, 78);
             this.btnChonChuyenBay.TabIndex = 6;
             this.btnChonChuyenBay.UseVisualStyleBackColor = true;
+            this.btnChonChuyenBay.Click += new System.EventHandler(this.btnChonChuyenBay_Click);
             // 
             // lbTimKiem
             // 
             this.lbTimKiem.AutoSize = true;
-            this.lbTimKiem.Location = new System.Drawing.Point(90, 78);
+            this.lbTimKiem.Location = new System.Drawing.Point(135, 122);
+            this.lbTimKiem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbTimKiem.Name = "lbTimKiem";
-            this.lbTimKiem.Size = new System.Drawing.Size(64, 17);
+            this.lbTimKiem.Size = new System.Drawing.Size(98, 25);
             this.lbTimKiem.TabIndex = 91;
             this.lbTimKiem.Text = "Tìm kiếm";
             // 
@@ -140,30 +148,33 @@ namespace AirPort
             this.btnTimKiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTimKiem.FlatAppearance.BorderSize = 0;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Location = new System.Drawing.Point(95, 22);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimKiem.Location = new System.Drawing.Point(142, 34);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(55, 50);
+            this.btnTimKiem.Size = new System.Drawing.Size(82, 78);
             this.btnTimKiem.TabIndex = 5;
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btnThoat);
-            this.panel1.Location = new System.Drawing.Point(-4, 0);
+            this.panel1.Location = new System.Drawing.Point(-6, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1276, 58);
+            this.panel1.Size = new System.Drawing.Size(1914, 91);
             this.panel1.TabIndex = 120;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(479, 14);
+            this.label7.Location = new System.Drawing.Point(718, 22);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(296, 29);
+            this.label7.Size = new System.Drawing.Size(455, 42);
             this.label7.TabIndex = 39;
             this.label7.Text = "TRA CỨU CHUYẾN BAY";
             // 
@@ -177,10 +188,10 @@ namespace AirPort
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.White;
-            this.btnThoat.Location = new System.Drawing.Point(1206, 4);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Location = new System.Drawing.Point(1809, 6);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(55, 50);
+            this.btnThoat.Size = new System.Drawing.Size(82, 78);
             this.btnThoat.TabIndex = 8;
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -188,9 +199,11 @@ namespace AirPort
             // gbxDSChyenBay
             // 
             this.gbxDSChyenBay.Controls.Add(this.dtgvChuyenBay);
-            this.gbxDSChyenBay.Location = new System.Drawing.Point(398, 64);
+            this.gbxDSChyenBay.Location = new System.Drawing.Point(597, 100);
+            this.gbxDSChyenBay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbxDSChyenBay.Name = "gbxDSChyenBay";
-            this.gbxDSChyenBay.Size = new System.Drawing.Size(854, 602);
+            this.gbxDSChyenBay.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbxDSChyenBay.Size = new System.Drawing.Size(1281, 941);
             this.gbxDSChyenBay.TabIndex = 3;
             this.gbxDSChyenBay.TabStop = false;
             this.gbxDSChyenBay.Text = "Danh sách chuyến bay";
@@ -198,11 +211,12 @@ namespace AirPort
             // dtgvChuyenBay
             // 
             this.dtgvChuyenBay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvChuyenBay.Location = new System.Drawing.Point(6, 28);
+            this.dtgvChuyenBay.Location = new System.Drawing.Point(9, 44);
+            this.dtgvChuyenBay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtgvChuyenBay.Name = "dtgvChuyenBay";
             this.dtgvChuyenBay.RowHeadersWidth = 82;
             this.dtgvChuyenBay.RowTemplate.Height = 24;
-            this.dtgvChuyenBay.Size = new System.Drawing.Size(842, 568);
+            this.dtgvChuyenBay.Size = new System.Drawing.Size(1263, 888);
             this.dtgvChuyenBay.TabIndex = 7;
             // 
             // gbxTTChuyenBay
@@ -217,9 +231,11 @@ namespace AirPort
             this.gbxTTChuyenBay.Controls.Add(this.txtMaChuyenBay);
             this.gbxTTChuyenBay.Controls.Add(this.label15);
             this.gbxTTChuyenBay.Controls.Add(this.label3);
-            this.gbxTTChuyenBay.Location = new System.Drawing.Point(12, 64);
+            this.gbxTTChuyenBay.Location = new System.Drawing.Point(18, 100);
+            this.gbxTTChuyenBay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.gbxTTChuyenBay.Name = "gbxTTChuyenBay";
-            this.gbxTTChuyenBay.Size = new System.Drawing.Size(380, 495);
+            this.gbxTTChuyenBay.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbxTTChuyenBay.Size = new System.Drawing.Size(570, 773);
             this.gbxTTChuyenBay.TabIndex = 1;
             this.gbxTTChuyenBay.TabStop = false;
             this.gbxTTChuyenBay.Text = "Thông tin chuyến bay";
@@ -227,70 +243,73 @@ namespace AirPort
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(7, 33);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Location = new System.Drawing.Point(10, 52);
+            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(108, 17);
+            this.label20.Size = new System.Drawing.Size(165, 25);
             this.label20.TabIndex = 15;
             this.label20.Text = "Mã chuyến bay ";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(7, 102);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(10, 159);
+            this.label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(88, 17);
+            this.label18.Size = new System.Drawing.Size(133, 25);
             this.label18.TabIndex = 13;
             this.label18.Text = "Sân bay đến";
             // 
             // cboSanBayDen
             // 
             this.cboSanBayDen.FormattingEnabled = true;
-            this.cboSanBayDen.Location = new System.Drawing.Point(174, 95);
+            this.cboSanBayDen.Location = new System.Drawing.Point(261, 148);
+            this.cboSanBayDen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboSanBayDen.Name = "cboSanBayDen";
-            this.cboSanBayDen.Size = new System.Drawing.Size(200, 24);
+            this.cboSanBayDen.Size = new System.Drawing.Size(298, 33);
             this.cboSanBayDen.TabIndex = 2;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(7, 70);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Location = new System.Drawing.Point(10, 109);
+            this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(75, 17);
+            this.label19.Size = new System.Drawing.Size(114, 25);
             this.label19.TabIndex = 16;
             this.label19.Text = "Sân bay đi";
             // 
             // cboSanBayDi
             // 
             this.cboSanBayDi.FormattingEnabled = true;
-            this.cboSanBayDi.Location = new System.Drawing.Point(174, 63);
+            this.cboSanBayDi.Location = new System.Drawing.Point(261, 98);
+            this.cboSanBayDi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cboSanBayDi.Name = "cboSanBayDi";
-            this.cboSanBayDi.Size = new System.Drawing.Size(200, 24);
+            this.cboSanBayDi.Size = new System.Drawing.Size(298, 33);
             this.cboSanBayDi.TabIndex = 1;
             // 
             // txtMaChuyenBay
             // 
-            this.txtMaChuyenBay.Location = new System.Drawing.Point(173, 28);
-            this.txtMaChuyenBay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaChuyenBay.Location = new System.Drawing.Point(260, 44);
+            this.txtMaChuyenBay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.txtMaChuyenBay.Name = "txtMaChuyenBay";
             this.txtMaChuyenBay.ReadOnly = true;
-            this.txtMaChuyenBay.Size = new System.Drawing.Size(200, 22);
+            this.txtMaChuyenBay.Size = new System.Drawing.Size(298, 31);
             this.txtMaChuyenBay.TabIndex = 17;
             this.txtMaChuyenBay.TabStop = false;
             // 
             // frmTraCuu
             // 
             this.AcceptButton = this.btnTimKiem;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnThoat;
-            this.ClientSize = new System.Drawing.Size(1446, 792);
+            this.ClientSize = new System.Drawing.Size(2169, 1238);
             this.Controls.Add(this.gbxThaoTac);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbxDSChyenBay);
             this.Controls.Add(this.gbxTTChuyenBay);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmTraCuu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tra cứu chuyến bay";

@@ -62,7 +62,7 @@ namespace AirPort
             // txtMaSanBay
             // 
             this.txtMaSanBay.Location = new System.Drawing.Point(218, 39);
-            this.txtMaSanBay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtMaSanBay.Margin = new System.Windows.Forms.Padding(6);
             this.txtMaSanBay.Name = "txtMaSanBay";
             this.txtMaSanBay.ReadOnly = true;
             this.txtMaSanBay.Size = new System.Drawing.Size(328, 31);
@@ -82,7 +82,7 @@ namespace AirPort
             // txtTenSanBay
             // 
             this.txtTenSanBay.Location = new System.Drawing.Point(218, 89);
-            this.txtTenSanBay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTenSanBay.Margin = new System.Windows.Forms.Padding(6);
             this.txtTenSanBay.Name = "txtTenSanBay";
             this.txtTenSanBay.Size = new System.Drawing.Size(328, 31);
             this.txtTenSanBay.TabIndex = 1;
@@ -101,7 +101,7 @@ namespace AirPort
             // txtTenThanhPho
             // 
             this.txtTenThanhPho.Location = new System.Drawing.Point(218, 139);
-            this.txtTenThanhPho.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTenThanhPho.Margin = new System.Windows.Forms.Padding(6);
             this.txtTenThanhPho.Name = "txtTenThanhPho";
             this.txtTenThanhPho.Size = new System.Drawing.Size(328, 31);
             this.txtTenThanhPho.TabIndex = 2;
@@ -141,13 +141,14 @@ namespace AirPort
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThem.Location = new System.Drawing.Point(56, 34);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(6);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(82, 78);
             this.btnThem.TabIndex = 3;
             this.btnThem.Tag = "";
             this.btnThem.UseCompatibleTextRendering = true;
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label5
             // 
@@ -186,12 +187,13 @@ namespace AirPort
             this.btnSua.FlatAppearance.BorderSize = 0;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSua.Location = new System.Drawing.Point(250, 34);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(6);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(82, 78);
             this.btnSua.TabIndex = 4;
             this.btnSua.Tag = "";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -200,12 +202,13 @@ namespace AirPort
             this.btnXoa.FlatAppearance.BorderSize = 0;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXoa.Location = new System.Drawing.Point(435, 34);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(6);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(82, 78);
             this.btnXoa.TabIndex = 5;
             this.btnXoa.Tag = "";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // panel1
             // 
@@ -239,11 +242,12 @@ namespace AirPort
             this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.White;
             this.btnThoat.Location = new System.Drawing.Point(1809, 6);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(6);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(82, 78);
             this.btnThoat.TabIndex = 9;
             this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gbxDSSanBay
             // 
@@ -284,7 +288,7 @@ namespace AirPort
             // txtTimKiem
             // 
             this.txtTimKiem.Location = new System.Drawing.Point(962, 38);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(6);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(246, 31);
             this.txtTimKiem.TabIndex = 6;
@@ -296,11 +300,12 @@ namespace AirPort
             this.btnTimKiem.FlatAppearance.BorderSize = 0;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Location = new System.Drawing.Point(1221, 31);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(50, 47);
             this.btnTimKiem.TabIndex = 7;
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // gbxTTSanBay
             // 
