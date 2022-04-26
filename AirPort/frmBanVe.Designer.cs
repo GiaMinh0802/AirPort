@@ -523,6 +523,7 @@ namespace AirPort
             this.btnChiTietGheTrong.TabIndex = 70;
             this.btnChiTietGheTrong.Text = "Chi tiết";
             this.btnChiTietGheTrong.UseVisualStyleBackColor = true;
+            this.btnChiTietGheTrong.Click += new System.EventHandler(this.btnChiTietGheTrong_Click);
             // 
             // txtSoGheTrong
             // 

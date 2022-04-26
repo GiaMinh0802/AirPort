@@ -42,5 +42,11 @@ namespace AirPort
             Form frm = new frmTraCuu();
             frm.Show();
         }
+
+        private void btnChiTietGheTrong_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmTinhTrangVe();
+            frm.Show();
+        }
     }
 }

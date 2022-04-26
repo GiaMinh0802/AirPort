@@ -37,10 +37,8 @@ namespace AirPort
             this.lbBanVe = new System.Windows.Forms.Label();
             this.btnChonChuyenBay = new System.Windows.Forms.Button();
             this.lbTimKiem = new System.Windows.Forms.Label();
-            this.btnTimKiem = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnThoat = new System.Windows.Forms.Button();
             this.gbxDSChyenBay = new System.Windows.Forms.GroupBox();
             this.dtgvChuyenBay = new System.Windows.Forms.DataGridView();
             this.gbxTTChuyenBay = new System.Windows.Forms.GroupBox();
@@ -50,6 +48,8 @@ namespace AirPort
             this.label19 = new System.Windows.Forms.Label();
             this.cboSanBayDi = new System.Windows.Forms.ComboBox();
             this.txtMaChuyenBay = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.gbxThaoTac.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbxDSChyenBay.SuspendLayout();
@@ -142,20 +142,6 @@ namespace AirPort
             this.lbTimKiem.TabIndex = 91;
             this.lbTimKiem.Text = "Tìm kiếm";
             // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.BackgroundImage = global::AirPort.Properties.Resources.btnTimKiem;
-            this.btnTimKiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnTimKiem.FlatAppearance.BorderSize = 0;
-            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Location = new System.Drawing.Point(142, 34);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(82, 78);
-            this.btnTimKiem.TabIndex = 5;
-            this.btnTimKiem.UseVisualStyleBackColor = true;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
@@ -177,24 +163,6 @@ namespace AirPort
             this.label7.Size = new System.Drawing.Size(455, 42);
             this.label7.TabIndex = 39;
             this.label7.Text = "TRA CỨU CHUYẾN BAY";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnThoat.BackgroundImage = global::AirPort.Properties.Resources.btnCancel;
-            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnThoat.FlatAppearance.BorderSize = 0;
-            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.ForeColor = System.Drawing.Color.White;
-            this.btnThoat.Location = new System.Drawing.Point(1809, 6);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(6);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(82, 78);
-            this.btnThoat.TabIndex = 8;
-            this.btnThoat.UseVisualStyleBackColor = false;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // gbxDSChyenBay
             // 
@@ -297,6 +265,38 @@ namespace AirPort
             this.txtMaChuyenBay.Size = new System.Drawing.Size(298, 31);
             this.txtMaChuyenBay.TabIndex = 17;
             this.txtMaChuyenBay.TabStop = false;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.BackgroundImage = global::AirPort.Properties.Resources.btnTimKiem;
+            this.btnTimKiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTimKiem.FlatAppearance.BorderSize = 0;
+            this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimKiem.Location = new System.Drawing.Point(142, 34);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(82, 78);
+            this.btnTimKiem.TabIndex = 5;
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnThoat.BackgroundImage = global::AirPort.Properties.Resources.btnCancel;
+            this.btnThoat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnThoat.FlatAppearance.BorderSize = 0;
+            this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.ForeColor = System.Drawing.Color.White;
+            this.btnThoat.Location = new System.Drawing.Point(1809, 6);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(6);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(82, 78);
+            this.btnThoat.TabIndex = 8;
+            this.btnThoat.UseVisualStyleBackColor = false;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmTraCuu
             // 
