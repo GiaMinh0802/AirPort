@@ -12,9 +12,27 @@ namespace AirPort
 {
     public partial class frmQuanLyNhanVien : Form
     {
+        AirPortDataContextDataContext db = new AirPortDataContextDataContext();
         public frmQuanLyNhanVien()
         {
             InitializeComponent();
+            LoadForm();
+        }
+
+        private void LoadForm()
+        {
+            var data = from acc in db.ACCOUNTs
+                    join nv in db.NHANVIENs
+                    on acc.MANHANVIEN equals nv.MANHANVIEN
+                    select new
+                    {
+                        MaNhanVien = nv.MANHANVIEN,
+                        TenNhanVien = nv.TENNHANVIEN,
+                        Username = acc.USERNAME,
+                        Password = acc.PASSWORD,
+                        Type = acc.TYPE
+                    };
+            dtgvNhanVien.DataSource = data;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

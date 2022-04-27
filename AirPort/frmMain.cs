@@ -12,16 +12,31 @@ namespace AirPort
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        private DataRow rowNhanVien;
+
+        public frmMain(DataRow row)
         {
             InitializeComponent();
+            rowNhanVien = row;
             LoadForm();
         }
         private void LoadForm()
         {
-            lbMaNhanVien.Text = "Mã nhân viên: ";
-            lbUsername.Text = "Username: ";
-
+            lbMaNhanVien.Text = "Mã nhân viên: " + rowNhanVien[2].ToString();
+            lbUsername.Text = "Username: " + rowNhanVien[0].ToString();
+            int type = Convert.ToInt32(rowNhanVien[3].ToString());
+            if (type == 0)
+            {
+                mstrMain.Enabled = true;
+                toolStripMain.Enabled = true;
+            }
+            else
+            {
+                mstrMain.Enabled = true;
+                toolStripMain.Enabled = true;
+                QuanLyThongTinToolStripMenuItem.Enabled = false;
+                baoCaoToolStripMenuItem.Enabled = false;
+            }
         }
 
         private bool CheckExistForm(Form frm)

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace AirPort
 {
     public partial class frmLogin : Form
     {
+        AirPortDataContextDataContext db = new AirPortDataContextDataContext();
         public frmLogin()
         {
             InitializeComponent();
@@ -22,9 +24,15 @@ namespace AirPort
         {
             if (txtUsername.Text != "" && txtPassword.Text != "")
             {
-                if (txtUsername.Text == "admin" && txtPassword.Text == "1")
+                var dtAcc = from acc in db.ACCOUNTs
+                                     where acc.USERNAME == txtUsername.Text && acc.PASSWORD == txtPassword.Text
+                                     select acc;
+                ConvertToDataTable cv = new ConvertToDataTable();
+                DataTable dt = cv.LINQResultToDataTable(dtAcc);
+                if (dt.Rows.Count > 0)
                 {
-                    Form frm = new frmMain();
+                    DataRow row = dt.Rows[0];
+                    Form frm = new frmMain(row);
                     this.Hide();
                     frm.ShowDialog();
                     this.Close();
