@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AirPort
+namespace DAL
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -78,7 +78,7 @@ namespace AirPort
     #endregion
 		
 		public AirPortDataContextDataContext() : 
-				base(global::AirPort.Properties.Settings.Default.AIRPORTConnectionString, mappingSource)
+				base(global::DAL.Properties.Settings.Default.AIRPORTConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

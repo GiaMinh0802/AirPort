@@ -98,6 +98,7 @@ namespace AirPort
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(167, 20);
             this.txtCMND.TabIndex = 1;
+            this.txtCMND.TextChanged += new System.EventHandler(this.txtCMND_TextChanged);
             // 
             // label10
             // 
@@ -151,6 +152,7 @@ namespace AirPort
             this.cboHangVe.Name = "cboHangVe";
             this.cboHangVe.Size = new System.Drawing.Size(167, 21);
             this.cboHangVe.TabIndex = 4;
+            this.cboHangVe.SelectedValueChanged += new System.EventHandler(this.cboHangVe_SelectedValueChanged);
             // 
             // label3
             // 
@@ -232,6 +234,7 @@ namespace AirPort
             this.txtGiaTien.Size = new System.Drawing.Size(135, 20);
             this.txtGiaTien.TabIndex = 68;
             this.txtGiaTien.TabStop = false;
+            this.txtGiaTien.TextChanged += new System.EventHandler(this.txtGiaTien_TextChanged);
             // 
             // label12
             // 
@@ -417,6 +420,7 @@ namespace AirPort
             this.dtgvVe.RowTemplate.Height = 24;
             this.dtgvVe.Size = new System.Drawing.Size(632, 433);
             this.dtgvVe.TabIndex = 9;
+            this.dtgvVe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvVe_CellClick);
             // 
             // label18
             // 

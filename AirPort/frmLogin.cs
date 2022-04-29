@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace AirPort
 {
     public partial class frmLogin : Form
     {
-        AirPortDataContextDataContext db = new AirPortDataContextDataContext();
+        NhanVienBUS busNhanVien = new NhanVienBUS();
         public frmLogin()
         {
             InitializeComponent();
@@ -24,11 +25,7 @@ namespace AirPort
         {
             if (txtUsername.Text != "" && txtPassword.Text != "")
             {
-                var dtAcc = from acc in db.ACCOUNTs
-                                     where acc.USERNAME == txtUsername.Text && acc.PASSWORD == txtPassword.Text
-                                     select acc;
-                ConvertToDataTable cv = new ConvertToDataTable();
-                DataTable dt = cv.LINQResultToDataTable(dtAcc);
+                DataTable dt = busNhanVien.GetOfUsernameAndPassword(txtUsername.Text, txtPassword.Text);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];

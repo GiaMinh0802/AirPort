@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AIRPORT" Class="AirPortDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\DAMIN;Initial Catalog=AIRPORT;Integrated Security=True" SettingsObjectName="AirPort.Properties.Settings" SettingsPropertyName="AIRPORTConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\DAMIN;Initial Catalog=AIRPORT;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="AIRPORTConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
