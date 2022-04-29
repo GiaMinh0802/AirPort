@@ -199,6 +199,7 @@ namespace AirPort
             this.cboMaChuyenBay.Name = "cboMaChuyenBay";
             this.cboMaChuyenBay.Size = new System.Drawing.Size(330, 33);
             this.cboMaChuyenBay.TabIndex = 0;
+            this.cboMaChuyenBay.SelectedValueChanged += new System.EventHandler(this.cboMaChuyenBay_SelectedValueChanged);
             // 
             // txtSanBayDi
             // 

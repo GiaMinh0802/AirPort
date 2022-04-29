@@ -93,7 +93,7 @@ namespace AirPort
 
         private void toolStripBtnBanVe_Click(object sender, EventArgs e)
         {
-            frmBanVe frm = new frmBanVe();
+            frmBanVe frm = new frmBanVe(rowNhanVien);
             if (!CheckExistForm(frm))
             {
                 CreateTabPage(frm);
@@ -129,7 +129,7 @@ namespace AirPort
 
         private void banVeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBanVe frm = new frmBanVe();
+            frmBanVe frm = new frmBanVe(rowNhanVien);
             if (!CheckExistForm(frm))
             {
                 CreateTabPage(frm);
