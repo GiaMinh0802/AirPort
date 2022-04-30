@@ -14,6 +14,10 @@ namespace AirPort
     public partial class frmBanVe : Form
     {
         VeChuyenBayBUS busVeChuyenBay = new VeChuyenBayBUS();
+        ChuyenBayBUS busChuyenBay = new ChuyenBayBUS();
+        HangVeBUS busHangVe = new HangVeBUS();
+        DonGiaBUS busDonGia = new DonGiaBUS();
+        TinhTrangVeBUS busTinhTrangVe = new TinhTrangVeBUS();
         string maNhanVien;
 
         public frmBanVe(DataRow row)
@@ -24,13 +28,12 @@ namespace AirPort
         }
         private void LoadForm()
         {
-            ChuyenBayBUS busChuyenBay = new ChuyenBayBUS();
             DataTable dtCB = busChuyenBay.Get();
             cboMaChuyenBay.DataSource = dtCB;
             cboMaChuyenBay.DisplayMember = "MACHUYENBAY";
             cboMaChuyenBay.ValueMember = "MACHUYENBAY";
 
-            HangVeBUS busHangVe = new HangVeBUS();
+            
             DataTable dtHV = busHangVe.Get();
             cboHangVe.DataSource = dtHV;
             cboHangVe.DisplayMember = "TENHANGVE";
@@ -56,7 +59,7 @@ namespace AirPort
             dtgvVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
 
-        private void TaoLai()
+        private void ReLoadForm()
         {
             LoadDTGV();
             txtCMND.Clear();
@@ -67,79 +70,47 @@ namespace AirPort
 
         private void cboMaChuyenBay_SelectedValueChanged(object sender, EventArgs e)
         {
-            //var query = from c in db.CHUYENBAYs
-            //            join t in db.TUYENBAYs
-            //            on c.MATUYENBAY equals t.MATUYENBAY
-            //            join s1 in db.SANBAYs
-            //            on t.MASANBAYDI equals s1.MASANBAY
-            //            join s2 in db.SANBAYs
-            //            on t.MASANBAYDEN equals s2.MASANBAY
-            //            where c.MACHUYENBAY == cboMaChuyenBay.Text
-            //            select new
-            //            {
-            //                MaChuyenBay = c.MACHUYENBAY,
-            //                MaTuyenBay = t.MATUYENBAY,
-            //                MaMayBay = c.MAMAYBAY,
-            //                ThoiGianKhoiHanh = c.THOIGIANKHOIHANH,
-            //                ThoiGianBay = c.THOIGIANBAY,
-            //                TenSanBayDi = s1.TENSANBAY,
-            //                TenSanBayDen = s2.TENSANBAY
-            //            };
-            //DataTable dtChuyenBay = cv.LINQResultToDataTable(query);
-            //if (dtChuyenBay.Rows.Count == 0)
-            //{
-            //    txtMaTuyenBay.Clear();
-            //    txtSanBayDi.Clear();
-            //    txtSanBayDen.Clear();
-            //    txtThoiGianKhoiHanh.Clear();
-            //    txtThoiGIanBay.Clear();
-            //}
-            //else
-            //{
-            //    DataRow row = dtChuyenBay.Rows[0];
-            //    txtMaTuyenBay.Text = row["MATUYENBAY"].ToString();
-            //    txtSanBayDi.Text = row["TENSANBAYDI"].ToString();
-            //    txtSanBayDen.Text = row["TENSANBAYDEN"].ToString();
-            //    txtThoiGianKhoiHanh.Text = row["THOIGIANKHOIHANH"].ToString();
-            //    txtThoiGIanBay.Text = row["THOIGIANBAY"].ToString();
-            //    LoadDaTatxtSoGheTrong();
-            //}
+
+            DataTable dtChuyenBay = busChuyenBay.GetOfMaChuyenBay(cboMaChuyenBay.Text);
+            if (dtChuyenBay.Rows.Count == 0)
+            {
+                txtMaTuyenBay.Clear();
+                txtSanBayDi.Clear();
+                txtSanBayDen.Clear();
+                txtThoiGianKhoiHanh.Clear();
+                txtThoiGIanBay.Clear();
+            }
+            else
+            {
+                DataRow row = dtChuyenBay.Rows[0];
+                txtMaTuyenBay.Text = row["MATUYENBAY"].ToString();
+                txtSanBayDi.Text = row["TENSANBAYDI"].ToString();
+                txtSanBayDen.Text = row["TENSANBAYDEN"].ToString();
+                txtThoiGianKhoiHanh.Text = row["THOIGIANKHOIHANH"].ToString();
+                txtThoiGIanBay.Text = row["THOIGIANBAY"].ToString();
+                LoadDaTatxtSoGheTrong();
+            }
         }
 
         private void cboHangVe_SelectedValueChanged(object sender, EventArgs e)
         {
-            //if (cboHangVe.SelectedValue != null)
-            //{
-            //    var query = from g in db.DONGIAs
-            //                where g.MATUYENBAY == txtMaTuyenBay.Text && g.MAHANGVE == cboHangVe.SelectedValue.ToString()
-            //                select g;
-            //    DataTable dtDonGia = cv.LINQResultToDataTable(query);
-            //    foreach (DataRow row in dtDonGia.Rows)
-            //    {
-            //        txtGiaTien.Text = row["DONGIA1"].ToString();
-            //    }
-            //    LoadDaTatxtSoGheTrong();
-            //}
+            if (cboHangVe.SelectedValue != null)
+            {
+                DataTable dtDonGia = busDonGia.SearchOfMaTuyenBayAndMaHangVe(txtMaTuyenBay.Text, cboHangVe.SelectedValue.ToString());
+                foreach (DataRow row in dtDonGia.Rows)
+                {
+                    txtGiaTien.Text = row["DONGIA1"].ToString();
+                }
+                LoadDaTatxtSoGheTrong();
+            }
         }
 
         private void LoadDaTatxtSoGheTrong()
         {
-            //if (cboHangVe.SelectedValue != null)
-            //{
-            //    var query = from i in db.TINHTRANGVEs
-            //                where i.MACHUYENBAY == cboMaChuyenBay.Text && i.MAHANGVE == cboHangVe.SelectedValue.ToString()
-            //                select i;
-            //    DataTable dt = cv.LINQResultToDataTable(query);
-            //    if (dt.Rows.Count != 0)
-            //    {
-            //        DataRow row = dt.Rows[0];
-            //        txtSoGheTrong.Text = row["SOGHETRONG"].ToString();
-            //    }
-            //    else
-            //    {
-            //        txtSoGheTrong.Text = "0";
-            //    }
-            //}
+            if (cboHangVe.SelectedValue != null)
+            {
+                txtSoGheTrong.Text = busTinhTrangVe.GetSoGheTrongOfMaChuyenBayAndMaHangVe(cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString());
+            }
         }
 
         private void dtgvVe_CellClick(object sender, DataGridViewCellEventArgs e)

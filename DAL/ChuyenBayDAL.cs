@@ -18,5 +18,29 @@ namespace DAL
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
+
+        public DataTable GetOfMaChuyenBay(string maChuyenBay)
+        {
+            var query = from c in db.CHUYENBAYs
+                        join t in db.TUYENBAYs
+                        on c.MATUYENBAY equals t.MATUYENBAY
+                        join s1 in db.SANBAYs
+                        on t.MASANBAYDI equals s1.MASANBAY
+                        join s2 in db.SANBAYs
+                        on t.MASANBAYDEN equals s2.MASANBAY
+                        where c.MACHUYENBAY == maChuyenBay
+                        select new
+                        {
+                            MaChuyenBay = c.MACHUYENBAY,
+                            MaTuyenBay = t.MATUYENBAY,
+                            MaMayBay = c.MAMAYBAY,
+                            ThoiGianKhoiHanh = c.THOIGIANKHOIHANH,
+                            ThoiGianBay = c.THOIGIANBAY,
+                            TenSanBayDi = s1.TENSANBAY,
+                            TenSanBayDen = s2.TENSANBAY
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
     }
 }

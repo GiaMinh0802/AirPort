@@ -49,6 +49,7 @@
     </Compile>
     <Compile Include="ChuyenBayDAL.cs" />
     <Compile Include="ConvertToDataTable.cs" />
+    <Compile Include="DonGiaDAL.cs" />
     <Compile Include="HangVeDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -56,6 +57,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TinhTrangVeDAL.cs" />
     <Compile Include="VeChuyenBayDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

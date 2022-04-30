@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChuyenBayDTO.cs" />
+    <Compile Include="DonGiaDTO.cs" />
     <Compile Include="HangVeDTO.cs" />
     <Compile Include="NhanVienDTO.cs" />
+    <Compile Include="TinhTrangVeDTO.cs" />
     <Compile Include="VeChuyenBayDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

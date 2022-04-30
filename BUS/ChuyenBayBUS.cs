@@ -15,5 +15,10 @@ namespace BUS
         {
             return dal.Get();
         }
+
+        public DataTable GetOfMaChuyenBay(string maChuyenBay)
+        {
+            return dal.GetOfMaChuyenBay(maChuyenBay);
+        }
     }
 }
