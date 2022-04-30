@@ -16,9 +16,19 @@ namespace BUS
             return dal.Get();
         }
 
+        public DataTable GetToDisplay()
+        {
+            return dal.GetToDisplay();
+        }
+
         public DataTable GetOfMaChuyenBay(string maChuyenBay)
         {
             return dal.GetOfMaChuyenBay(maChuyenBay);
+        }
+
+        public DataTable Search(string maSanBayDi, string maSanBayDen, DateTime ngayKHTu, DateTime ngayKHDen)
+        {
+            return dal.Search(maSanBayDi, maSanBayDen, ngayKHTu, ngayKHDen);
         }
     }
 }

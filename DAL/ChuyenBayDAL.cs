@@ -19,6 +19,21 @@ namespace DAL
             return dt;
         }
 
+        public DataTable GetToDisplay()
+        {
+            var query = from i in db.CHUYENBAYs
+                        select new
+                        {
+                            MaChuyenBay = i.MACHUYENBAY,
+                            MaTuyenBay = i.MATUYENBAY,
+                            MaMayBay = i.MAMAYBAY,
+                            ThoiGianKhoiHanh = i.THOIGIANKHOIHANH,
+                            ThoiGianBay = i.THOIGIANBAY
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
+
         public DataTable GetOfMaChuyenBay(string maChuyenBay)
         {
             var query = from c in db.CHUYENBAYs
@@ -38,6 +53,23 @@ namespace DAL
                             ThoiGianBay = c.THOIGIANBAY,
                             TenSanBayDi = s1.TENSANBAY,
                             TenSanBayDen = s2.TENSANBAY
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
+
+        public DataTable Search(string maSanBayDi, string maSanBayDen, DateTime thoiGianKHTu, DateTime thoiGianKHDen)
+        {
+            var query = from c in db.CHUYENBAYs
+                        join t in db.TUYENBAYs
+                        on c.MATUYENBAY equals t.MATUYENBAY
+                        where t.MASANBAYDI == maSanBayDi && t.MASANBAYDEN == maSanBayDen &&
+                            (c.THOIGIANKHOIHANH.Date >= thoiGianKHTu && c.THOIGIANKHOIHANH.Date <= thoiGianKHDen)
+                        select new
+                        {
+                            c.MACHUYENBAY,
+                            c.THOIGIANKHOIHANH,
+                            c.THOIGIANBAY
                         };
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;

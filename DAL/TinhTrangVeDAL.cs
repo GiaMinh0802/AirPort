@@ -28,5 +28,20 @@ namespace DAL
             }
 
         }
+        public DataTable GetForDisplayOfMaChuyenBay(string maChuyenBay)
+        {
+            var query = from t in db.TINHTRANGVEs
+                        join h in db.HANGVEs
+                        on t.MAHANGVE equals h.MAHANGVE
+                        where t.MACHUYENBAY == maChuyenBay
+                        select new
+                        {
+                            TenHangVe = h.TENHANGVE,
+                            TongSoGhe = t.TONGSOGHE,
+                            SoGheTrong = t.SOGHETRONG
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
     }
 }

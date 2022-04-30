@@ -13,19 +13,31 @@ namespace AirPort
 {
     public partial class frmBanVe : Form
     {
+        #region Properties
         VeChuyenBayBUS busVeChuyenBay = new VeChuyenBayBUS();
         ChuyenBayBUS busChuyenBay = new ChuyenBayBUS();
         HangVeBUS busHangVe = new HangVeBUS();
         DonGiaBUS busDonGia = new DonGiaBUS();
         TinhTrangVeBUS busTinhTrangVe = new TinhTrangVeBUS();
+        KhachHangBUS busKhachHang = new KhachHangBUS();
         string maNhanVien;
+        #endregion
 
+        #region Initializes
         public frmBanVe(DataRow row)
         {
             InitializeComponent();
             this.maNhanVien = row["MANHANVIEN"].ToString();
             LoadForm();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Parent.Dispose();
+        }
+        #endregion
+
+        #region Methods
         private void LoadForm()
         {
             DataTable dtCB = busChuyenBay.Get();
@@ -134,26 +146,18 @@ namespace AirPort
 
         private void txtCMND_TextChanged(object sender, EventArgs e)
         {
-            //var query = from i in db.KHACHHANGs
-            //            where i.CMND == txtCMND.Text
-            //            select i;
-            //DataTable dtKhachHang = cv.LINQResultToDataTable(query);
-            //if (dtKhachHang.Rows.Count == 0)
-            //{
-            //    txtTenKhachHang.Clear();
-            //    txtSDT.Clear();
-            //}
-            //else
-            //{
-            //    DataRow row = dtKhachHang.Rows[0];
-            //    txtTenKhachHang.Text = row["TENKHACHHANG"].ToString();
-            //    txtSDT.Text = row["SDT"].ToString();
-            //}
-        }
-
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Parent.Dispose();
+            DataTable dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+            if (dtKhachHang.Rows.Count == 0)
+            {
+                txtTenKhachHang.Clear();
+                txtSDT.Clear();
+            }
+            else
+            {
+                DataRow row = dtKhachHang.Rows[0];
+                txtTenKhachHang.Text = row["TENKHACHHANG"].ToString();
+                txtSDT.Text = row["SDT"].ToString();
+            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
@@ -173,7 +177,7 @@ namespace AirPort
 
         private void btnTraCuu_Click(object sender, EventArgs e)
         {
-            Form frm = new frmTraCuu();
+            Form frm = new frmTraCuu(cboMaChuyenBay);
             frm.Show();
         }
 
@@ -183,6 +187,6 @@ namespace AirPort
             frm.Show();
         }
 
-        
+        #endregion
     }
 }

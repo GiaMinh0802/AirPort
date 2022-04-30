@@ -42,10 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChuyenBayBUS.cs" />
+    <Compile Include="CTChuyenBayBUS.cs" />
     <Compile Include="DonGiaBUS.cs" />
     <Compile Include="HangVeBUS.cs" />
+    <Compile Include="KhachHangBUS.cs" />
+    <Compile Include="MayBayBUS.cs" />
     <Compile Include="NhanVienBUS.cs" />
+    <Compile Include="SanBayBUS.cs" />
     <Compile Include="TinhTrangVeBUS.cs" />
+    <Compile Include="TuyenBayBUS.cs" />
     <Compile Include="VeChuyenBayBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

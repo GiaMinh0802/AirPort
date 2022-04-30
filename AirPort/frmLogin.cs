@@ -14,13 +14,23 @@ namespace AirPort
 {
     public partial class frmLogin : Form
     {
+        #region Properties
         NhanVienBUS busNhanVien = new NhanVienBUS();
+        #endregion
+
+        #region Initializes
         public frmLogin()
         {
             InitializeComponent();
             LoadForm();
         }
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        #endregion
 
+        #region Methods
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text != "" && txtPassword.Text != "")
@@ -45,11 +55,6 @@ namespace AirPort
             }
         }
 
-        private void btnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void LoadForm()
         {
             txtUsername.Focus();
@@ -64,5 +69,6 @@ namespace AirPort
             AcceptButton = btnDangNhap;
             CancelButton = btnThoat;
         }
+        #endregion
     }
 }

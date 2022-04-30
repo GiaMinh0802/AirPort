@@ -49,15 +49,20 @@
     </Compile>
     <Compile Include="ChuyenBayDAL.cs" />
     <Compile Include="ConvertToDataTable.cs" />
+    <Compile Include="CTChuyenBayDAL.cs" />
     <Compile Include="DonGiaDAL.cs" />
     <Compile Include="HangVeDAL.cs" />
+    <Compile Include="KhachHangDAL.cs" />
+    <Compile Include="MayBayDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SanBayDAL.cs" />
     <Compile Include="TinhTrangVeDAL.cs" />
+    <Compile Include="TuyenBayDAL.cs" />
     <Compile Include="VeChuyenBayDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

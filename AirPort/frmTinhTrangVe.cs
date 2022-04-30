@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace AirPort
 {
     public partial class frmTinhTrangVe : Form
     {
+        ChuyenBayBUS busChuyenBay = new ChuyenBayBUS();
+        TinhTrangVeBUS busTinhTrangVe = new TinhTrangVeBUS();
         string maChuyenBay;
         public frmTinhTrangVe(string maChuyenBay)
         {
@@ -22,34 +25,23 @@ namespace AirPort
 
         private void LoadForm()
         {
-            //var query = from s in db.CHUYENBAYs
-            //            select s;
-            //DataTable dtChuyenBay = cv.LINQResultToDataTable(query);
-            //cboMaChuyenBay.DataSource = dtChuyenBay;
-            //cboMaChuyenBay.DisplayMember = "MACHUYENBAY";
-            //cboMaChuyenBay.ValueMember = "MACHUYENBAY";
-            //cboMaChuyenBay.SelectedValue = maChuyenBay;
+            DataTable dtChuyenBay = busChuyenBay.Get();
+            cboMaChuyenBay.DataSource = dtChuyenBay;
+            cboMaChuyenBay.DisplayMember = "MACHUYENBAY";
+            cboMaChuyenBay.ValueMember = "MACHUYENBAY";
+            cboMaChuyenBay.SelectedValue = maChuyenBay;
 
-            //cboMaChuyenBay.Focus();
+            cboMaChuyenBay.Focus();
+            LoadDtgv(maChuyenBay);
 
         }
 
         private void LoadDtgv(string maChuyenBay)
         {
-            //var query = from t in db.TINHTRANGVEs
-            //            join h in db.HANGVEs
-            //            on t.MAHANGVE equals h.MAHANGVE
-            //            where t.MACHUYENBAY == maChuyenBay
-            //            select new
-            //            {
-            //                TenHangVe = h.TENHANGVE,
-            //                TongSoGhe = t.TONGSOGHE,
-            //                SoGheTrong = t.SOGHETRONG
-            //            };
-            //DataTable dtTinhTrangVe = cv.LINQResultToDataTable(query);
-            //dtgvTinhTrangVe.DataSource = dtTinhTrangVe;
-            //dtgvTinhTrangVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            //dtgvTinhTrangVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            DataTable dtTinhTrangVe = busTinhTrangVe.GetForDisplayOfMaChuyenBay(maChuyenBay);
+            dtgvTinhTrangVe.DataSource = dtTinhTrangVe;
+            dtgvTinhTrangVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvTinhTrangVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
 
         private void cboMaChuyenBay_SelectedValueChanged(object sender, EventArgs e)

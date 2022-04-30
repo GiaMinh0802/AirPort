@@ -12,14 +12,20 @@ namespace AirPort
 {
     public partial class frmMain : Form
     {
+        #region Properties
         private DataRow rowNhanVien;
+        #endregion
 
+        #region Initializes
         public frmMain(DataRow row)
         {
             InitializeComponent();
             rowNhanVien = row;
             LoadForm();
         }
+        #endregion
+
+        #region Methods
         private void LoadForm()
         {
             lbMaNhanVien.Text = "Mã nhân viên: " + rowNhanVien[2].ToString();
@@ -38,7 +44,6 @@ namespace AirPort
                 baoCaoToolStripMenuItem.Enabled = false;
             }
         }
-
         private bool CheckExistForm(Form frm)
         {
             foreach (TabPage t in tabCtrlMain.TabPages)
@@ -74,7 +79,6 @@ namespace AirPort
             frm.Show();
             return tabPage;
         }
-
         private void dangXuatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn đăng xuất không?", "Chú ý", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -85,12 +89,10 @@ namespace AirPort
                 this.Close();
             }
         }
-
         private void thoatToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void toolStripBtnBanVe_Click(object sender, EventArgs e)
         {
             frmBanVe frm = new frmBanVe(rowNhanVien);
@@ -103,7 +105,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }    
         }
-
         private void toolStripBtnTraCuuChuyenBay_Click(object sender, EventArgs e)
         {
             frmTraCuu frm = new frmTraCuu();
@@ -126,7 +127,6 @@ namespace AirPort
                 this.Close();
             }
         }
-
         private void banVeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBanVe frm = new frmBanVe(rowNhanVien);
@@ -139,7 +139,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void traCuuChuyenBayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmTraCuu frm = new frmTraCuu();
@@ -152,7 +151,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void thayDoiQuyDinhToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmThayDoiQuyDinh frm = new frmThayDoiQuyDinh();
@@ -165,7 +163,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void quanLyChuyenBayToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmQuanLyChuyenBay frm = new frmQuanLyChuyenBay();
@@ -178,7 +175,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void quanLyTuyenBayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLyTuyenBay frm = new frmQuanLyTuyenBay();
@@ -191,7 +187,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void quanLySanBayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLySanBay frm = new frmQuanLySanBay();
@@ -204,7 +199,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void quanLyMayBayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLyMayBay frm = new frmQuanLyMayBay();
@@ -217,7 +211,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void quanLyHangVeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLyHangVe frm = new frmQuanLyHangVe();
@@ -230,7 +223,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void quanLyDonGiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLyDonGia frm = new frmQuanLyDonGia();
@@ -243,7 +235,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void quanLyKhachHangToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLyKhachHang frm = new frmQuanLyKhachHang();
@@ -256,7 +247,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void themNhanVienToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmQuanLyNhanVien frm = new frmQuanLyNhanVien();
@@ -269,7 +259,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void baoCaoThangToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBaoCaoThang frm = new frmBaoCaoThang();
@@ -282,7 +271,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-
         private void baoCaoNamToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBaoCaoNam frm = new frmBaoCaoNam();
@@ -295,5 +283,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
+        #endregion
     }
 }
