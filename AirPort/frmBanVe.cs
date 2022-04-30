@@ -24,6 +24,23 @@ namespace AirPort
         }
         private void LoadForm()
         {
+            ChuyenBayBUS busChuyenBay = new ChuyenBayBUS();
+            DataTable dtCB = busChuyenBay.Get();
+            cboMaChuyenBay.DataSource = dtCB;
+            cboMaChuyenBay.DisplayMember = "MACHUYENBAY";
+            cboMaChuyenBay.ValueMember = "MACHUYENBAY";
+
+            HangVeBUS busHangVe = new HangVeBUS();
+            DataTable dtHV = busHangVe.Get();
+            cboHangVe.DataSource = dtHV;
+            cboHangVe.DisplayMember = "TENHANGVE";
+            cboHangVe.ValueMember = "MAHANGVE";
+
+            LoadDTGV();
+        }
+
+        private void LoadDTGV()
+        {
             DataTable dtVe = busVeChuyenBay.GetForDisplay();
             dtgvVe.DataSource = dtVe;
             dtgvVe.Columns["MaVe"].HeaderText = "Mã Vé";
@@ -37,18 +54,15 @@ namespace AirPort
             dtgvVe.Columns["LoaiVe"].HeaderText = "Loại Vé";
             dtgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+        }
 
-            ChuyenBayBUS busChuyenBay = new ChuyenBayBUS();
-            DataTable dtCB = busChuyenBay.Get();
-            cboMaChuyenBay.DataSource = dtCB;
-            cboMaChuyenBay.DisplayMember = "MACHUYENBAY";
-            cboMaChuyenBay.ValueMember = "MACHUYENBAY";
-
-            HangVeBUS busHangVe = new HangVeBUS();
-            DataTable dtHV = busHangVe.Get();
-            cboHangVe.DataSource = dtHV;
-            cboHangVe.DisplayMember = "TENHANGVE";
-            cboHangVe.ValueMember = "MAHANGVE";
+        private void TaoLai()
+        {
+            LoadDTGV();
+            txtCMND.Clear();
+            txtSDT.Clear();
+            txtTenKhachHang.Clear();
+            LoadDaTatxtSoGheTrong();
         }
 
         private void cboMaChuyenBay_SelectedValueChanged(object sender, EventArgs e)

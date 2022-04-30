@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -40,6 +41,63 @@ namespace DAL
                        };
             DataTable dt = cv.LINQResultToDataTable(dtVe);
             return dt;
+        }
+
+        public bool Add(VeChuyenBayDTO dto)
+        {
+
+            //string sqlQuery = string.Format("INSERT INTO VECHUYENBAY(MAVE, MAKHACHHANG, " +
+            //    "MACHUYENBAY, MAHANGVE, MANHANVIEN, GIATIEN, NGAYGIOGD, LOAIVE) " +
+            //    "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', N'{7}')"
+            //    , maVe, dto.MaKhachHang, dto.MaChuyenBay, dto.MaHangVe, dto.MaNhanVien,
+            //    dto.GiaTien, dto.NgayGioGD, dto.LoaiVe);
+            string maVe = TaoMaVe();
+            dto.MaVe = maVe;
+            VECHUYENBAY insert = db.VECHUYENBAYs.Where(p => p.MAVE.Equals(dto.MaVe)).SingleOrDefault();
+            try
+            {
+                db.VECHUYENBAYs.InsertOnSubmit(insert);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+
+            }
+            return false;
+        }
+
+        public DataTable GetAndSortDesc()
+        {
+            //string query = "SELECT * FROM VECHUYENBAY ORDER BY MAVE DESC";
+            var query = from i in db.VECHUYENBAYs
+                        orderby i.MAVE descending
+                        select i;
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
+
+        private string TaoMaVe()
+        {
+            DataTable dt = this.GetAndSortDesc();
+            if (dt.Rows.Count == 0)
+                return "VE000" + dt.Rows.Count;
+            DataRow row = dt.Rows[0];
+            string maTuyenBay = row[0].ToString().Substring(2);
+            int count = int.Parse(maTuyenBay) + 1;
+            int temp = count;
+            string strSoKhong = "";
+            int dem = 0;
+            while (temp > 0)
+            {
+                temp /= 10;
+                dem++;
+            }
+            for (int i = 0; i < 4 - dem; i++)
+            {
+                strSoKhong += "0";
+            }
+            return "VE" + strSoKhong + count;
         }
     }
 }
