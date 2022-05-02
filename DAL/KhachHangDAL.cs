@@ -19,5 +19,19 @@ namespace DAL
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
+
+        public DataTable GetForDisplay()
+        {
+            var query = from i in db.KHACHHANGs
+                        select new
+                        {
+                            i.MAKHACHHANG,
+                            i.TENKHACHHANG,
+                            i.CMND,
+                            i.SDT
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
     }
 }

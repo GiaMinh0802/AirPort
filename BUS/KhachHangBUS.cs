@@ -15,5 +15,10 @@ namespace BUS
         {
             return dal.GetOfCMND(maKhachHang);
         }
+
+        public DataTable GetForDisplay()
+        {
+            return dal.GetForDisplay();
+        }
     }
 }

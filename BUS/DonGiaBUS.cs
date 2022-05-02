@@ -15,5 +15,10 @@ namespace BUS
         {
             return dal.SearchOfMaTuyenBayAndMaHangVe(maTuyenBay, maHangVe);
         }
+
+        public DataTable GetForDisplay()
+        {
+            return dal.GetForDisplay();
+        }
     }
 }

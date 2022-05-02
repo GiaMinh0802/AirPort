@@ -26,5 +26,10 @@ namespace BUS
         {
             return dal.GetOfMaSanBay(maSBDi, maSBDen);
         }
+
+        public DataTable GetForDSTuyenBay()
+        {
+            return dal.GetForDSTuyenBay();
+        }
     }
 }

@@ -16,5 +16,10 @@ namespace BUS
         {
             return dal.Get();
         }
+
+        public DataTable GetForDisplay()
+        {
+            return dal.GetForDisplay();
+        }
     }
 }

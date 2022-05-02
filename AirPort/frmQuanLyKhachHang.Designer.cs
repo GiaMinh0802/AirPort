@@ -60,76 +60,68 @@ namespace AirPort
             // 
             // txtMaKhachHang
             // 
-            this.txtMaKhachHang.Location = new System.Drawing.Point(212, 30);
-            this.txtMaKhachHang.Margin = new System.Windows.Forms.Padding(6);
+            this.txtMaKhachHang.Location = new System.Drawing.Point(106, 16);
             this.txtMaKhachHang.Name = "txtMaKhachHang";
             this.txtMaKhachHang.ReadOnly = true;
-            this.txtMaKhachHang.Size = new System.Drawing.Size(346, 31);
+            this.txtMaKhachHang.Size = new System.Drawing.Size(175, 20);
             this.txtMaKhachHang.TabIndex = 65;
             this.txtMaKhachHang.TabStop = false;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(10, 38);
-            this.label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label20.Location = new System.Drawing.Point(5, 20);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(160, 25);
+            this.label20.Size = new System.Drawing.Size(82, 13);
             this.label20.TabIndex = 63;
             this.label20.Text = "Mã khách hàng";
             // 
             // txtTenKhachHang
             // 
-            this.txtTenKhachHang.Location = new System.Drawing.Point(212, 80);
-            this.txtTenKhachHang.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTenKhachHang.Location = new System.Drawing.Point(106, 42);
             this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Size = new System.Drawing.Size(346, 31);
+            this.txtTenKhachHang.Size = new System.Drawing.Size(175, 20);
             this.txtTenKhachHang.TabIndex = 1;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(10, 88);
-            this.label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label19.Location = new System.Drawing.Point(5, 46);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(167, 25);
+            this.label19.Size = new System.Drawing.Size(86, 13);
             this.label19.TabIndex = 64;
             this.label19.Text = "Tên khách hàng";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 191);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(5, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 25);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 64;
             this.label2.Text = "Số điện thoại";
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(212, 183);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(6);
+            this.txtSDT.Location = new System.Drawing.Point(106, 95);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(346, 31);
+            this.txtSDT.Size = new System.Drawing.Size(175, 20);
             this.txtSDT.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 141);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(5, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 25);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 63;
             this.label3.Text = "CMND";
             // 
             // txtCMND
             // 
-            this.txtCMND.Location = new System.Drawing.Point(212, 133);
-            this.txtCMND.Margin = new System.Windows.Forms.Padding(6);
+            this.txtCMND.Location = new System.Drawing.Point(106, 69);
             this.txtCMND.Name = "txtCMND";
-            this.txtCMND.Size = new System.Drawing.Size(346, 31);
+            this.txtCMND.Size = new System.Drawing.Size(175, 20);
             this.txtCMND.TabIndex = 2;
             // 
             // gbxThaoTac
@@ -138,11 +130,11 @@ namespace AirPort
             this.gbxThaoTac.Controls.Add(this.label4);
             this.gbxThaoTac.Controls.Add(this.btnSua);
             this.gbxThaoTac.Controls.Add(this.btnXoa);
-            this.gbxThaoTac.Location = new System.Drawing.Point(18, 883);
-            this.gbxThaoTac.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbxThaoTac.Location = new System.Drawing.Point(9, 459);
+            this.gbxThaoTac.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbxThaoTac.Name = "gbxThaoTac";
-            this.gbxThaoTac.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbxThaoTac.Size = new System.Drawing.Size(570, 158);
+            this.gbxThaoTac.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbxThaoTac.Size = new System.Drawing.Size(285, 82);
             this.gbxThaoTac.TabIndex = 2;
             this.gbxThaoTac.TabStop = false;
             this.gbxThaoTac.Text = "Thao tác";
@@ -150,20 +142,18 @@ namespace AirPort
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(330, 119);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Location = new System.Drawing.Point(165, 62);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 25);
+            this.label5.Size = new System.Drawing.Size(26, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Xóa";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(156, 119);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(78, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 25);
+            this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 13;
             this.label4.Text = "Sửa";
             // 
@@ -173,10 +163,9 @@ namespace AirPort
             this.btnSua.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSua.FlatAppearance.BorderSize = 0;
             this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.Location = new System.Drawing.Point(142, 34);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(6);
+            this.btnSua.Location = new System.Drawing.Point(71, 18);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(82, 78);
+            this.btnSua.Size = new System.Drawing.Size(41, 41);
             this.btnSua.TabIndex = 4;
             this.btnSua.UseVisualStyleBackColor = true;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -187,10 +176,9 @@ namespace AirPort
             this.btnXoa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnXoa.FlatAppearance.BorderSize = 0;
             this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Location = new System.Drawing.Point(314, 34);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(6);
+            this.btnXoa.Location = new System.Drawing.Point(157, 18);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(82, 78);
+            this.btnXoa.Size = new System.Drawing.Size(41, 41);
             this.btnXoa.TabIndex = 5;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -200,20 +188,20 @@ namespace AirPort
             this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.btnThoat);
-            this.panel1.Location = new System.Drawing.Point(-6, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(-3, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1914, 91);
+            this.panel1.Size = new System.Drawing.Size(957, 47);
             this.panel1.TabIndex = 69;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(718, 22);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(359, 11);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(459, 42);
+            this.label6.Size = new System.Drawing.Size(241, 24);
             this.label6.TabIndex = 39;
             this.label6.Text = "QUẢN LÝ KHÁCH HÀNG";
             // 
@@ -227,10 +215,9 @@ namespace AirPort
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.White;
-            this.btnThoat.Location = new System.Drawing.Point(1809, 6);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(6);
+            this.btnThoat.Location = new System.Drawing.Point(904, 3);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(82, 78);
+            this.btnThoat.Size = new System.Drawing.Size(41, 41);
             this.btnThoat.TabIndex = 9;
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -241,11 +228,11 @@ namespace AirPort
             this.gbxDSKhachHang.Controls.Add(this.label7);
             this.gbxDSKhachHang.Controls.Add(this.txtTimKiem);
             this.gbxDSKhachHang.Controls.Add(this.btnTimKiem);
-            this.gbxDSKhachHang.Location = new System.Drawing.Point(597, 100);
-            this.gbxDSKhachHang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbxDSKhachHang.Location = new System.Drawing.Point(298, 52);
+            this.gbxDSKhachHang.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbxDSKhachHang.Name = "gbxDSKhachHang";
-            this.gbxDSKhachHang.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbxDSKhachHang.Size = new System.Drawing.Size(1281, 941);
+            this.gbxDSKhachHang.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbxDSKhachHang.Size = new System.Drawing.Size(640, 489);
             this.gbxDSKhachHang.TabIndex = 3;
             this.gbxDSKhachHang.TabStop = false;
             this.gbxDSKhachHang.Text = "Danh sách khách hàng";
@@ -253,30 +240,29 @@ namespace AirPort
             // dtgvKhachHang
             // 
             this.dtgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvKhachHang.Location = new System.Drawing.Point(9, 98);
-            this.dtgvKhachHang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtgvKhachHang.Location = new System.Drawing.Point(4, 51);
+            this.dtgvKhachHang.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dtgvKhachHang.Name = "dtgvKhachHang";
             this.dtgvKhachHang.RowHeadersWidth = 82;
             this.dtgvKhachHang.RowTemplate.Height = 24;
-            this.dtgvKhachHang.Size = new System.Drawing.Size(1263, 833);
+            this.dtgvKhachHang.Size = new System.Drawing.Size(632, 433);
             this.dtgvKhachHang.TabIndex = 8;
+            this.dtgvKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvKhachHang_CellClick);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(848, 45);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label7.Location = new System.Drawing.Point(424, 23);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 25);
+            this.label7.Size = new System.Drawing.Size(52, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Tìm kiếm ";
             // 
             // txtTimKiem
             // 
-            this.txtTimKiem.Location = new System.Drawing.Point(962, 38);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(6);
+            this.txtTimKiem.Location = new System.Drawing.Point(481, 20);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(246, 31);
+            this.txtTimKiem.Size = new System.Drawing.Size(125, 20);
             this.txtTimKiem.TabIndex = 6;
             // 
             // btnTimKiem
@@ -285,10 +271,9 @@ namespace AirPort
             this.btnTimKiem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTimKiem.FlatAppearance.BorderSize = 0;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimKiem.Location = new System.Drawing.Point(1221, 31);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6);
+            this.btnTimKiem.Location = new System.Drawing.Point(610, 16);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(50, 47);
+            this.btnTimKiem.Size = new System.Drawing.Size(25, 24);
             this.btnTimKiem.TabIndex = 7;
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
@@ -303,11 +288,11 @@ namespace AirPort
             this.gbxTTKhachHang.Controls.Add(this.txtSDT);
             this.gbxTTKhachHang.Controls.Add(this.label2);
             this.gbxTTKhachHang.Controls.Add(this.txtTenKhachHang);
-            this.gbxTTKhachHang.Location = new System.Drawing.Point(18, 100);
-            this.gbxTTKhachHang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.gbxTTKhachHang.Location = new System.Drawing.Point(9, 52);
+            this.gbxTTKhachHang.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gbxTTKhachHang.Name = "gbxTTKhachHang";
-            this.gbxTTKhachHang.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbxTTKhachHang.Size = new System.Drawing.Size(570, 773);
+            this.gbxTTKhachHang.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.gbxTTKhachHang.Size = new System.Drawing.Size(285, 402);
             this.gbxTTKhachHang.TabIndex = 1;
             this.gbxTTKhachHang.TabStop = false;
             this.gbxTTKhachHang.Text = "Thông tin khách hàng";
@@ -315,15 +300,15 @@ namespace AirPort
             // frmQuanLyKhachHang
             // 
             this.AcceptButton = this.btnSua;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnThoat;
-            this.ClientSize = new System.Drawing.Size(1896, 1059);
+            this.ClientSize = new System.Drawing.Size(956, 548);
             this.Controls.Add(this.gbxThaoTac);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbxDSKhachHang);
             this.Controls.Add(this.gbxTTKhachHang);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmQuanLyKhachHang";
             this.Text = "Thêm khách hàng";
             this.gbxThaoTac.ResumeLayout(false);

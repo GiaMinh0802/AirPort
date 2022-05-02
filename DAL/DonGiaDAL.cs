@@ -19,5 +19,18 @@ namespace DAL
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
+
+        public DataTable GetForDisplay()
+        {
+            var query = from i in db.DONGIAs
+                        select new
+                        {
+                            i.MATUYENBAY,
+                            i.MAHANGVE,
+                            i.DONGIA1
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
     }
 }

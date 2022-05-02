@@ -7,27 +7,15 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class SanBayDAL
+    public class ThamSoDAL
     {
         AirPortDataContextDataContext db = new AirPortDataContextDataContext();
         ConvertToDataTable cv = new ConvertToDataTable();
+
         public DataTable Get()
         {
-            var query = from i in db.SANBAYs
+            var query = from i in db.THAMSOs
                         select i;
-            DataTable dt = cv.LINQResultToDataTable(query);
-            return dt;
-        }
-
-        public DataTable GetForDisplay()
-        {
-            var query = from i in db.SANBAYs
-                        select new
-                        {
-                            i.MASANBAY,
-                            i.TENSANBAY,
-                            i.TENTHANHPHO
-                        };
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }

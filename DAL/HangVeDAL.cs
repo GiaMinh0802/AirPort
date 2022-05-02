@@ -11,10 +11,23 @@ namespace DAL
     {
         AirPortDataContextDataContext db = new AirPortDataContextDataContext();
         ConvertToDataTable cv = new ConvertToDataTable();
+
         public DataTable Get()
         {
             var dtHangVe = from i in db.HANGVEs 
                            select i;
+            DataTable dt = cv.LINQResultToDataTable(dtHangVe);
+            return dt;
+        }
+
+        public DataTable GetForDisplay()
+        {
+            var dtHangVe = from i in db.HANGVEs
+                           select new
+                           {
+                               i.MAHANGVE,
+                               i.TENHANGVE
+                           };
             DataTable dt = cv.LINQResultToDataTable(dtHangVe);
             return dt;
         }

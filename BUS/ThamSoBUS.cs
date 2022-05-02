@@ -8,18 +8,12 @@ using System.Threading.Tasks;
 
 namespace BUS
 {
-    public class HangVeBUS
+    public class ThamSoBUS
     {
-        HangVeDAL dal = new HangVeDAL();
-
+        ThamSoDAL dal = new ThamSoDAL();
         public DataTable Get()
         {
             return dal.Get();
-        }
-
-        public DataTable GetForDisplay()
-        {
-            return dal.GetForDisplay();
         }
     }
 }

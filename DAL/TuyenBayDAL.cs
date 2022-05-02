@@ -47,5 +47,22 @@ namespace DAL
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
+
+        public DataTable GetForDSTuyenBay()
+        {
+            var query = from t in db.TUYENBAYs
+                        join s1 in db.SANBAYs
+                        on t.MASANBAYDI equals s1.MASANBAY
+                        join s2 in db.SANBAYs
+                        on t.MASANBAYDEN equals s2.MASANBAY
+                        select new
+                        {
+                            t.MATUYENBAY,
+                            TenSanBayDi = s1.TENSANBAY,
+                            TenSanBayDen = s2.TENSANBAY,
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
     }
 }

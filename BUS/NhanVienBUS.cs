@@ -15,5 +15,10 @@ namespace BUS
         {
             return dal.GetOfUsernameAndPassword(username, password);
         }
+
+        public DataTable GetForDisplay()
+        {
+            return dal.GetForDisplay();
+        }
     }
 }
