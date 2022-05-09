@@ -48,5 +48,20 @@ namespace AirPort
         {
             LoadDtgv(cboMaChuyenBay.Text);
         }
+        private void button_Click(object sender, EventArgs e)
+        {
+            txtbox.Text = "";
+            Button num = (Button)sender;
+            txtbox.Text = txtbox.Text + num.Text;
+            num.BackColor = System.Drawing.Color.Lime;
+            foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
+            {
+                if (btn.Name != num.Name)
+                {
+                    btn.BackColor = SystemColors.Control;
+                }
+            }
+
+        }
     }
 }

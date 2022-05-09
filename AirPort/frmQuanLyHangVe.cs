@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -66,22 +67,96 @@ namespace AirPort
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (txtMaHangVe.Text.Trim() != "")
+            {
+                try
+                {
+                    if (busHangVe.Delete(txtMaHangVe.Text))
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
+                catch (Exception a)
+                {
+                    MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (txtTenHangVe.Text.Trim() != "")
+            {
+                try
+                {
+                    HangVeDTO dto = new HangVeDTO(txtMaHangVe.Text, txtTenHangVe.Text);
+                    if (busHangVe.Add(dto))
+                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            if (txtMaHangVe.Text.Trim() != "")
+            {
+                if (txtTenHangVe.Text.Trim() != "")
+                {
+                    try
+                    {
+                        HangVeDTO dto = new HangVeDTO(txtMaHangVe.Text, txtTenHangVe.Text);
+                        if (busHangVe.Update(dto))
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        Recreate();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            dtgvHangVe.DataSource = busHangVe.SearchOfMaHangVe(txtTimKiem.Text);
         }
         #endregion
 
