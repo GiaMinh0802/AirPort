@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -42,6 +43,52 @@ namespace DAL
                         };
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
+        }
+        public bool Add(TinhTrangVeDTO dto)
+        {
+            try
+            {
+                TINHTRANGVE insert = new TINHTRANGVE();
+                insert.MACHUYENBAY = dto.MaChuyenBay;
+                insert.MAHANGVE = dto.MaHangVe;
+                insert.TONGSOGHE = dto.TongSoGhe;
+                insert.SOGHETRONG = dto.SoGheTrong;
+                db.TINHTRANGVEs.InsertOnSubmit(insert);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool Update(TinhTrangVeDTO dto)
+        {
+            try
+            {
+                TINHTRANGVE edit = db.TINHTRANGVEs.Where(p => p.MACHUYENBAY.Equals(dto.MaChuyenBay) && p.MAHANGVE.Equals(dto.MaHangVe)).SingleOrDefault();
+                edit.TONGSOGHE = dto.TongSoGhe;
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool Delete(TinhTrangVeDTO dto)
+        {
+            try
+            {
+                TINHTRANGVE delete = db.TINHTRANGVEs.Where(p => p.MACHUYENBAY.Equals(dto.MaChuyenBay) && p.MAHANGVE.Equals(dto.MaHangVe)).SingleOrDefault();
+                db.TINHTRANGVEs.DeleteOnSubmit(delete);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

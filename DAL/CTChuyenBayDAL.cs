@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -29,6 +30,52 @@ namespace DAL
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
-
+        public bool Add(CTChuyenBayDTO dto)
+        {
+            try
+            {
+                CTCHUYENBAY insert = new CTCHUYENBAY();
+                insert.MACHUYENBAY = dto.MaChuyenBay;
+                insert.MASANBAYTG = dto.MaSanBayTG;
+                insert.THOIGIANDUNG = dto.ThoiGianDung;
+                insert.GHICHU = dto.GhiChu;
+                db.CTCHUYENBAYs.InsertOnSubmit(insert);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool Update(CTChuyenBayDTO dto)
+        {
+            try
+            {
+                CTCHUYENBAY edit = db.CTCHUYENBAYs.Where(p => p.MACHUYENBAY.Equals(dto.MaChuyenBay) && p.MASANBAYTG.Equals(dto.MaSanBayTG)).SingleOrDefault();
+                edit.THOIGIANDUNG = dto.ThoiGianDung;
+                edit.GHICHU = dto.GhiChu;
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool Delete(CTChuyenBayDTO dto)
+        {
+            try
+            {
+                CTCHUYENBAY delete = db.CTCHUYENBAYs.Where(p => p.MACHUYENBAY.Equals(dto.MaChuyenBay) && p.MASANBAYTG.Equals(dto.MaSanBayTG)).SingleOrDefault();
+                db.CTCHUYENBAYs.DeleteOnSubmit(delete);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

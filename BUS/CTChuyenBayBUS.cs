@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +15,19 @@ namespace BUS
         public DataTable GetForDisplayOfMaChuyenBay(string str)
         {
             return dal.GetForDisplayOfMaChuyenBay(str);
+        }
+        public bool Add(CTChuyenBayDTO dto)
+        {
+            return dal.Add(dto);
+        }
+        public bool Update(CTChuyenBayDTO dto)
+        {
+            return dal.Update(dto);
+        }
+
+        public bool Delete(CTChuyenBayDTO dto)
+        {
+            return dal.Delete(dto);
         }
     }
 }

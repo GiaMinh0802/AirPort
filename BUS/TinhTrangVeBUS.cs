@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,5 +21,19 @@ namespace BUS
         {
             return dal.GetForDisplayOfMaChuyenBay(maChuyenBay);
         }
+        public bool Add(TinhTrangVeDTO dto)
+        {
+            return dal.Add(dto);
+        }
+        public bool Update(TinhTrangVeDTO dto)
+        {
+            return dal.Update(dto);
+        }
+
+        public bool Delete(TinhTrangVeDTO dto)
+        {
+            return dal.Delete(dto);
+        }
+
     }
 }

@@ -175,22 +175,96 @@ namespace AirPort
         
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            dtgvChuyenBay.DataSource = busChuyenBay.SearchOfMaChuyenBay(txtTimKiem.Text);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (cboMaTuyenBay.Text.Trim() != "" && cboMaMayBay.Text.Trim() != "" && txtThoiGianBay.Text.Trim() != "")
+            {
+                try
+                {
+                    ChuyenBayDTO dto = new ChuyenBayDTO(txtMaChuyenBay.Text, cboMaTuyenBay.Text, cboMaMayBay.Text, dtpkThoiGianKhoiHanh.Value, float.Parse(txtThoiGianBay.Text));
+                    if (busChuyenBay.Add(dto))
+                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+                catch
+                {
+                    MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RecreateChuyenBay();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            if (txtMaChuyenBay.Text.Trim() != "")
+            {
+                if (cboMaTuyenBay.Text.Trim() != "" && cboMaMayBay.Text.Trim() != "" && txtThoiGianBay.Text.Trim() != "")
+                {
+                    try
+                    {
+                        ChuyenBayDTO dto = new ChuyenBayDTO(txtMaChuyenBay.Text, cboMaTuyenBay.Text, cboMaMayBay.Text, dtpkThoiGianKhoiHanh.Value, float.Parse(txtThoiGianBay.Text));
+                        if (busChuyenBay.Update(dto))
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        RecreateChuyenBay();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (txtMaChuyenBay.Text.Trim() != "")
+            {
+                try
+                {
+                    if (busChuyenBay.Delete(txtMaChuyenBay.Text))
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
+                catch
+                {
+                    MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RecreateChuyenBay();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         #endregion
@@ -233,17 +307,92 @@ namespace AirPort
 
         private void btnThemHV_Click(object sender, EventArgs e)
         {
+            if (cboMaHangVe.Text != "" && txtTongSoGhe.Text != "")
+            {
+                try
+                {
+                    TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text));
+                    if (busTinhTrangVe.Add(dto))
+                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+                catch
+                {
+                    MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RecreateHangVe();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnSuaHV_Click(object sender, EventArgs e)
         {
-
+            if (flagHangVeCellClick)
+            {
+                if (cboMaHangVe.Text != "" && txtTongSoGhe.Text != "")
+                {
+                    try
+                    {
+                        TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text));
+                        if (busTinhTrangVe.Update(dto))
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        RecreateHangVe();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnXoaHV_Click(object sender, EventArgs e)
         {
+            if (flagHangVeCellClick)
+            {
+                try
+                {
+                    TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text));
+                    if (busTinhTrangVe.Delete(dto))
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
+                catch
+                {
+                    MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RecreateHangVe();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
 
@@ -287,17 +436,92 @@ namespace AirPort
 
         private void btnThemSBTG_Click(object sender, EventArgs e)
         {
+            if (cboTenSanBayTG.Text != "" && txtThoiGianNghi.Text != "" && txtGhiChu.Text != "")
+            {
+                try
+                {
+                    CTChuyenBayDTO dto = new CTChuyenBayDTO(txtMaChuyenBay.Text, cboTenSanBayTG.SelectedValue.ToString(), float.Parse(txtThoiGianNghi.Text), txtGhiChu.Text);
+                    if (busCTChuyenBay.Add(dto))
+                        MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+                catch
+                {
+                    MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RecreateSBTG();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnSuaSBTG_Click(object sender, EventArgs e)
         {
-
+            if (flagSBTGCellClick)
+            {
+                if (cboTenSanBayTG.Text != "" && txtThoiGianNghi.Text != "" && txtGhiChu.Text != "")
+                {
+                    try
+                    {
+                        CTChuyenBayDTO dto = new CTChuyenBayDTO(txtMaChuyenBay.Text, cboTenSanBayTG.SelectedValue.ToString(), float.Parse(txtThoiGianNghi.Text), txtGhiChu.Text);
+                        if (busCTChuyenBay.Update(dto))
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        RecreateSBTG();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnXoaSBTG_Click(object sender, EventArgs e)
         {
+            if (flagSBTGCellClick)
+            {
+                try
+                {
+                    CTChuyenBayDTO dto = new CTChuyenBayDTO(txtMaChuyenBay.Text, cboTenSanBayTG.SelectedValue.ToString(), float.Parse(txtThoiGianNghi.Text), txtGhiChu.Text);
+                    if (busCTChuyenBay.Delete(dto))
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
+                catch
+                {
+                    MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    RecreateSBTG();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
     }
