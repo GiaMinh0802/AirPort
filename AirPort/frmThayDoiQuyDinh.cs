@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,6 @@ namespace AirPort
     {
         #region Properties
         ThamSoBUS busThamSo = new ThamSoBUS();
-        bool flagCellClick;
         #endregion
 
         #region Initializes
@@ -67,7 +67,29 @@ namespace AirPort
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            if (txtSoSanBayTGMax.Text.Trim() != "" && txtTGBayMin.Text.Trim() != "" && txtTGDungMax.Text.Trim() != "" && txtTGDungMin.Text.Trim() != "" && txtTGMinDatVe.Text.Trim() != "" && txtTGMinHuyVe.Text.Trim() != "")
+            {
+                try
+                {
+                    ThamSoDTO dto = new ThamSoDTO(float.Parse(txtTGBayMin.Text), int.Parse(txtSoSanBayTGMax.Text), float.Parse(txtTGDungMin.Text), float.Parse(txtTGDungMax.Text), float.Parse(txtTGMinDatVe.Text), float.Parse(txtTGMinHuyVe.Text));
+                    if (busThamSo.Update(dto))
+                        MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch
+                {
+                    MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         #endregion
     }

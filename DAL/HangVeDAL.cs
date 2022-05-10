@@ -121,5 +121,14 @@ namespace DAL
             }
             return "HV" + strSoKhong + count;
         }
+        public string GetMaHangVeByTenHangVe(string tenHangVe)
+        {
+            var query = from i in db.HANGVEs
+                        where i.TENHANGVE == tenHangVe
+                        select i;
+            DataTable dt = cv.LINQResultToDataTable(query);
+            DataRow row = dt.Rows[0];
+            return row["MAHANGVE"].ToString(); 
+        }
     }
 }

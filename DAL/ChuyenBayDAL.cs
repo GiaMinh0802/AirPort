@@ -15,7 +15,7 @@ namespace DAL
         public DataTable Get()
         {
             var query = from i in db.CHUYENBAYs
-                           select i;
+                        select i;
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }

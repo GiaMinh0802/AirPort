@@ -34,6 +34,10 @@ namespace BUS
         {
             return dal.Delete(dto);
         }
+        public bool UpdateBanVe(TinhTrangVeDTO dto)
+        {
+            return dal.UpdateBanVe(dto);
+        }
 
     }
 }

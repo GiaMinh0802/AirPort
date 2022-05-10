@@ -2964,6 +2964,8 @@ namespace DAL
 		
 		private int _SOGHETRONG;
 		
+		private string _SODOGHE;
+		
 		private EntityRef<CHUYENBAY> _CHUYENBAY;
 		
 		private EntityRef<HANGVE> _HANGVE;
@@ -2980,6 +2982,8 @@ namespace DAL
     partial void OnTONGSOGHEChanged();
     partial void OnSOGHETRONGChanging(int value);
     partial void OnSOGHETRONGChanged();
+    partial void OnSODOGHEChanging(string value);
+    partial void OnSODOGHEChanged();
     #endregion
 		
 		public TINHTRANGVE()
@@ -3073,6 +3077,26 @@ namespace DAL
 					this._SOGHETRONG = value;
 					this.SendPropertyChanged("SOGHETRONG");
 					this.OnSOGHETRONGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SODOGHE", DbType="VarChar(100)")]
+		public string SODOGHE
+		{
+			get
+			{
+				return this._SODOGHE;
+			}
+			set
+			{
+				if ((this._SODOGHE != value))
+				{
+					this.OnSODOGHEChanging(value);
+					this.SendPropertyChanging();
+					this._SODOGHE = value;
+					this.SendPropertyChanged("SODOGHE");
+					this.OnSODOGHEChanged();
 				}
 			}
 		}

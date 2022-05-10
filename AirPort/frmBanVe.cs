@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace AirPort
         TinhTrangVeBUS busTinhTrangVe = new TinhTrangVeBUS();
         KhachHangBUS busKhachHang = new KhachHangBUS();
         string maNhanVien;
+        string maVe;
         #endregion
 
         #region Initializes
@@ -71,7 +73,7 @@ namespace AirPort
             dtgvVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
 
-        private void ReLoadForm()
+        private void Recreate()
         {
             LoadDTGV();
             txtCMND.Clear();
@@ -133,6 +135,7 @@ namespace AirPort
             txtCMND.Text = row.Cells[2].Value.ToString();
             cboMaChuyenBay.SelectedValue = row.Cells[3].Value.ToString();
             cboHangVe.Text = row.Cells[4].Value.ToString();
+            this.maVe = row.Cells[0].Value.ToString();
         }
 
         private void txtGiaTien_TextChanged(object sender, EventArgs e)
@@ -162,17 +165,132 @@ namespace AirPort
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            dtgvVe.DataSource = busVeChuyenBay.SearchOfSDT(txtTimKiem.Text);
         }
 
         private void btnMuaVe_Click(object sender, EventArgs e)
         {
+            if (txtSoGheTrong.Text == "0" || txtSoGheTrong.Text == "")
+            {
+                MessageBox.Show("Không còn vé cho hạng vé này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (cboMaChuyenBay.Text.Trim() != "" && txtCMND.Text.Trim() != "" && txtTenKhachHang.Text.Trim() != "" && txtSDT.Text.Trim() != "" && cboHangVe.Text.Trim() != "")
+            {
+                try
+                {
+                    string maKhachHang;
+                    string loaiVe = "Vé mua";
+                    DataTable dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
 
+                    if (dtKhachHang.Rows.Count > 0)
+                    {
+                        DataRow row = dtKhachHang.Rows[0];
+                        maKhachHang = row["MAKHACHHANG"].ToString();
+                    }
+                    else
+                    {
+                        KhachHangDTO dtoKhachHang = new KhachHangDTO(null, txtTenKhachHang.Text, txtCMND.Text, txtSDT.Text);
+                        if (!busKhachHang.Add(dtoKhachHang))
+                        {
+                            MessageBox.Show("Thêm khách hàng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Recreate();
+                            return;
+                        }
+                        dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+                        DataRow row = dtKhachHang.Rows[0];
+                        maKhachHang = row["MAKHACHHANG"].ToString();
+                    }
+                    string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
+                    TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
+                    VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
+                    if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                        MessageBox.Show("Mua vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Mua vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnDatVe_Click(object sender, EventArgs e)
         {
+            if (cboMaChuyenBay.Text.Trim() != "" && txtCMND.Text.Trim() != "" && txtTenKhachHang.Text.Trim() != "" && txtSDT.Text.Trim() != "" && cboHangVe.Text.Trim() != "")
+            {
+                try
+                {
+                    string maKhachHang;
+                    string loaiVe = "Vé đặt";
+                    DataTable dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+                    if (dtKhachHang.Rows.Count > 0)
+                    {
+                        DataRow row = dtKhachHang.Rows[0];
+                        maKhachHang = row["MAKHACHHANG"].ToString();
+                    }
+                    else
+                    {
+                        KhachHangDTO dtoKhachHang = new KhachHangDTO(null, txtTenKhachHang.Text, txtCMND.Text, txtSDT.Text);
+                        if (!busKhachHang.Add(dtoKhachHang))
+                        {
+                            MessageBox.Show("Thêm khách hàng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            Recreate();
+                            return;
+                        }
+                        dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+                        DataRow row = dtKhachHang.Rows[0];
+                        maKhachHang = row["MAKHACHHANG"].ToString();
+                    }
+                    string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
+                    TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
+                    VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
+                    if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                        MessageBox.Show("Đặt vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Đặt vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
+        private void btnHuyVe_Click(object sender, EventArgs e)
+        {
+            if (this.maVe != "")
+            {
+                try
+                {
+                    string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
+                    TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) + 1);
+                    if (busVeChuyenBay.Delete(this.maVe) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                        MessageBox.Show("Hủy vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                catch
+                {
+                    MessageBox.Show("Hủy vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
         }
 
         private void btnTraCuu_Click(object sender, EventArgs e)
@@ -186,7 +304,15 @@ namespace AirPort
             Form frm = new frmTinhTrangVe(cboMaChuyenBay.Text);
             frm.Show();
         }
+        
 
+        private void btnDoiVe_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmTinhTrangVe(cboMaChuyenBay.Text);
+            frm.Show();
+        }
         #endregion
+
+
     }
 }

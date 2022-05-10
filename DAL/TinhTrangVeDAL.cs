@@ -90,5 +90,19 @@ namespace DAL
                 return false;
             }
         }
+        public bool UpdateBanVe(TinhTrangVeDTO dto)
+        {
+            try
+            {
+                TINHTRANGVE edit = db.TINHTRANGVEs.Where(p => p.MACHUYENBAY.Equals(dto.MaChuyenBay) && p.MAHANGVE.Equals(dto.MaHangVe)).SingleOrDefault();
+                edit.SOGHETRONG = dto.SoGheTrong;
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

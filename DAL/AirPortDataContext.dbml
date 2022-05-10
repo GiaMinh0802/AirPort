@@ -144,6 +144,7 @@
       <Column Name="MAHANGVE" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TONGSOGHE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SOGHETRONG" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SODOGHE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="CHUYENBAY_TINHTRANGVE" Member="CHUYENBAY" ThisKey="MACHUYENBAY" OtherKey="MACHUYENBAY" Type="CHUYENBAY" IsForeignKey="true" />
       <Association Name="HANGVE_TINHTRANGVE" Member="HANGVE" ThisKey="MAHANGVE" OtherKey="MAHANGVE" Type="HANGVE" IsForeignKey="true" />
     </Type>

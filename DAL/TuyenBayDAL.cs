@@ -15,6 +15,7 @@ namespace DAL
         public DataTable Get()
         {
             var query = from i in db.TUYENBAYs
+                        orderby i.MATUYENBAY ascending
                         select i;
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;

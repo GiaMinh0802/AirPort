@@ -29,7 +29,7 @@ namespace DAL
                        on v.MAHANGVE equals h.MAHANGVE
                        select new
                        {
-                           MaVe = v.MAHANGVE,
+                           MaVe = v.MAVE,
                            TenKhachHang = k.TENKHACHHANG,
                            CMND = k.CMND,
                            MaChuyenBay = v.MACHUYENBAY,
@@ -45,31 +45,68 @@ namespace DAL
 
         public bool Add(VeChuyenBayDTO dto)
         {
-
-            //string sqlQuery = string.Format("INSERT INTO VECHUYENBAY(MAVE, MAKHACHHANG, " +
-            //    "MACHUYENBAY, MAHANGVE, MANHANVIEN, GIATIEN, NGAYGIOGD, LOAIVE) " +
-            //    "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', N'{7}')"
-            //    , maVe, dto.MaKhachHang, dto.MaChuyenBay, dto.MaHangVe, dto.MaNhanVien,
-            //    dto.GiaTien, dto.NgayGioGD, dto.LoaiVe);
-            string maVe = TaoMaVe();
-            dto.MaVe = maVe;
-            VECHUYENBAY insert = db.VECHUYENBAYs.Where(p => p.MAVE.Equals(dto.MaVe)).SingleOrDefault();
             try
             {
+                string maVe = TaoMaVe();
+                VECHUYENBAY insert = new VECHUYENBAY();
+                insert.MAVE = maVe;
+                insert.MAKHACHHANG = dto.MaKhachHang;
+                insert.MACHUYENBAY = dto.MaChuyenBay;
+                insert.MAHANGVE = dto.MaHangVe;
+                insert.MANHANVIEN = dto.MaNhanVien;
+                insert.GIATIEN = dto.GiaTien;
+                insert.NGAYGIOGD = dto.NgayGioGD;
+                insert.LOAIVE = dto.LoaiVe;
                 db.VECHUYENBAYs.InsertOnSubmit(insert);
                 db.SubmitChanges();
                 return true;
             }
             catch
             {
-
+                return false;
             }
-            return false;
+        }
+        public bool Delete(string maVe)
+        {
+            try
+            {
+                VECHUYENBAY delete = db.VECHUYENBAYs.Where(p => p.MAVE.Equals(maVe)).SingleOrDefault();
+                db.VECHUYENBAYs.DeleteOnSubmit(delete);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public DataTable SearchOfSDT(string SDT)
+        {
+            var dtVe = from v in db.VECHUYENBAYs
+                       join k in db.KHACHHANGs
+                       on v.MAKHACHHANG equals k.MAKHACHHANG
+                       join h in db.HANGVEs
+                       on v.MAHANGVE equals h.MAHANGVE
+                       where System.Data.Linq.SqlClient.SqlMethods.Like(k.SDT, "%" + SDT + "%")
+                       select new
+                       {
+                           MaVe = v.MAHANGVE,
+                           TenKhachHang = k.TENKHACHHANG,
+                           CMND = k.CMND,
+                           MaChuyenBay = v.MACHUYENBAY,
+                           TenHangVe = h.TENHANGVE,
+                           GiaTien = v.GIATIEN,
+                           NgayGioGD = v.NGAYGIOGD,
+                           NgayHuy = v.NGAYHUY,
+                           LoaiVe = v.LOAIVE
+                       };
+            DataTable dt = cv.LINQResultToDataTable(dtVe);
+            return dt;
         }
 
         public DataTable GetAndSortDesc()
         {
-            //string query = "SELECT * FROM VECHUYENBAY ORDER BY MAVE DESC";
             var query = from i in db.VECHUYENBAYs
                         orderby i.MAVE descending
                         select i;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,6 +19,25 @@ namespace DAL
                         select i;
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
+        }
+        public bool Update(ThamSoDTO dto)
+        {
+            try
+            {
+                THAMSO edit = db.THAMSOs.First();
+                edit.THOIGIANBAYTOITHIEU = dto.ThoiGianBayToiThieu;
+                edit.SOSANBAYTGTOIDA = dto.SoSanBayTGToiDa;
+                edit.THOIGIANDUNGTOITHIEU = dto.ThoiGianDungToiThieu;
+                edit.THOIGIANDUNGTOIDA = dto.ThoiGianDungToiDa;
+                edit.TGCHAMNHATDATVE = Convert.ToInt32(dto.ThoiGianChamNhatDatVe);
+                edit.TGCHAMNHATHUYDATVE = Convert.ToInt32(dto.ThoiGianChamNhatHuyVe);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

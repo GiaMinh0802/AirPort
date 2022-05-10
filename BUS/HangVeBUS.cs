@@ -38,5 +38,9 @@ namespace BUS
         {
             return dal.SearchOfMaHangVe(str);
         }
+        public string GetMaHangVeByTenHangVe(string tenHangVe)
+        {
+            return dal.GetMaHangVeByTenHangVe(tenHangVe);
+        }
     }
 }

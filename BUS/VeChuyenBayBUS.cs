@@ -23,9 +23,18 @@ namespace BUS
             return dal.GetForDisplay();
         }
 
+        public DataTable SearchOfSDT(string SDT)
+        {
+            return dal.SearchOfSDT(SDT);
+        }
+
         public bool Add(VeChuyenBayDTO dto)
         {
             return dal.Add(dto);
+        }
+        public bool Delete(string maVe)
+        {
+            return dal.Delete(maVe);
         }
     }
 }
