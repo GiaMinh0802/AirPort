@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,7 +33,7 @@ namespace AirPort
 
         #region Methods
 
-        private void TaoLai()
+        private void Recreate()
         {
             LoadDTGVKhachHang();
             txtTenKhachHang.Clear();
@@ -71,17 +72,67 @@ namespace AirPort
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-
+            if (txtMaKhachHang.Text.Trim() != "")
+            {
+                if (txtTenKhachHang.Text.Trim() != "" && txtCMND.Text.Trim() != "" && txtSDT.Text.Trim() != "")
+                {
+                    try
+                    {
+                        KhachHangDTO dto = new KhachHangDTO(txtMaKhachHang.Text, txtTenKhachHang.Text, txtCMND.Text, txtSDT.Text);
+                        if (busKhachHang.Update(dto))
+                            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        Recreate();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
+            if (txtMaKhachHang.Text.Trim() != "")
+            {
+                try
+                {
+                    if (busKhachHang.Delete(txtMaKhachHang.Text))
+                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch
+                {
+                    MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hàng trong danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
+            dtgvKhachHang.DataSource = busKhachHang.SearchOfMaKhachHang(txtTimKiem.Text);
         }
         #endregion
 
