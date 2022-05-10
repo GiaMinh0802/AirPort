@@ -15,21 +15,22 @@ namespace DAL
 
         public DataTable Get()
         {
-            var dtHangVe = from i in db.HANGVEs 
+            var query = from i in db.HANGVEs 
                            select i;
-            DataTable dt = cv.LINQResultToDataTable(dtHangVe);
+            DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
 
         public DataTable GetForDisplay()
         {
-            var dtHangVe = from i in db.HANGVEs
-                           select new
-                           {
-                               i.MAHANGVE,
-                               i.TENHANGVE
-                           };
-            DataTable dt = cv.LINQResultToDataTable(dtHangVe);
+            var query = from i in db.HANGVEs
+                        orderby i.MAHANGVE ascending
+                        select new
+                        {
+                            i.MAHANGVE,
+                            i.TENHANGVE
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
         public bool Add(HangVeDTO dto)
@@ -67,7 +68,6 @@ namespace DAL
         {
             try
             {
-                string sqlQuery = string.Format("DELETE FROM HANGVE WHERE MAHANGVE='{0}'", str);
                 HANGVE delete = db.HANGVEs.Where(p => p.MAHANGVE.Equals(str)).SingleOrDefault();
                 db.HANGVEs.DeleteOnSubmit(delete);
                 db.SubmitChanges();
@@ -80,22 +80,22 @@ namespace DAL
         }
         public DataTable SearchOfMaHangVe(string str)
         {
-            var dtHangVe = from i in db.HANGVEs
+            var query = from i in db.HANGVEs
                            where System.Data.Linq.SqlClient.SqlMethods.Like(i.MAHANGVE, "%"+str+"%")
                            select new
                            {
                                i.MAHANGVE,
                                i.TENHANGVE
                            };
-            DataTable dt = cv.LINQResultToDataTable(dtHangVe);
+            DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
         public DataTable GetAndSortDesc()
         {
-            var dtHangVe = from i in db.HANGVEs
+            var query = from i in db.HANGVEs
                            orderby i.MAHANGVE descending
                            select i;
-            DataTable dt = cv.LINQResultToDataTable(dtHangVe);
+            DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
 

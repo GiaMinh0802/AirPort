@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,6 +31,23 @@ namespace BUS
         public DataTable GetForDSTuyenBay()
         {
             return dal.GetForDSTuyenBay();
+        }
+        public bool Add(TuyenBayDTO dto)
+        {
+            return dal.Add(dto);
+        }
+        public bool Update(TuyenBayDTO dto)
+        {
+            return dal.Update(dto);
+        }
+
+        public bool Delete(string str)
+        {
+            return dal.Delete(str);
+        }
+        public DataTable SearchOfMaTuyenBay(string maTuyenBay)
+        {
+            return dal.SearchOfMaTuyenBay(maTuyenBay);
         }
     }
 }

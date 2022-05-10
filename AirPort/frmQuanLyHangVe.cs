@@ -77,7 +77,7 @@ namespace AirPort
                         MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                catch (Exception a)
+                catch
                 {
                     MessageBox.Show("Xóa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -105,7 +105,7 @@ namespace AirPort
                         MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-                catch (Exception a)
+                catch 
                 {
                     MessageBox.Show("Thêm không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -134,7 +134,7 @@ namespace AirPort
                         else
                             MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    catch (Exception a)
+                    catch 
                     {
                         MessageBox.Show("Sửa không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
