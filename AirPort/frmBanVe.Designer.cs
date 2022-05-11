@@ -622,7 +622,7 @@ namespace AirPort
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.CancelButton = this.btnThoat;
-            this.ClientSize = new System.Drawing.Size(1894, 1053);
+            this.ClientSize = new System.Drawing.Size(1893, 1061);
             this.Controls.Add(this.gbxThaoTac);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gbxDSVe);

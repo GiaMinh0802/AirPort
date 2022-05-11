@@ -29,6 +29,15 @@ namespace DAL
             }
 
         }
+        public string GetSoDoGheByMaChuyenBayAndMaHangVe(string maChuyenBay, string maHangVe)
+        {
+            var query = from i in db.TINHTRANGVEs
+                        where i.MACHUYENBAY == maChuyenBay && i.MAHANGVE == maHangVe
+                        select i;
+            DataTable dt = cv.LINQResultToDataTable(query);
+            DataRow row = dt.Rows[0];
+            return row["SODOGHE"].ToString();
+        }
         public DataTable GetForDisplayOfMaChuyenBay(string maChuyenBay)
         {
             var query = from t in db.TINHTRANGVEs

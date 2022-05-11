@@ -15,6 +15,7 @@ namespace AirPort
     {
         ChuyenBayBUS busChuyenBay = new ChuyenBayBUS();
         TinhTrangVeBUS busTinhTrangVe = new TinhTrangVeBUS();
+        HangVeBUS busHangVe = new HangVeBUS();
         string maChuyenBay;
         public frmTinhTrangVe(string maChuyenBay)
         {
@@ -61,7 +62,7 @@ namespace AirPort
             num.BackColor = System.Drawing.Color.Lime;
             foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
             {
-                if (btn.Name != num.Name)
+                if (btn.Name != num.Name && btn.BackColor != System.Drawing.Color.Red)
                 {
                     btn.BackColor = SystemColors.Control;
                 }
@@ -70,9 +71,50 @@ namespace AirPort
         }
         private void dtgvTinhTrangVe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
+            {
+                btn.BackColor = SystemColors.Control;
+            }
             if (e.RowIndex == -1)
                 return;
             DataGridViewRow row = dtgvTinhTrangVe.Rows[e.RowIndex];
+            string maChuyenBay = cboMaChuyenBay.Text;
+            string maHangVe = busHangVe.GetMaHangVeByTenHangVe(row.Cells[0].Value.ToString());
+            string sodoghe = busTinhTrangVe.GetSoDoGheByMaChuyenBayAndMaHangVe(maChuyenBay, maHangVe);
+            for (int i=0; i < sodoghe.Length; i++)
+            {
+                if (sodoghe[i] == '1')
+                {
+                    string soghe = i.ToString();
+                    if (soghe.Length == 1)
+                        soghe = 'A' + soghe; 
+                    else
+                    {
+                        if (soghe[0] == '1')
+                            soghe = 'B' + soghe[1].ToString();
+                        else if (soghe[0] == '2')
+                            soghe = 'C' + soghe[1].ToString();
+                        else if (soghe[0] == '3')
+                            soghe = 'D' + soghe[1].ToString();
+                        else if (soghe[0] == '4')
+                            soghe = 'E' + soghe[1].ToString();
+                        else if (soghe[0] == '3')
+                            soghe = 'F' + soghe[1].ToString();
+                        else if (soghe[0] == '3')
+                            soghe = 'G' + soghe[1].ToString();
+                        else
+                            soghe = 'H' + soghe[1].ToString();
+                    }
+                    foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
+                    {
+                        if (btn.Text == soghe)
+                        {
+                            btn.BackColor = System.Drawing.Color.Red;
+                        }
+                    }
+                }    
+            } 
+                
             if (row.Cells[0].Value.ToString() == "Thương gia")
             {
                 foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
@@ -83,14 +125,14 @@ namespace AirPort
                         btn.BackColor = SystemColors.Control;
                     }
                 }
-            }   
+            }
             else
             {
                 foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
                 {
                     btn.Enabled = true;
                 }
-            }    
+            }
         }
 
     }
