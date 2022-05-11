@@ -58,8 +58,16 @@ namespace AirPort
         {
             txtbox.Text = "";
             Button num = (Button)sender;
-            txtbox.Text = txtbox.Text + num.Text;
-            num.BackColor = System.Drawing.Color.Lime;
+            
+            if (num.BackColor != System.Drawing.Color.Red)
+            {
+                num.BackColor = System.Drawing.Color.Lime;
+                txtbox.Text = txtbox.Text + num.Text;
+            }    
+            else
+            {
+                txtbox.Text = "";
+            }    
             foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
             {
                 if (btn.Name != num.Name && btn.BackColor != System.Drawing.Color.Red)

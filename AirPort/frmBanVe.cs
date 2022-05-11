@@ -177,44 +177,51 @@ namespace AirPort
             }
             if (cboMaChuyenBay.Text.Trim() != "" && txtCMND.Text.Trim() != "" && txtTenKhachHang.Text.Trim() != "" && txtSDT.Text.Trim() != "" && cboHangVe.Text.Trim() != "")
             {
-                try
+                string giokhoihang = txtThoiGianKhoiHanh.Text;
+                DateTime giobay = DateTime.Parse(giokhoihang);
+                if (giobay > DateTime.Now)
                 {
-                    string maKhachHang;
-                    string loaiVe = "Vé mua";
-                    DataTable dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+                    try
+                    {
+                        string maKhachHang;
+                        string loaiVe = "Vé mua";
+                        DataTable dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
 
-                    if (dtKhachHang.Rows.Count > 0)
-                    {
-                        DataRow row = dtKhachHang.Rows[0];
-                        maKhachHang = row["MAKHACHHANG"].ToString();
-                    }
-                    else
-                    {
-                        KhachHangDTO dtoKhachHang = new KhachHangDTO(null, txtTenKhachHang.Text, txtCMND.Text, txtSDT.Text);
-                        if (!busKhachHang.Add(dtoKhachHang))
+                        if (dtKhachHang.Rows.Count > 0)
                         {
-                            MessageBox.Show("Thêm khách hàng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Recreate();
-                            return;
+                            DataRow row = dtKhachHang.Rows[0];
+                            maKhachHang = row["MAKHACHHANG"].ToString();
                         }
-                        dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
-                        DataRow row = dtKhachHang.Rows[0];
-                        maKhachHang = row["MAKHACHHANG"].ToString();
+                        else
+                        {
+                            KhachHangDTO dtoKhachHang = new KhachHangDTO(null, txtTenKhachHang.Text, txtCMND.Text, txtSDT.Text);
+                            if (!busKhachHang.Add(dtoKhachHang))
+                            {
+                                MessageBox.Show("Thêm khách hàng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Recreate();
+                                return;
+                            }
+                            dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+                            DataRow row = dtKhachHang.Rows[0];
+                            maKhachHang = row["MAKHACHHANG"].ToString();
+                        }
+                        string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
+                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
+                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
+                        if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                            MessageBox.Show("Mua vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
-                    TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
-                    VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
-                    if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
-                        MessageBox.Show("Mua vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    catch
+                    {
+                        MessageBox.Show("Mua vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        Recreate();
+                    }
                 }
-                catch
-                {
-                    MessageBox.Show("Mua vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    Recreate();
-                }
+                else
+                    MessageBox.Show("Chuyến bay đã khởi hành!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -224,45 +231,52 @@ namespace AirPort
 
         private void btnDatVe_Click(object sender, EventArgs e)
         {
+            string giokhoihang = txtThoiGianKhoiHanh.Text;
+            DateTime giobay = DateTime.Parse(giokhoihang);
             if (cboMaChuyenBay.Text.Trim() != "" && txtCMND.Text.Trim() != "" && txtTenKhachHang.Text.Trim() != "" && txtSDT.Text.Trim() != "" && cboHangVe.Text.Trim() != "")
             {
-                try
+                if (giobay > DateTime.Now)
                 {
-                    string maKhachHang;
-                    string loaiVe = "Vé đặt";
-                    DataTable dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
-                    if (dtKhachHang.Rows.Count > 0)
+                    try
                     {
-                        DataRow row = dtKhachHang.Rows[0];
-                        maKhachHang = row["MAKHACHHANG"].ToString();
-                    }
-                    else
-                    {
-                        KhachHangDTO dtoKhachHang = new KhachHangDTO(null, txtTenKhachHang.Text, txtCMND.Text, txtSDT.Text);
-                        if (!busKhachHang.Add(dtoKhachHang))
+                        string maKhachHang;
+                        string loaiVe = "Vé đặt";
+                        DataTable dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+                        if (dtKhachHang.Rows.Count > 0)
                         {
-                            MessageBox.Show("Thêm khách hàng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            Recreate();
-                            return;
+                            DataRow row = dtKhachHang.Rows[0];
+                            maKhachHang = row["MAKHACHHANG"].ToString();
                         }
-                        dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
-                        DataRow row = dtKhachHang.Rows[0];
-                        maKhachHang = row["MAKHACHHANG"].ToString();
+                        else
+                        {
+                            KhachHangDTO dtoKhachHang = new KhachHangDTO(null, txtTenKhachHang.Text, txtCMND.Text, txtSDT.Text);
+                            if (!busKhachHang.Add(dtoKhachHang))
+                            {
+                                MessageBox.Show("Thêm khách hàng không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                Recreate();
+                                return;
+                            }
+                            dtKhachHang = busKhachHang.GetOfCMND(txtCMND.Text);
+                            DataRow row = dtKhachHang.Rows[0];
+                            maKhachHang = row["MAKHACHHANG"].ToString();
+                        }
+                        string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
+                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
+                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
+                        if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                            MessageBox.Show("Đặt vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
-                    TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
-                    VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
-                    if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
-                        MessageBox.Show("Đặt vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch
-                {
-                    MessageBox.Show("Đặt vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    Recreate();
-                }
+                    catch
+                    {
+                        MessageBox.Show("Đặt vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        Recreate();
+                    }
+                }   
+                else
+                    MessageBox.Show("Chuyến bay đã khởi hành!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
