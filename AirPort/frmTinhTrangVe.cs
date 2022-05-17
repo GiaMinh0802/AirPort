@@ -17,21 +17,22 @@ namespace AirPort
         TinhTrangVeBUS busTinhTrangVe = new TinhTrangVeBUS();
         HangVeBUS busHangVe = new HangVeBUS();
         string maChuyenBay;
-        public frmTinhTrangVe(string maChuyenBay)
+        TextBox txtViTri;
+        string HangVe;
+
+        public frmTinhTrangVe(string maChuyenBay, TextBox txtViTri, string HangVe)
         {
             InitializeComponent();
             this.maChuyenBay = maChuyenBay;
+            this.txtViTri = txtViTri;
+            this.HangVe = HangVe;
             LoadForm();
         }
 
         private void LoadForm()
         {
             button81.BackColor = SystemColors.Control;
-            DataTable dtChuyenBay = busChuyenBay.Get();
-            cboMaChuyenBay.DataSource = dtChuyenBay;
-            cboMaChuyenBay.DisplayMember = "MACHUYENBAY";
-            cboMaChuyenBay.ValueMember = "MACHUYENBAY";
-            cboMaChuyenBay.SelectedValue = maChuyenBay;
+            cboMaChuyenBay.Text = maChuyenBay;
 
             cboMaChuyenBay.Focus();
             LoadDtgv(maChuyenBay);
@@ -40,7 +41,7 @@ namespace AirPort
 
         private void LoadDtgv(string maChuyenBay)
         {
-            DataTable dtTinhTrangVe = busTinhTrangVe.GetForDisplayOfMaChuyenBay(maChuyenBay);
+            DataTable dtTinhTrangVe = busTinhTrangVe.GetForDisplayOfMaChuyenBayAndHangVe(maChuyenBay, this.HangVe);
             dtgvTinhTrangVe.DataSource = dtTinhTrangVe;
             dtgvTinhTrangVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTinhTrangVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -51,37 +52,42 @@ namespace AirPort
             LoadDtgv(cboMaChuyenBay.Text);
             foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
             {
-                btn.BackColor = SystemColors.Control;
+                if (btn.Name != "btnChon")
+                    btn.BackColor = SystemColors.Control;
             }
+            
         }
         private void button_Click(object sender, EventArgs e)
         {
-            txtbox.Text = "";
+            string ghechon = "";
             Button num = (Button)sender;
-            
             if (num.BackColor != System.Drawing.Color.Red)
             {
-                num.BackColor = System.Drawing.Color.Lime;
-                txtbox.Text = txtbox.Text + num.Text;
-            }    
-            else
-            {
-                txtbox.Text = "";
-            }    
+                if (num.BackColor == System.Drawing.Color.Lime)
+                {
+                    num.BackColor = SystemColors.Control;
+                }    
+                else
+                {
+                    num.BackColor = System.Drawing.Color.Lime;
+                }    
+            }       
             foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
             {
-                if (btn.Name != num.Name && btn.BackColor != System.Drawing.Color.Red)
+                if (btn.BackColor == System.Drawing.Color.Lime)
                 {
-                    btn.BackColor = SystemColors.Control;
+                    ghechon = btn.Text + " " + ghechon;
                 }
             }
+            txtbox.Text = ghechon;
 
         }
         private void dtgvTinhTrangVe_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (Button btn in this.groupBox1.Controls.OfType<Button>())
             {
-                btn.BackColor = SystemColors.Control;
+                if (btn.Name != "btnChon")
+                    btn.BackColor = SystemColors.Control;
             }
             if (e.RowIndex == -1)
                 return;
@@ -106,9 +112,9 @@ namespace AirPort
                             soghe = 'D' + soghe[1].ToString();
                         else if (soghe[0] == '4')
                             soghe = 'E' + soghe[1].ToString();
-                        else if (soghe[0] == '3')
+                        else if (soghe[0] == '5')
                             soghe = 'F' + soghe[1].ToString();
-                        else if (soghe[0] == '3')
+                        else if (soghe[0] == '6')
                             soghe = 'G' + soghe[1].ToString();
                         else
                             soghe = 'H' + soghe[1].ToString();
@@ -143,5 +149,10 @@ namespace AirPort
             }
         }
 
+        private void btnChon_Click(object sender, EventArgs e)
+        {
+            txtViTri.Text = txtbox.Text;
+            this.Close();
+        }
     }
 }

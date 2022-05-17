@@ -21,6 +21,10 @@ namespace BUS
         {
             return dal.GetForDisplayOfMaChuyenBay(maChuyenBay);
         }
+        public DataTable GetForDisplayOfMaChuyenBayAndHangVe(string maChuyenBay, string HangVe)
+        {
+            return dal.GetForDisplayOfMaChuyenBayAndHangVe(maChuyenBay, HangVe);
+        }
         public string GetSoDoGheByMaChuyenBayAndMaHangVe(string maChuyenBay, string maHangVe)
         {
             return dal.GetSoDoGheByMaChuyenBayAndMaHangVe(maChuyenBay, maHangVe);

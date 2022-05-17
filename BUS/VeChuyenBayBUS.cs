@@ -36,5 +36,9 @@ namespace BUS
         {
             return dal.Delete(maVe);
         }
+        public bool Update(string maVe, string txtvitri)
+        {
+            return dal.Update(maVe, txtvitri);
+        }
     }
 }

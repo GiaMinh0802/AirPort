@@ -125,6 +125,7 @@ namespace AirPort
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnChon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvTinhTrangVe)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -134,22 +135,22 @@ namespace AirPort
             // dtgvTinhTrangVe
             // 
             this.dtgvTinhTrangVe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTinhTrangVe.Location = new System.Drawing.Point(12, 88);
-            this.dtgvTinhTrangVe.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dtgvTinhTrangVe.Location = new System.Drawing.Point(24, 169);
+            this.dtgvTinhTrangVe.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.dtgvTinhTrangVe.Name = "dtgvTinhTrangVe";
             this.dtgvTinhTrangVe.RowHeadersWidth = 82;
             this.dtgvTinhTrangVe.RowTemplate.Height = 24;
-            this.dtgvTinhTrangVe.Size = new System.Drawing.Size(390, 385);
+            this.dtgvTinhTrangVe.Size = new System.Drawing.Size(780, 740);
             this.dtgvTinhTrangVe.TabIndex = 2;
             this.dtgvTinhTrangVe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvTinhTrangVe_CellClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 59);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(20, 113);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
+            this.label2.Size = new System.Drawing.Size(159, 25);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mã chuyến bay";
             // 
@@ -157,20 +158,20 @@ namespace AirPort
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(331, 10);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(662, 19);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 24);
+            this.label8.Size = new System.Drawing.Size(318, 42);
             this.label8.TabIndex = 40;
             this.label8.Text = "TÌNH TRẠNG VÉ";
             // 
             // cboMaChuyenBay
             // 
             this.cboMaChuyenBay.FormattingEnabled = true;
-            this.cboMaChuyenBay.Location = new System.Drawing.Point(108, 56);
-            this.cboMaChuyenBay.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.cboMaChuyenBay.Location = new System.Drawing.Point(216, 108);
+            this.cboMaChuyenBay.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.cboMaChuyenBay.Name = "cboMaChuyenBay";
-            this.cboMaChuyenBay.Size = new System.Drawing.Size(114, 21);
+            this.cboMaChuyenBay.Size = new System.Drawing.Size(224, 33);
             this.cboMaChuyenBay.TabIndex = 1;
             this.cboMaChuyenBay.SelectedValueChanged += new System.EventHandler(this.cboMaChuyenBay_SelectedValueChanged);
             // 
@@ -178,14 +179,15 @@ namespace AirPort
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(-6, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panel2.Location = new System.Drawing.Point(-12, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(804, 47);
+            this.panel2.Size = new System.Drawing.Size(1608, 90);
             this.panel2.TabIndex = 122;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnChon);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.txtbox);
             this.groupBox1.Controls.Add(this.label1);
@@ -269,11 +271,11 @@ namespace AirPort
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(423, 59);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(846, 113);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(370, 414);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(740, 796);
             this.groupBox1.TabIndex = 123;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sơ Đồ Ghế ";
@@ -286,11 +288,11 @@ namespace AirPort
             this.groupBox2.Controls.Add(this.button82);
             this.groupBox2.Controls.Add(this.button81);
             this.groupBox2.Controls.Add(this.button80);
-            this.groupBox2.Location = new System.Drawing.Point(17, 336);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(34, 646);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(331, 72);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(662, 138);
             this.groupBox2.TabIndex = 124;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chú thích";
@@ -298,40 +300,40 @@ namespace AirPort
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(230, 51);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(460, 98);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 13);
+            this.label5.Size = new System.Drawing.Size(147, 25);
             this.label5.TabIndex = 83;
             this.label5.Text = "Ghế bạn chọn";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(124, 51);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(248, 98);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.Size = new System.Drawing.Size(163, 25);
             this.label4.TabIndex = 82;
             this.label4.Text = "Không thể chọn";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 51);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(34, 98);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.Size = new System.Drawing.Size(118, 25);
             this.label3.TabIndex = 81;
             this.label3.Text = "Ghế đã đặt";
             // 
             // button82
             // 
             this.button82.BackColor = System.Drawing.Color.Lime;
-            this.button82.Location = new System.Drawing.Point(252, 23);
-            this.button82.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button82.Location = new System.Drawing.Point(504, 44);
+            this.button82.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button82.Name = "button82";
-            this.button82.Size = new System.Drawing.Size(30, 26);
+            this.button82.Size = new System.Drawing.Size(60, 50);
             this.button82.TabIndex = 12;
             this.button82.TabStop = false;
             this.button82.Text = "A0";
@@ -340,10 +342,10 @@ namespace AirPort
             // button81
             // 
             this.button81.Enabled = false;
-            this.button81.Location = new System.Drawing.Point(148, 23);
-            this.button81.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button81.Location = new System.Drawing.Point(296, 44);
+            this.button81.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button81.Name = "button81";
-            this.button81.Size = new System.Drawing.Size(30, 26);
+            this.button81.Size = new System.Drawing.Size(60, 50);
             this.button81.TabIndex = 11;
             this.button81.TabStop = false;
             this.button81.Text = "A0";
@@ -352,10 +354,10 @@ namespace AirPort
             // button80
             // 
             this.button80.BackColor = System.Drawing.Color.Red;
-            this.button80.Location = new System.Drawing.Point(31, 23);
-            this.button80.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button80.Location = new System.Drawing.Point(62, 44);
+            this.button80.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button80.Name = "button80";
-            this.button80.Size = new System.Drawing.Size(30, 26);
+            this.button80.Size = new System.Drawing.Size(60, 50);
             this.button80.TabIndex = 10;
             this.button80.TabStop = false;
             this.button80.Text = "A0";
@@ -363,28 +365,28 @@ namespace AirPort
             // 
             // txtbox
             // 
-            this.txtbox.Location = new System.Drawing.Point(205, 17);
-            this.txtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtbox.Location = new System.Drawing.Point(216, 35);
+            this.txtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtbox.Name = "txtbox";
-            this.txtbox.Size = new System.Drawing.Size(52, 20);
+            this.txtbox.Size = new System.Drawing.Size(359, 31);
             this.txtbox.TabIndex = 81;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(123, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(50, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.Size = new System.Drawing.Size(158, 25);
             this.label1.TabIndex = 80;
             this.label1.Text = "Ghế được chọn";
             // 
             // button70
             // 
-            this.button70.Location = new System.Drawing.Point(215, 44);
-            this.button70.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button70.Location = new System.Drawing.Point(430, 85);
+            this.button70.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button70.Name = "button70";
-            this.button70.Size = new System.Drawing.Size(30, 26);
+            this.button70.Size = new System.Drawing.Size(60, 50);
             this.button70.TabIndex = 79;
             this.button70.TabStop = false;
             this.button70.Text = "E0";
@@ -393,10 +395,10 @@ namespace AirPort
             // 
             // button71
             // 
-            this.button71.Location = new System.Drawing.Point(215, 305);
-            this.button71.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button71.Location = new System.Drawing.Point(430, 587);
+            this.button71.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button71.Name = "button71";
-            this.button71.Size = new System.Drawing.Size(30, 26);
+            this.button71.Size = new System.Drawing.Size(60, 50);
             this.button71.TabIndex = 78;
             this.button71.TabStop = false;
             this.button71.Text = "E9";
@@ -405,10 +407,10 @@ namespace AirPort
             // 
             // button72
             // 
-            this.button72.Location = new System.Drawing.Point(215, 277);
-            this.button72.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button72.Location = new System.Drawing.Point(430, 533);
+            this.button72.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button72.Name = "button72";
-            this.button72.Size = new System.Drawing.Size(30, 26);
+            this.button72.Size = new System.Drawing.Size(60, 50);
             this.button72.TabIndex = 77;
             this.button72.TabStop = false;
             this.button72.Text = "E8";
@@ -417,10 +419,10 @@ namespace AirPort
             // 
             // button73
             // 
-            this.button73.Location = new System.Drawing.Point(215, 248);
-            this.button73.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button73.Location = new System.Drawing.Point(430, 477);
+            this.button73.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button73.Name = "button73";
-            this.button73.Size = new System.Drawing.Size(30, 26);
+            this.button73.Size = new System.Drawing.Size(60, 50);
             this.button73.TabIndex = 76;
             this.button73.TabStop = false;
             this.button73.Text = "E7";
@@ -429,10 +431,10 @@ namespace AirPort
             // 
             // button74
             // 
-            this.button74.Location = new System.Drawing.Point(215, 217);
-            this.button74.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button74.Location = new System.Drawing.Point(430, 417);
+            this.button74.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button74.Name = "button74";
-            this.button74.Size = new System.Drawing.Size(30, 26);
+            this.button74.Size = new System.Drawing.Size(60, 50);
             this.button74.TabIndex = 75;
             this.button74.TabStop = false;
             this.button74.Text = "E6";
@@ -441,10 +443,10 @@ namespace AirPort
             // 
             // button75
             // 
-            this.button75.Location = new System.Drawing.Point(215, 188);
-            this.button75.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button75.Location = new System.Drawing.Point(430, 362);
+            this.button75.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button75.Name = "button75";
-            this.button75.Size = new System.Drawing.Size(30, 26);
+            this.button75.Size = new System.Drawing.Size(60, 50);
             this.button75.TabIndex = 74;
             this.button75.TabStop = false;
             this.button75.Text = "E5";
@@ -453,10 +455,10 @@ namespace AirPort
             // 
             // button76
             // 
-            this.button76.Location = new System.Drawing.Point(215, 160);
-            this.button76.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button76.Location = new System.Drawing.Point(430, 308);
+            this.button76.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button76.Name = "button76";
-            this.button76.Size = new System.Drawing.Size(30, 26);
+            this.button76.Size = new System.Drawing.Size(60, 50);
             this.button76.TabIndex = 73;
             this.button76.TabStop = false;
             this.button76.Text = "E4";
@@ -465,10 +467,10 @@ namespace AirPort
             // 
             // button77
             // 
-            this.button77.Location = new System.Drawing.Point(215, 131);
-            this.button77.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button77.Location = new System.Drawing.Point(430, 252);
+            this.button77.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button77.Name = "button77";
-            this.button77.Size = new System.Drawing.Size(30, 26);
+            this.button77.Size = new System.Drawing.Size(60, 50);
             this.button77.TabIndex = 72;
             this.button77.TabStop = false;
             this.button77.Text = "E3";
@@ -477,10 +479,10 @@ namespace AirPort
             // 
             // button78
             // 
-            this.button78.Location = new System.Drawing.Point(215, 101);
-            this.button78.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button78.Location = new System.Drawing.Point(430, 194);
+            this.button78.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button78.Name = "button78";
-            this.button78.Size = new System.Drawing.Size(30, 26);
+            this.button78.Size = new System.Drawing.Size(60, 50);
             this.button78.TabIndex = 71;
             this.button78.TabStop = false;
             this.button78.Text = "E2";
@@ -489,10 +491,10 @@ namespace AirPort
             // 
             // button79
             // 
-            this.button79.Location = new System.Drawing.Point(215, 72);
-            this.button79.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button79.Location = new System.Drawing.Point(430, 138);
+            this.button79.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button79.Name = "button79";
-            this.button79.Size = new System.Drawing.Size(30, 26);
+            this.button79.Size = new System.Drawing.Size(60, 50);
             this.button79.TabIndex = 70;
             this.button79.TabStop = false;
             this.button79.Text = "E1";
@@ -501,10 +503,10 @@ namespace AirPort
             // 
             // button60
             // 
-            this.button60.Location = new System.Drawing.Point(125, 44);
-            this.button60.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button60.Location = new System.Drawing.Point(250, 85);
+            this.button60.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button60.Name = "button60";
-            this.button60.Size = new System.Drawing.Size(30, 26);
+            this.button60.Size = new System.Drawing.Size(60, 50);
             this.button60.TabIndex = 69;
             this.button60.TabStop = false;
             this.button60.Text = "D0";
@@ -513,10 +515,10 @@ namespace AirPort
             // 
             // button61
             // 
-            this.button61.Location = new System.Drawing.Point(125, 305);
-            this.button61.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button61.Location = new System.Drawing.Point(250, 587);
+            this.button61.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button61.Name = "button61";
-            this.button61.Size = new System.Drawing.Size(30, 26);
+            this.button61.Size = new System.Drawing.Size(60, 50);
             this.button61.TabIndex = 68;
             this.button61.TabStop = false;
             this.button61.Text = "D9";
@@ -525,10 +527,10 @@ namespace AirPort
             // 
             // button62
             // 
-            this.button62.Location = new System.Drawing.Point(125, 277);
-            this.button62.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button62.Location = new System.Drawing.Point(250, 533);
+            this.button62.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button62.Name = "button62";
-            this.button62.Size = new System.Drawing.Size(30, 26);
+            this.button62.Size = new System.Drawing.Size(60, 50);
             this.button62.TabIndex = 67;
             this.button62.TabStop = false;
             this.button62.Text = "D8";
@@ -537,10 +539,10 @@ namespace AirPort
             // 
             // button63
             // 
-            this.button63.Location = new System.Drawing.Point(125, 248);
-            this.button63.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button63.Location = new System.Drawing.Point(250, 477);
+            this.button63.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button63.Name = "button63";
-            this.button63.Size = new System.Drawing.Size(30, 26);
+            this.button63.Size = new System.Drawing.Size(60, 50);
             this.button63.TabIndex = 66;
             this.button63.TabStop = false;
             this.button63.Text = "D7";
@@ -549,10 +551,10 @@ namespace AirPort
             // 
             // button64
             // 
-            this.button64.Location = new System.Drawing.Point(125, 218);
-            this.button64.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button64.Location = new System.Drawing.Point(250, 419);
+            this.button64.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button64.Name = "button64";
-            this.button64.Size = new System.Drawing.Size(30, 26);
+            this.button64.Size = new System.Drawing.Size(60, 50);
             this.button64.TabIndex = 65;
             this.button64.TabStop = false;
             this.button64.Text = "D6";
@@ -561,10 +563,10 @@ namespace AirPort
             // 
             // button65
             // 
-            this.button65.Location = new System.Drawing.Point(125, 189);
-            this.button65.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button65.Location = new System.Drawing.Point(250, 363);
+            this.button65.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button65.Name = "button65";
-            this.button65.Size = new System.Drawing.Size(30, 26);
+            this.button65.Size = new System.Drawing.Size(60, 50);
             this.button65.TabIndex = 64;
             this.button65.TabStop = false;
             this.button65.Text = "D5";
@@ -573,10 +575,10 @@ namespace AirPort
             // 
             // button66
             // 
-            this.button66.Location = new System.Drawing.Point(125, 161);
-            this.button66.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button66.Location = new System.Drawing.Point(250, 310);
+            this.button66.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button66.Name = "button66";
-            this.button66.Size = new System.Drawing.Size(30, 26);
+            this.button66.Size = new System.Drawing.Size(60, 50);
             this.button66.TabIndex = 63;
             this.button66.TabStop = false;
             this.button66.Text = "D4";
@@ -585,10 +587,10 @@ namespace AirPort
             // 
             // button67
             // 
-            this.button67.Location = new System.Drawing.Point(125, 132);
-            this.button67.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button67.Location = new System.Drawing.Point(250, 254);
+            this.button67.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button67.Name = "button67";
-            this.button67.Size = new System.Drawing.Size(30, 26);
+            this.button67.Size = new System.Drawing.Size(60, 50);
             this.button67.TabIndex = 62;
             this.button67.TabStop = false;
             this.button67.Text = "D3";
@@ -597,10 +599,10 @@ namespace AirPort
             // 
             // button68
             // 
-            this.button68.Location = new System.Drawing.Point(125, 101);
-            this.button68.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button68.Location = new System.Drawing.Point(250, 194);
+            this.button68.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button68.Name = "button68";
-            this.button68.Size = new System.Drawing.Size(30, 26);
+            this.button68.Size = new System.Drawing.Size(60, 50);
             this.button68.TabIndex = 61;
             this.button68.TabStop = false;
             this.button68.Text = "D2";
@@ -609,10 +611,10 @@ namespace AirPort
             // 
             // button69
             // 
-            this.button69.Location = new System.Drawing.Point(125, 72);
-            this.button69.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button69.Location = new System.Drawing.Point(250, 138);
+            this.button69.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button69.Name = "button69";
-            this.button69.Size = new System.Drawing.Size(30, 26);
+            this.button69.Size = new System.Drawing.Size(60, 50);
             this.button69.TabIndex = 60;
             this.button69.TabStop = false;
             this.button69.Text = "D1";
@@ -621,10 +623,10 @@ namespace AirPort
             // 
             // button50
             // 
-            this.button50.Location = new System.Drawing.Point(249, 44);
-            this.button50.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button50.Location = new System.Drawing.Point(498, 85);
+            this.button50.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button50.Name = "button50";
-            this.button50.Size = new System.Drawing.Size(30, 26);
+            this.button50.Size = new System.Drawing.Size(60, 50);
             this.button50.TabIndex = 59;
             this.button50.TabStop = false;
             this.button50.Text = "F0";
@@ -633,10 +635,10 @@ namespace AirPort
             // 
             // button51
             // 
-            this.button51.Location = new System.Drawing.Point(249, 305);
-            this.button51.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button51.Location = new System.Drawing.Point(498, 587);
+            this.button51.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button51.Name = "button51";
-            this.button51.Size = new System.Drawing.Size(30, 26);
+            this.button51.Size = new System.Drawing.Size(60, 50);
             this.button51.TabIndex = 58;
             this.button51.TabStop = false;
             this.button51.Text = "F9";
@@ -645,10 +647,10 @@ namespace AirPort
             // 
             // button52
             // 
-            this.button52.Location = new System.Drawing.Point(249, 277);
-            this.button52.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button52.Location = new System.Drawing.Point(498, 533);
+            this.button52.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button52.Name = "button52";
-            this.button52.Size = new System.Drawing.Size(30, 26);
+            this.button52.Size = new System.Drawing.Size(60, 50);
             this.button52.TabIndex = 57;
             this.button52.TabStop = false;
             this.button52.Text = "F8";
@@ -657,10 +659,10 @@ namespace AirPort
             // 
             // button53
             // 
-            this.button53.Location = new System.Drawing.Point(249, 248);
-            this.button53.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button53.Location = new System.Drawing.Point(498, 477);
+            this.button53.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button53.Name = "button53";
-            this.button53.Size = new System.Drawing.Size(30, 26);
+            this.button53.Size = new System.Drawing.Size(60, 50);
             this.button53.TabIndex = 56;
             this.button53.TabStop = false;
             this.button53.Text = "F7";
@@ -669,10 +671,10 @@ namespace AirPort
             // 
             // button54
             // 
-            this.button54.Location = new System.Drawing.Point(249, 217);
-            this.button54.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button54.Location = new System.Drawing.Point(498, 417);
+            this.button54.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button54.Name = "button54";
-            this.button54.Size = new System.Drawing.Size(30, 26);
+            this.button54.Size = new System.Drawing.Size(60, 50);
             this.button54.TabIndex = 55;
             this.button54.TabStop = false;
             this.button54.Text = "F6";
@@ -681,10 +683,10 @@ namespace AirPort
             // 
             // button55
             // 
-            this.button55.Location = new System.Drawing.Point(249, 188);
-            this.button55.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button55.Location = new System.Drawing.Point(498, 362);
+            this.button55.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button55.Name = "button55";
-            this.button55.Size = new System.Drawing.Size(30, 26);
+            this.button55.Size = new System.Drawing.Size(60, 50);
             this.button55.TabIndex = 54;
             this.button55.TabStop = false;
             this.button55.Text = "F5";
@@ -693,10 +695,10 @@ namespace AirPort
             // 
             // button56
             // 
-            this.button56.Location = new System.Drawing.Point(249, 160);
-            this.button56.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button56.Location = new System.Drawing.Point(498, 308);
+            this.button56.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button56.Name = "button56";
-            this.button56.Size = new System.Drawing.Size(30, 26);
+            this.button56.Size = new System.Drawing.Size(60, 50);
             this.button56.TabIndex = 53;
             this.button56.TabStop = false;
             this.button56.Text = "F4";
@@ -705,10 +707,10 @@ namespace AirPort
             // 
             // button57
             // 
-            this.button57.Location = new System.Drawing.Point(249, 131);
-            this.button57.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button57.Location = new System.Drawing.Point(498, 252);
+            this.button57.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button57.Name = "button57";
-            this.button57.Size = new System.Drawing.Size(30, 26);
+            this.button57.Size = new System.Drawing.Size(60, 50);
             this.button57.TabIndex = 52;
             this.button57.TabStop = false;
             this.button57.Text = "F3";
@@ -717,10 +719,10 @@ namespace AirPort
             // 
             // button58
             // 
-            this.button58.Location = new System.Drawing.Point(249, 101);
-            this.button58.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button58.Location = new System.Drawing.Point(498, 194);
+            this.button58.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button58.Name = "button58";
-            this.button58.Size = new System.Drawing.Size(30, 26);
+            this.button58.Size = new System.Drawing.Size(60, 50);
             this.button58.TabIndex = 51;
             this.button58.TabStop = false;
             this.button58.Text = "F2";
@@ -729,10 +731,10 @@ namespace AirPort
             // 
             // button59
             // 
-            this.button59.Location = new System.Drawing.Point(249, 72);
-            this.button59.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button59.Location = new System.Drawing.Point(498, 138);
+            this.button59.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button59.Name = "button59";
-            this.button59.Size = new System.Drawing.Size(30, 26);
+            this.button59.Size = new System.Drawing.Size(60, 50);
             this.button59.TabIndex = 50;
             this.button59.TabStop = false;
             this.button59.Text = "F1";
@@ -741,10 +743,10 @@ namespace AirPort
             // 
             // button40
             // 
-            this.button40.Location = new System.Drawing.Point(283, 44);
-            this.button40.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button40.Location = new System.Drawing.Point(566, 85);
+            this.button40.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(30, 26);
+            this.button40.Size = new System.Drawing.Size(60, 50);
             this.button40.TabIndex = 49;
             this.button40.TabStop = false;
             this.button40.Text = "G0";
@@ -753,10 +755,10 @@ namespace AirPort
             // 
             // button41
             // 
-            this.button41.Location = new System.Drawing.Point(283, 306);
-            this.button41.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button41.Location = new System.Drawing.Point(566, 588);
+            this.button41.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(30, 26);
+            this.button41.Size = new System.Drawing.Size(60, 50);
             this.button41.TabIndex = 48;
             this.button41.TabStop = false;
             this.button41.Text = "G9";
@@ -765,10 +767,10 @@ namespace AirPort
             // 
             // button42
             // 
-            this.button42.Location = new System.Drawing.Point(283, 278);
-            this.button42.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button42.Location = new System.Drawing.Point(566, 535);
+            this.button42.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(30, 26);
+            this.button42.Size = new System.Drawing.Size(60, 50);
             this.button42.TabIndex = 47;
             this.button42.TabStop = false;
             this.button42.Text = "G8";
@@ -777,10 +779,10 @@ namespace AirPort
             // 
             // button43
             // 
-            this.button43.Location = new System.Drawing.Point(283, 249);
-            this.button43.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button43.Location = new System.Drawing.Point(566, 479);
+            this.button43.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(30, 26);
+            this.button43.Size = new System.Drawing.Size(60, 50);
             this.button43.TabIndex = 46;
             this.button43.TabStop = false;
             this.button43.Text = "G7";
@@ -789,10 +791,10 @@ namespace AirPort
             // 
             // button44
             // 
-            this.button44.Location = new System.Drawing.Point(283, 218);
-            this.button44.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button44.Location = new System.Drawing.Point(566, 419);
+            this.button44.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button44.Name = "button44";
-            this.button44.Size = new System.Drawing.Size(30, 26);
+            this.button44.Size = new System.Drawing.Size(60, 50);
             this.button44.TabIndex = 45;
             this.button44.TabStop = false;
             this.button44.Text = "G6";
@@ -801,10 +803,10 @@ namespace AirPort
             // 
             // button45
             // 
-            this.button45.Location = new System.Drawing.Point(283, 189);
-            this.button45.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button45.Location = new System.Drawing.Point(566, 363);
+            this.button45.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button45.Name = "button45";
-            this.button45.Size = new System.Drawing.Size(30, 26);
+            this.button45.Size = new System.Drawing.Size(60, 50);
             this.button45.TabIndex = 44;
             this.button45.TabStop = false;
             this.button45.Text = "G5";
@@ -813,10 +815,10 @@ namespace AirPort
             // 
             // button46
             // 
-            this.button46.Location = new System.Drawing.Point(283, 161);
-            this.button46.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button46.Location = new System.Drawing.Point(566, 310);
+            this.button46.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button46.Name = "button46";
-            this.button46.Size = new System.Drawing.Size(30, 26);
+            this.button46.Size = new System.Drawing.Size(60, 50);
             this.button46.TabIndex = 43;
             this.button46.TabStop = false;
             this.button46.Text = "G4";
@@ -825,10 +827,10 @@ namespace AirPort
             // 
             // button47
             // 
-            this.button47.Location = new System.Drawing.Point(283, 132);
-            this.button47.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button47.Location = new System.Drawing.Point(566, 254);
+            this.button47.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button47.Name = "button47";
-            this.button47.Size = new System.Drawing.Size(30, 26);
+            this.button47.Size = new System.Drawing.Size(60, 50);
             this.button47.TabIndex = 42;
             this.button47.TabStop = false;
             this.button47.Text = "G3";
@@ -837,10 +839,10 @@ namespace AirPort
             // 
             // button48
             // 
-            this.button48.Location = new System.Drawing.Point(283, 102);
-            this.button48.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button48.Location = new System.Drawing.Point(566, 196);
+            this.button48.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button48.Name = "button48";
-            this.button48.Size = new System.Drawing.Size(30, 26);
+            this.button48.Size = new System.Drawing.Size(60, 50);
             this.button48.TabIndex = 41;
             this.button48.TabStop = false;
             this.button48.Text = "G2";
@@ -849,10 +851,10 @@ namespace AirPort
             // 
             // button49
             // 
-            this.button49.Location = new System.Drawing.Point(283, 73);
-            this.button49.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button49.Location = new System.Drawing.Point(566, 140);
+            this.button49.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button49.Name = "button49";
-            this.button49.Size = new System.Drawing.Size(30, 26);
+            this.button49.Size = new System.Drawing.Size(60, 50);
             this.button49.TabIndex = 40;
             this.button49.TabStop = false;
             this.button49.Text = "G1";
@@ -861,10 +863,10 @@ namespace AirPort
             // 
             // button30
             // 
-            this.button30.Location = new System.Drawing.Point(318, 44);
-            this.button30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button30.Location = new System.Drawing.Point(636, 85);
+            this.button30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(30, 26);
+            this.button30.Size = new System.Drawing.Size(60, 50);
             this.button30.TabIndex = 39;
             this.button30.TabStop = false;
             this.button30.Text = "H0";
@@ -873,10 +875,10 @@ namespace AirPort
             // 
             // button31
             // 
-            this.button31.Location = new System.Drawing.Point(318, 305);
-            this.button31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button31.Location = new System.Drawing.Point(636, 587);
+            this.button31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(30, 26);
+            this.button31.Size = new System.Drawing.Size(60, 50);
             this.button31.TabIndex = 38;
             this.button31.TabStop = false;
             this.button31.Text = "H9";
@@ -885,10 +887,10 @@ namespace AirPort
             // 
             // button32
             // 
-            this.button32.Location = new System.Drawing.Point(318, 277);
-            this.button32.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button32.Location = new System.Drawing.Point(636, 533);
+            this.button32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(30, 26);
+            this.button32.Size = new System.Drawing.Size(60, 50);
             this.button32.TabIndex = 37;
             this.button32.TabStop = false;
             this.button32.Text = "H8";
@@ -897,10 +899,10 @@ namespace AirPort
             // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(318, 248);
-            this.button33.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button33.Location = new System.Drawing.Point(636, 477);
+            this.button33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(30, 26);
+            this.button33.Size = new System.Drawing.Size(60, 50);
             this.button33.TabIndex = 36;
             this.button33.TabStop = false;
             this.button33.Text = "H7";
@@ -909,10 +911,10 @@ namespace AirPort
             // 
             // button34
             // 
-            this.button34.Location = new System.Drawing.Point(318, 217);
-            this.button34.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button34.Location = new System.Drawing.Point(636, 417);
+            this.button34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button34.Name = "button34";
-            this.button34.Size = new System.Drawing.Size(30, 26);
+            this.button34.Size = new System.Drawing.Size(60, 50);
             this.button34.TabIndex = 35;
             this.button34.TabStop = false;
             this.button34.Text = "H6";
@@ -921,10 +923,10 @@ namespace AirPort
             // 
             // button35
             // 
-            this.button35.Location = new System.Drawing.Point(318, 188);
-            this.button35.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button35.Location = new System.Drawing.Point(636, 362);
+            this.button35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(30, 26);
+            this.button35.Size = new System.Drawing.Size(60, 50);
             this.button35.TabIndex = 34;
             this.button35.TabStop = false;
             this.button35.Text = "H5";
@@ -933,10 +935,10 @@ namespace AirPort
             // 
             // button36
             // 
-            this.button36.Location = new System.Drawing.Point(318, 160);
-            this.button36.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button36.Location = new System.Drawing.Point(636, 308);
+            this.button36.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(30, 26);
+            this.button36.Size = new System.Drawing.Size(60, 50);
             this.button36.TabIndex = 33;
             this.button36.TabStop = false;
             this.button36.Text = "H4";
@@ -945,10 +947,10 @@ namespace AirPort
             // 
             // button37
             // 
-            this.button37.Location = new System.Drawing.Point(318, 131);
-            this.button37.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button37.Location = new System.Drawing.Point(636, 252);
+            this.button37.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(30, 26);
+            this.button37.Size = new System.Drawing.Size(60, 50);
             this.button37.TabIndex = 32;
             this.button37.TabStop = false;
             this.button37.Text = "H3";
@@ -957,10 +959,10 @@ namespace AirPort
             // 
             // button38
             // 
-            this.button38.Location = new System.Drawing.Point(318, 101);
-            this.button38.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button38.Location = new System.Drawing.Point(636, 194);
+            this.button38.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button38.Name = "button38";
-            this.button38.Size = new System.Drawing.Size(30, 26);
+            this.button38.Size = new System.Drawing.Size(60, 50);
             this.button38.TabIndex = 31;
             this.button38.TabStop = false;
             this.button38.Text = "H2";
@@ -969,10 +971,10 @@ namespace AirPort
             // 
             // button39
             // 
-            this.button39.Location = new System.Drawing.Point(318, 72);
-            this.button39.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button39.Location = new System.Drawing.Point(636, 138);
+            this.button39.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button39.Name = "button39";
-            this.button39.Size = new System.Drawing.Size(30, 26);
+            this.button39.Size = new System.Drawing.Size(60, 50);
             this.button39.TabIndex = 30;
             this.button39.TabStop = false;
             this.button39.Text = "H1";
@@ -981,10 +983,10 @@ namespace AirPort
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(88, 44);
-            this.button20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button20.Location = new System.Drawing.Point(176, 85);
+            this.button20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(30, 26);
+            this.button20.Size = new System.Drawing.Size(60, 50);
             this.button20.TabIndex = 29;
             this.button20.TabStop = false;
             this.button20.Text = "C0";
@@ -993,10 +995,10 @@ namespace AirPort
             // 
             // button21
             // 
-            this.button21.Location = new System.Drawing.Point(88, 305);
-            this.button21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button21.Location = new System.Drawing.Point(176, 587);
+            this.button21.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(30, 26);
+            this.button21.Size = new System.Drawing.Size(60, 50);
             this.button21.TabIndex = 28;
             this.button21.TabStop = false;
             this.button21.Text = "C9";
@@ -1005,10 +1007,10 @@ namespace AirPort
             // 
             // button22
             // 
-            this.button22.Location = new System.Drawing.Point(88, 277);
-            this.button22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button22.Location = new System.Drawing.Point(176, 533);
+            this.button22.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(30, 26);
+            this.button22.Size = new System.Drawing.Size(60, 50);
             this.button22.TabIndex = 27;
             this.button22.TabStop = false;
             this.button22.Text = "C8";
@@ -1017,10 +1019,10 @@ namespace AirPort
             // 
             // button23
             // 
-            this.button23.Location = new System.Drawing.Point(88, 248);
-            this.button23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button23.Location = new System.Drawing.Point(176, 477);
+            this.button23.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(30, 26);
+            this.button23.Size = new System.Drawing.Size(60, 50);
             this.button23.TabIndex = 26;
             this.button23.TabStop = false;
             this.button23.Text = "C7";
@@ -1029,10 +1031,10 @@ namespace AirPort
             // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(88, 217);
-            this.button24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button24.Location = new System.Drawing.Point(176, 417);
+            this.button24.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(30, 26);
+            this.button24.Size = new System.Drawing.Size(60, 50);
             this.button24.TabIndex = 25;
             this.button24.TabStop = false;
             this.button24.Text = "C6";
@@ -1041,10 +1043,10 @@ namespace AirPort
             // 
             // button25
             // 
-            this.button25.Location = new System.Drawing.Point(88, 188);
-            this.button25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button25.Location = new System.Drawing.Point(176, 362);
+            this.button25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(30, 26);
+            this.button25.Size = new System.Drawing.Size(60, 50);
             this.button25.TabIndex = 24;
             this.button25.TabStop = false;
             this.button25.Text = "C5";
@@ -1053,10 +1055,10 @@ namespace AirPort
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(88, 160);
-            this.button26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button26.Location = new System.Drawing.Point(176, 308);
+            this.button26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(30, 26);
+            this.button26.Size = new System.Drawing.Size(60, 50);
             this.button26.TabIndex = 23;
             this.button26.TabStop = false;
             this.button26.Text = "C4";
@@ -1065,10 +1067,10 @@ namespace AirPort
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(88, 131);
-            this.button27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button27.Location = new System.Drawing.Point(176, 252);
+            this.button27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(30, 26);
+            this.button27.Size = new System.Drawing.Size(60, 50);
             this.button27.TabIndex = 22;
             this.button27.TabStop = false;
             this.button27.Text = "C3";
@@ -1077,10 +1079,10 @@ namespace AirPort
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(88, 101);
-            this.button28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button28.Location = new System.Drawing.Point(176, 194);
+            this.button28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(30, 26);
+            this.button28.Size = new System.Drawing.Size(60, 50);
             this.button28.TabIndex = 21;
             this.button28.TabStop = false;
             this.button28.Text = "C2";
@@ -1089,10 +1091,10 @@ namespace AirPort
             // 
             // button29
             // 
-            this.button29.Location = new System.Drawing.Point(88, 72);
-            this.button29.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button29.Location = new System.Drawing.Point(176, 138);
+            this.button29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(30, 26);
+            this.button29.Size = new System.Drawing.Size(60, 50);
             this.button29.TabIndex = 20;
             this.button29.TabStop = false;
             this.button29.Text = "C1";
@@ -1101,10 +1103,10 @@ namespace AirPort
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(53, 44);
-            this.button10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button10.Location = new System.Drawing.Point(106, 85);
+            this.button10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(30, 26);
+            this.button10.Size = new System.Drawing.Size(60, 50);
             this.button10.TabIndex = 19;
             this.button10.TabStop = false;
             this.button10.Text = "B0";
@@ -1113,10 +1115,10 @@ namespace AirPort
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(53, 305);
-            this.button11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button11.Location = new System.Drawing.Point(106, 587);
+            this.button11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(30, 26);
+            this.button11.Size = new System.Drawing.Size(60, 50);
             this.button11.TabIndex = 18;
             this.button11.TabStop = false;
             this.button11.Text = "B9";
@@ -1125,10 +1127,10 @@ namespace AirPort
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(53, 277);
-            this.button12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button12.Location = new System.Drawing.Point(106, 533);
+            this.button12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(30, 26);
+            this.button12.Size = new System.Drawing.Size(60, 50);
             this.button12.TabIndex = 17;
             this.button12.TabStop = false;
             this.button12.Text = "B8";
@@ -1137,10 +1139,10 @@ namespace AirPort
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(53, 248);
-            this.button13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button13.Location = new System.Drawing.Point(106, 477);
+            this.button13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(30, 26);
+            this.button13.Size = new System.Drawing.Size(60, 50);
             this.button13.TabIndex = 16;
             this.button13.TabStop = false;
             this.button13.Text = "B7";
@@ -1149,10 +1151,10 @@ namespace AirPort
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(53, 217);
-            this.button14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button14.Location = new System.Drawing.Point(106, 417);
+            this.button14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(30, 26);
+            this.button14.Size = new System.Drawing.Size(60, 50);
             this.button14.TabIndex = 15;
             this.button14.TabStop = false;
             this.button14.Text = "B6";
@@ -1161,10 +1163,10 @@ namespace AirPort
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(53, 188);
-            this.button15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button15.Location = new System.Drawing.Point(106, 362);
+            this.button15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(30, 26);
+            this.button15.Size = new System.Drawing.Size(60, 50);
             this.button15.TabIndex = 14;
             this.button15.TabStop = false;
             this.button15.Text = "B5";
@@ -1173,10 +1175,10 @@ namespace AirPort
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(53, 160);
-            this.button16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button16.Location = new System.Drawing.Point(106, 308);
+            this.button16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(30, 26);
+            this.button16.Size = new System.Drawing.Size(60, 50);
             this.button16.TabIndex = 13;
             this.button16.TabStop = false;
             this.button16.Text = "B4";
@@ -1185,10 +1187,10 @@ namespace AirPort
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(53, 131);
-            this.button17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button17.Location = new System.Drawing.Point(106, 252);
+            this.button17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(30, 26);
+            this.button17.Size = new System.Drawing.Size(60, 50);
             this.button17.TabIndex = 12;
             this.button17.TabStop = false;
             this.button17.Text = "B3";
@@ -1197,10 +1199,10 @@ namespace AirPort
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(53, 101);
-            this.button18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button18.Location = new System.Drawing.Point(106, 194);
+            this.button18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(30, 26);
+            this.button18.Size = new System.Drawing.Size(60, 50);
             this.button18.TabIndex = 11;
             this.button18.TabStop = false;
             this.button18.Text = "B2";
@@ -1209,10 +1211,10 @@ namespace AirPort
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(53, 72);
-            this.button19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button19.Location = new System.Drawing.Point(106, 138);
+            this.button19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(30, 26);
+            this.button19.Size = new System.Drawing.Size(60, 50);
             this.button19.TabIndex = 10;
             this.button19.TabStop = false;
             this.button19.Text = "B1";
@@ -1221,10 +1223,10 @@ namespace AirPort
             // 
             // btnA0
             // 
-            this.btnA0.Location = new System.Drawing.Point(17, 44);
-            this.btnA0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnA0.Location = new System.Drawing.Point(34, 85);
+            this.btnA0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnA0.Name = "btnA0";
-            this.btnA0.Size = new System.Drawing.Size(30, 26);
+            this.btnA0.Size = new System.Drawing.Size(60, 50);
             this.btnA0.TabIndex = 9;
             this.btnA0.TabStop = false;
             this.btnA0.Text = "A0";
@@ -1233,10 +1235,10 @@ namespace AirPort
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(17, 305);
-            this.button9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button9.Location = new System.Drawing.Point(34, 587);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(30, 26);
+            this.button9.Size = new System.Drawing.Size(60, 50);
             this.button9.TabIndex = 8;
             this.button9.TabStop = false;
             this.button9.Text = "A9";
@@ -1245,10 +1247,10 @@ namespace AirPort
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(17, 277);
-            this.button8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button8.Location = new System.Drawing.Point(34, 533);
+            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(30, 26);
+            this.button8.Size = new System.Drawing.Size(60, 50);
             this.button8.TabIndex = 7;
             this.button8.TabStop = false;
             this.button8.Text = "A8";
@@ -1257,10 +1259,10 @@ namespace AirPort
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(17, 248);
-            this.button7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button7.Location = new System.Drawing.Point(34, 477);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(30, 26);
+            this.button7.Size = new System.Drawing.Size(60, 50);
             this.button7.TabIndex = 6;
             this.button7.TabStop = false;
             this.button7.Text = "A7";
@@ -1269,10 +1271,10 @@ namespace AirPort
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(17, 217);
-            this.button6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button6.Location = new System.Drawing.Point(34, 417);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(30, 26);
+            this.button6.Size = new System.Drawing.Size(60, 50);
             this.button6.TabIndex = 5;
             this.button6.TabStop = false;
             this.button6.Text = "A6";
@@ -1281,10 +1283,10 @@ namespace AirPort
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(17, 188);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Location = new System.Drawing.Point(34, 362);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(30, 26);
+            this.button5.Size = new System.Drawing.Size(60, 50);
             this.button5.TabIndex = 4;
             this.button5.TabStop = false;
             this.button5.Text = "A5";
@@ -1293,10 +1295,10 @@ namespace AirPort
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(17, 160);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Location = new System.Drawing.Point(34, 308);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(30, 26);
+            this.button4.Size = new System.Drawing.Size(60, 50);
             this.button4.TabIndex = 3;
             this.button4.TabStop = false;
             this.button4.Text = "A4";
@@ -1305,10 +1307,10 @@ namespace AirPort
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(17, 131);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Location = new System.Drawing.Point(34, 252);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(30, 26);
+            this.button3.Size = new System.Drawing.Size(60, 50);
             this.button3.TabIndex = 2;
             this.button3.TabStop = false;
             this.button3.Text = "A3";
@@ -1317,10 +1319,10 @@ namespace AirPort
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(17, 101);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(34, 194);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(30, 26);
+            this.button2.Size = new System.Drawing.Size(60, 50);
             this.button2.TabIndex = 1;
             this.button2.TabStop = false;
             this.button2.Text = "A2";
@@ -1329,27 +1331,40 @@ namespace AirPort
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(17, 72);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(34, 138);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 26);
+            this.button1.Size = new System.Drawing.Size(60, 50);
             this.button1.TabIndex = 0;
             this.button1.TabStop = false;
             this.button1.Text = "A1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button_Click);
             // 
+            // btnChon
+            // 
+            this.btnChon.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnChon.Location = new System.Drawing.Point(596, 27);
+            this.btnChon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChon.Name = "btnChon";
+            this.btnChon.Size = new System.Drawing.Size(82, 47);
+            this.btnChon.TabIndex = 125;
+            this.btnChon.TabStop = false;
+            this.btnChon.Text = "Chọn";
+            this.btnChon.UseVisualStyleBackColor = false;
+            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
+            // 
             // frmTinhTrangVe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 482);
+            this.ClientSize = new System.Drawing.Size(1598, 927);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cboMaChuyenBay);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtgvTinhTrangVe);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "frmTinhTrangVe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTinhTrangVe";
@@ -1463,5 +1478,6 @@ namespace AirPort
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnChon;
     }
 }

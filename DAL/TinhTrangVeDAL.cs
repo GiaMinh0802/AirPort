@@ -53,6 +53,21 @@ namespace DAL
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
+        public DataTable GetForDisplayOfMaChuyenBayAndHangVe(string maChuyenBay, string HangVe)
+        {
+            var query = from t in db.TINHTRANGVEs
+                        join h in db.HANGVEs
+                        on t.MAHANGVE equals h.MAHANGVE
+                        where t.MACHUYENBAY == maChuyenBay && h.TENHANGVE == HangVe
+                        select new
+                        {
+                            TenHangVe = h.TENHANGVE,
+                            TongSoGhe = t.TONGSOGHE,
+                            SoGheTrong = t.SOGHETRONG
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
         public bool Add(TinhTrangVeDTO dto)
         {
             try
@@ -62,6 +77,7 @@ namespace DAL
                 insert.MAHANGVE = dto.MaHangVe;
                 insert.TONGSOGHE = dto.TongSoGhe;
                 insert.SOGHETRONG = dto.SoGheTrong;
+                insert.SODOGHE = dto.SoDoGhe;
                 db.TINHTRANGVEs.InsertOnSubmit(insert);
                 db.SubmitChanges();
                 return true;
@@ -105,6 +121,7 @@ namespace DAL
             {
                 TINHTRANGVE edit = db.TINHTRANGVEs.Where(p => p.MACHUYENBAY.Equals(dto.MaChuyenBay) && p.MAHANGVE.Equals(dto.MaHangVe)).SingleOrDefault();
                 edit.SOGHETRONG = dto.SoGheTrong;
+                edit.SODOGHE = dto.SoDoGhe;
                 db.SubmitChanges();
                 return true;
             }

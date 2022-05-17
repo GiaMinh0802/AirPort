@@ -36,7 +36,7 @@ namespace DAL
                            TenHangVe = h.TENHANGVE,
                            GiaTien = v.GIATIEN,
                            NgayGioGD = v.NGAYGIOGD,
-                           NgayHuy = v.NGAYHUY,
+                           VeGhe = v.VEGHE,
                            LoaiVe = v.LOAIVE
                        };
             DataTable dt = cv.LINQResultToDataTable(dtVe);
@@ -57,6 +57,7 @@ namespace DAL
                 insert.GIATIEN = dto.GiaTien;
                 insert.NGAYGIOGD = dto.NgayGioGD;
                 insert.LOAIVE = dto.LoaiVe;
+                insert.VEGHE = dto.VeGhe;
                 db.VECHUYENBAYs.InsertOnSubmit(insert);
                 db.SubmitChanges();
                 return true;
@@ -72,6 +73,20 @@ namespace DAL
             {
                 VECHUYENBAY delete = db.VECHUYENBAYs.Where(p => p.MAVE.Equals(maVe)).SingleOrDefault();
                 db.VECHUYENBAYs.DeleteOnSubmit(delete);
+                db.SubmitChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public bool Update(string maVe, string txtvitri)
+        {
+            try
+            {
+                VECHUYENBAY edit = db.VECHUYENBAYs.Where(p => p.MAVE.Equals(maVe)).SingleOrDefault();
+                edit.VEGHE = txtvitri;
                 db.SubmitChanges();
                 return true;
             }
@@ -99,6 +114,7 @@ namespace DAL
                            GiaTien = v.GIATIEN,
                            NgayGioGD = v.NGAYGIOGD,
                            NgayHuy = v.NGAYHUY,
+                           VeGhe = v.VEGHE,
                            LoaiVe = v.LOAIVE
                        };
             DataTable dt = cv.LINQResultToDataTable(dtVe);

@@ -435,6 +435,8 @@ namespace DAL
 		
 		private string _LOAIVE;
 		
+		private string _VEGHE;
+		
 		private EntityRef<CHUYENBAY> _CHUYENBAY;
 		
 		private EntityRef<HANGVE> _HANGVE;
@@ -465,6 +467,8 @@ namespace DAL
     partial void OnNGAYGIOGDChanged();
     partial void OnLOAIVEChanging(string value);
     partial void OnLOAIVEChanged();
+    partial void OnVEGHEChanging(string value);
+    partial void OnVEGHEChanged();
     #endregion
 		
 		public VECHUYENBAY()
@@ -668,6 +672,26 @@ namespace DAL
 					this._LOAIVE = value;
 					this.SendPropertyChanged("LOAIVE");
 					this.OnLOAIVEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VEGHE", DbType="VarChar(100)")]
+		public string VEGHE
+		{
+			get
+			{
+				return this._VEGHE;
+			}
+			set
+			{
+				if ((this._VEGHE != value))
+				{
+					this.OnVEGHEChanging(value);
+					this.SendPropertyChanging();
+					this._VEGHE = value;
+					this.SendPropertyChanged("VEGHE");
+					this.OnVEGHEChanged();
 				}
 			}
 		}

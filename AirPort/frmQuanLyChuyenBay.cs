@@ -311,7 +311,8 @@ namespace AirPort
             {
                 try
                 {
-                    TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text));
+                    string sodoghe = "00000000000000000000000000000000000000000000000000000000000000000000000000000000";
+                    TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text), sodoghe);
                     if (busTinhTrangVe.Add(dto))
                         MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
@@ -341,7 +342,7 @@ namespace AirPort
                 {
                     try
                     {
-                        TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text));
+                        TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text), null);
                         if (busTinhTrangVe.Update(dto))
                             MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         else
@@ -373,7 +374,7 @@ namespace AirPort
             {
                 try
                 {
-                    TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text));
+                    TinhTrangVeDTO dto = new TinhTrangVeDTO(txtMaChuyenBay.Text, cboMaHangVe.SelectedValue.ToString(), Convert.ToInt32(txtTongSoGhe.Text), Convert.ToInt32(txtTongSoGhe.Text), null);
                     if (busTinhTrangVe.Delete(dto))
                         MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else

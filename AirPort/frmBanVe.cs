@@ -23,6 +23,10 @@ namespace AirPort
         KhachHangBUS busKhachHang = new KhachHangBUS();
         string maNhanVien;
         string maVe;
+        int SoVe = 0;
+        int SoVeDau = 0;
+        string GheTruoc = "";
+        List<int> arr = new List<int>();
         #endregion
 
         #region Initializes
@@ -67,7 +71,7 @@ namespace AirPort
             dtgvVe.Columns["TenHangVe"].HeaderText = "Tên Hạng Vé";
             dtgvVe.Columns["GiaTien"].HeaderText = "Giá";
             dtgvVe.Columns["NgayGioGD"].HeaderText = "Ngày Giờ Giao Dịch";
-            dtgvVe.Columns["NgayHuy"].HeaderText = "Ngày Hủy";
+            dtgvVe.Columns["VeGhe"].HeaderText = "Vé Ghế";
             dtgvVe.Columns["LoaiVe"].HeaderText = "Loại Vé";
             dtgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -136,6 +140,20 @@ namespace AirPort
             cboMaChuyenBay.SelectedValue = row.Cells[3].Value.ToString();
             cboHangVe.Text = row.Cells[4].Value.ToString();
             this.maVe = row.Cells[0].Value.ToString();
+            txtViTri.Text = row.Cells[7].Value.ToString();
+        }
+
+        private void txtViTri_TextChanged(object sender, EventArgs e)
+        {
+            this.SoVe = Convert.ToInt32(txtViTri.Text.Length/3);
+            DataTable dtDonGia = busDonGia.SearchOfMaTuyenBayAndMaHangVe(txtMaTuyenBay.Text, cboHangVe.SelectedValue.ToString());
+            foreach (DataRow row in dtDonGia.Rows)
+            {
+                if (txtViTri.Text != "")
+                    txtGiaTien.Text = (Convert.ToInt32(row["DONGIA1"])*this.SoVe).ToString();
+                else
+                    txtGiaTien.Text = (row["DONGIA1"]).ToString();
+            }
         }
 
         private void txtGiaTien_TextChanged(object sender, EventArgs e)
@@ -205,9 +223,60 @@ namespace AirPort
                             DataRow row = dtKhachHang.Rows[0];
                             maKhachHang = row["MAKHACHHANG"].ToString();
                         }
+                        arr.Clear();
                         string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
-                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
-                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
+                        string sodoghe = busTinhTrangVe.GetSoDoGheByMaChuyenBayAndMaHangVe(cboMaChuyenBay.Text, maHangVe);
+                        string ghe = txtViTri.Text;
+                        for (int i = 0; i < ghe.Length; i += 3)
+                        {
+                            int index = 0;
+                            string temp = ghe.Substring(i, 2);
+                            if (temp[0] == 'A')
+                            {
+                                index = Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'B')
+                            {
+                                index = 10 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }    
+                                
+                            else if (temp[0] == 'C')
+                            {
+                                index = 20 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'D')
+                            {
+                                index = 30 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'E')
+                            {
+                                index = 40 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'F')
+                            {
+                                index = 50 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'G')
+                            {
+                                index = 60 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'H')
+                            {
+                                index = 70 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                        }
+                        foreach (int i in arr)
+                            sodoghe = sodoghe.Remove(i, 1).Insert(i, "1");
+                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - this.SoVe, sodoghe);
+                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe, txtViTri.Text.ToString());
                         if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
                             MessageBox.Show("Mua vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -260,9 +329,60 @@ namespace AirPort
                             DataRow row = dtKhachHang.Rows[0];
                             maKhachHang = row["MAKHACHHANG"].ToString();
                         }
+                        arr.Clear();
                         string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
-                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - 1);
-                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe);
+                        string sodoghe = busTinhTrangVe.GetSoDoGheByMaChuyenBayAndMaHangVe(cboMaChuyenBay.Text, maHangVe);
+                        string ghe = txtViTri.Text;
+                        for (int i = 0; i < ghe.Length; i += 3)
+                        {
+                            int index = 0;
+                            string temp = ghe.Substring(i, 2);
+                            if (temp[0] == 'A')
+                            {
+                                index = Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'B')
+                            {
+                                index = 10 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+
+                            else if (temp[0] == 'C')
+                            {
+                                index = 20 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'D')
+                            {
+                                index = 30 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'E')
+                            {
+                                index = 40 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'F')
+                            {
+                                index = 50 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'G')
+                            {
+                                index = 60 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                            else if (temp[0] == 'H')
+                            {
+                                index = 70 + Convert.ToInt32(temp[1] - '0');
+                                arr.Add(index);
+                            }
+                        }
+                        foreach (int i in arr)
+                            sodoghe = sodoghe.Remove(i, 1).Insert(i, "1");
+                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - this.SoVe, sodoghe);
+                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe, txtViTri.Text.ToString());
                         if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
                             MessageBox.Show("Đặt vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -290,8 +410,59 @@ namespace AirPort
             {
                 try
                 {
+                    arr.Clear();
                     string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
-                    TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) + 1);
+                    string sodoghe = busTinhTrangVe.GetSoDoGheByMaChuyenBayAndMaHangVe(cboMaChuyenBay.Text, maHangVe);
+                    string ghe = txtViTri.Text;
+                    for (int i = 0; i < ghe.Length; i += 3)
+                    {
+                        int index = 0;
+                        string temp = ghe.Substring(i, 2);
+                        if (temp[0] == 'A')
+                        {
+                            index = Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'B')
+                        {
+                            index = 10 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+
+                        else if (temp[0] == 'C')
+                        {
+                            index = 20 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'D')
+                        {
+                            index = 30 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'E')
+                        {
+                            index = 40 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'F')
+                        {
+                            index = 50 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'G')
+                        {
+                            index = 60 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'H')
+                        {
+                            index = 70 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                    }
+                    foreach (int i in arr)
+                        sodoghe = sodoghe.Remove(i, 1).Insert(i, "0");
+                    TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) + this.SoVe, sodoghe);
                     if (busVeChuyenBay.Delete(this.maVe) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
                         MessageBox.Show("Hủy vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -315,18 +486,142 @@ namespace AirPort
 
         private void btnChiTietGheTrong_Click(object sender, EventArgs e)
         {
-            Form frm = new frmTinhTrangVe(cboMaChuyenBay.Text);
+            this.GheTruoc = txtViTri.Text;
+            this.SoVeDau = this.SoVe;
+            Form frm = new frmTinhTrangVe(cboMaChuyenBay.Text, txtViTri, cboHangVe.Text);
             frm.Show();
         }
-        
 
         private void btnDoiVe_Click(object sender, EventArgs e)
         {
-            Form frm = new frmTinhTrangVe(cboMaChuyenBay.Text);
-            frm.Show();
+            if (this.maVe != "")
+            {
+                try
+                {
+                    string maHangVe = busHangVe.GetMaHangVeByTenHangVe(cboHangVe.Text);
+                    string sodoghe = busTinhTrangVe.GetSoDoGheByMaChuyenBayAndMaHangVe(cboMaChuyenBay.Text, maHangVe);
+                    string GheSau = txtViTri.Text;
+
+                    arr.Clear();
+                    for (int i = 0; i < GheTruoc.Length; i += 3)
+                    {
+                        int index = 0;
+                        string temp = GheTruoc.Substring(i, 2);
+                        if (temp[0] == 'A')
+                        {
+                            index = Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'B')
+                        {
+                            index = 10 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+
+                        else if (temp[0] == 'C')
+                        {
+                            index = 20 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'D')
+                        {
+                            index = 30 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'E')
+                        {
+                            index = 40 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'F')
+                        {
+                            index = 50 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'G')
+                        {
+                            index = 60 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'H')
+                        {
+                            index = 70 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                    }
+                    foreach (int i in arr)
+                        sodoghe = sodoghe.Remove(i, 1).Insert(i, "0");
+                    TinhTrangVeDTO dtoTinhTrangVeTruoc = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text), sodoghe);
+                    if (busTinhTrangVe.UpdateBanVe(dtoTinhTrangVeTruoc))
+                    {
+
+                    } 
+                    arr.Clear();
+                    for (int i = 0; i < GheSau.Length; i += 3)
+                    {
+                        int index = 0;
+                        string temp = GheSau.Substring(i, 2);
+                        if (temp[0] == 'A')
+                        {
+                            index = Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'B')
+                        {
+                            index = 10 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+
+                        else if (temp[0] == 'C')
+                        {
+                            index = 20 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'D')
+                        {
+                            index = 30 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'E')
+                        {
+                            index = 40 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'F')
+                        {
+                            index = 50 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'G')
+                        {
+                            index = 60 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                        else if (temp[0] == 'H')
+                        {
+                            index = 70 + Convert.ToInt32(temp[1] - '0');
+                            arr.Add(index);
+                        }
+                    }
+                    foreach (int i in arr)
+                        sodoghe = sodoghe.Remove(i, 1).Insert(i, "1");
+                    TinhTrangVeDTO dtoTinhTrangVeSau = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - (this.SoVe - this.SoVeDau), sodoghe);
+                    if (busVeChuyenBay.Update(this.maVe, txtViTri.Text) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVeSau))
+                        MessageBox.Show("Đổi vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    MessageBox.Show("Đổi vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    Recreate();
+                }
+            }
         }
+
         #endregion
 
-
+        
     }
 }
