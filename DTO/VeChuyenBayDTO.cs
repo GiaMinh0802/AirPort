@@ -18,8 +18,9 @@ namespace DTO
         private DateTime ngayHuy;
         private string loaiVe;
         private string veghe;
+        private int kygui;
 
-        public VeChuyenBayDTO(string maVe, string maKhachHang, string maChuyenBay, string maHangVe, string maNhanVien, decimal giaTien, DateTime ngayGioGD, DateTime ngayHuy, string loaiVe, string veghe)
+        public VeChuyenBayDTO(string maVe, string maKhachHang, string maChuyenBay, string maHangVe, string maNhanVien, decimal giaTien, DateTime ngayGioGD, DateTime ngayHuy, string loaiVe, string veghe, int kygui)
         {
             this.maVe = maVe;
             this.maKhachHang = maKhachHang;
@@ -31,6 +32,7 @@ namespace DTO
             this.ngayHuy = ngayHuy;
             this.loaiVe = loaiVe;
             this.veghe = veghe;
+            this.kygui = kygui;
         }
 
         public string MaVe { get => maVe; set => maVe = value; }
@@ -43,5 +45,6 @@ namespace DTO
         public DateTime NgayHuy { get => ngayHuy; set => ngayHuy = value; }
         public string LoaiVe { get => loaiVe; set => loaiVe = value; }
         public string VeGhe { get => veghe; set => veghe = value; }
+        public int Kygui { get => kygui; set => kygui = value; }
     }
 }

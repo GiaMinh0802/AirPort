@@ -72,7 +72,8 @@ namespace AirPort
             dtgvVe.Columns["GiaTien"].HeaderText = "Giá";
             dtgvVe.Columns["NgayGioGD"].HeaderText = "Ngày Giờ Giao Dịch";
             dtgvVe.Columns["VeGhe"].HeaderText = "Vé Ghế";
-            dtgvVe.Columns["LoaiVe"].HeaderText = "Loại Vé";
+            dtgvVe.Columns["KyGui"].HeaderText = "Ký Gửi";
+            dtgvVe.Columns["LoaiVe"].HeaderText = "Loại Vé";           
             dtgvVe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvVe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
@@ -83,6 +84,7 @@ namespace AirPort
             txtCMND.Clear();
             txtSDT.Clear();
             txtTenKhachHang.Clear();
+            txtViTri.Clear();
             LoadDaTatxtSoGheTrong();
         }
 
@@ -141,8 +143,18 @@ namespace AirPort
             cboHangVe.Text = row.Cells[4].Value.ToString();
             this.maVe = row.Cells[0].Value.ToString();
             txtViTri.Text = row.Cells[7].Value.ToString();
+            txtKyGui.Text = row.Cells[8].Value.ToString();
         }
 
+        private void txtKyGui_Leave(object sender, EventArgs e)
+        {
+            int Sokg = Convert.ToInt32(txtKyGui.Text);
+            DataTable dtDonGia = busDonGia.SearchOfMaTuyenBayAndMaHangVe(txtMaTuyenBay.Text, cboHangVe.SelectedValue.ToString());
+            foreach (DataRow row in dtDonGia.Rows)
+            {
+                txtGiaTien.Text = (Convert.ToInt32(row["DONGIA1"]) * this.SoVe + Sokg * 20000).ToString();
+            }
+        }
         private void txtViTri_TextChanged(object sender, EventArgs e)
         {
             this.SoVe = Convert.ToInt32(txtViTri.Text.Length/3);
@@ -273,12 +285,18 @@ namespace AirPort
                                 arr.Add(index);
                             }
                         }
+                        int sove = Convert.ToInt32(txtViTri.Text.Length / 3);
                         foreach (int i in arr)
                             sodoghe = sodoghe.Remove(i, 1).Insert(i, "1");
-                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - this.SoVe, sodoghe);
-                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe, txtViTri.Text.ToString());
-                        if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
-                            MessageBox.Show("Mua vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - sove, sodoghe);
+                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe, txtViTri.Text.ToString(), Convert.ToInt32(txtKyGui.Text));
+                        if (busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                            if (busVeChuyenBay.Add(dtoVeChuyenBay))
+                                MessageBox.Show("Mua vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else
+                                MessageBox.Show("Mua vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            MessageBox.Show("Mua vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch
                     {
@@ -381,10 +399,16 @@ namespace AirPort
                         }
                         foreach (int i in arr)
                             sodoghe = sodoghe.Remove(i, 1).Insert(i, "1");
-                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - this.SoVe, sodoghe);
-                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe, txtViTri.Text.ToString());
-                        if (busVeChuyenBay.Add(dtoVeChuyenBay) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
-                            MessageBox.Show("Đặt vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int sove = Convert.ToInt32(txtViTri.Text.Length / 3);
+                        TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - sove, sodoghe);
+                        VeChuyenBayDTO dtoVeChuyenBay = new VeChuyenBayDTO(null, maKhachHang, cboMaChuyenBay.Text, cboHangVe.SelectedValue.ToString(), maNhanVien, Convert.ToDecimal(txtGiaTien.Text), DateTime.Now, Convert.ToDateTime(null), loaiVe, txtViTri.Text.ToString(), Convert.ToInt32(txtKyGui.Text));
+                        if (busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                            if (busVeChuyenBay.Add(dtoVeChuyenBay))
+                                MessageBox.Show("Đặt vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else
+                                MessageBox.Show("Đặt vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            MessageBox.Show("Đặt vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     catch
                     {
@@ -463,8 +487,13 @@ namespace AirPort
                     foreach (int i in arr)
                         sodoghe = sodoghe.Remove(i, 1).Insert(i, "0");
                     TinhTrangVeDTO dtoTinhTrangVe = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) + this.SoVe, sodoghe);
-                    if (busVeChuyenBay.Delete(this.maVe) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
-                        MessageBox.Show("Hủy vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (busTinhTrangVe.UpdateBanVe(dtoTinhTrangVe))
+                        if (busVeChuyenBay.Delete(this.maVe))
+                            MessageBox.Show("Hủy vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Hủy vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Hủy vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 catch
@@ -554,8 +583,13 @@ namespace AirPort
                     TinhTrangVeDTO dtoTinhTrangVeTruoc = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text), sodoghe);
                     if (busTinhTrangVe.UpdateBanVe(dtoTinhTrangVeTruoc))
                     {
-
+                        
                     } 
+                    else
+                    {
+                        MessageBox.Show("Đổi vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }    
                     arr.Clear();
                     for (int i = 0; i < GheSau.Length; i += 3)
                     {
@@ -606,8 +640,13 @@ namespace AirPort
                     foreach (int i in arr)
                         sodoghe = sodoghe.Remove(i, 1).Insert(i, "1");
                     TinhTrangVeDTO dtoTinhTrangVeSau = new TinhTrangVeDTO(cboMaChuyenBay.Text, maHangVe, 0, Convert.ToInt32(txtSoGheTrong.Text) - (this.SoVe - this.SoVeDau), sodoghe);
-                    if (busVeChuyenBay.Update(this.maVe, txtViTri.Text) && busTinhTrangVe.UpdateBanVe(dtoTinhTrangVeSau))
-                        MessageBox.Show("Đổi vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (busTinhTrangVe.UpdateBanVe(dtoTinhTrangVeSau))
+                        if (busVeChuyenBay.Update(this.maVe, txtViTri.Text))
+                            MessageBox.Show("Đổi vé thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("Đổi vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show("Đổi vé không thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch
                 {
@@ -619,6 +658,8 @@ namespace AirPort
                 }
             }
         }
+
+
 
         #endregion
 

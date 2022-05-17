@@ -16,11 +16,11 @@
       <Column Name="MACHUYENBAY" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="MAHANGVE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="GIATIEN" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="NGAYHUY" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="MANHANVIEN" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="NGAYGIOGD" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="LOAIVE" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="VEGHE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="KYGUI" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="CHUYENBAY_VECHUYENBAY" Member="CHUYENBAY" ThisKey="MACHUYENBAY" OtherKey="MACHUYENBAY" Type="CHUYENBAY" IsForeignKey="true" />
       <Association Name="HANGVE_VECHUYENBAY" Member="HANGVE" ThisKey="MAHANGVE" OtherKey="MAHANGVE" Type="HANGVE" IsForeignKey="true" />
       <Association Name="KHACHHANG_VECHUYENBAY" Member="KHACHHANG" ThisKey="MAKHACHHANG" OtherKey="MAKHACHHANG" Type="KHACHHANG" IsForeignKey="true" />

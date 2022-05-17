@@ -71,12 +71,15 @@ namespace AirPort
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.gbxTTVe = new System.Windows.Forms.GroupBox();
+            this.txtKyGui = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtViTri = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.btnChiTietGheTrong = new System.Windows.Forms.Button();
             this.txtSoGheTrong = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtViTri = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.gbxThaoTac.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbxDSVe.SuspendLayout();
@@ -87,7 +90,7 @@ namespace AirPort
             // txtTenKhachHang
             // 
             this.txtTenKhachHang.Location = new System.Drawing.Point(227, 385);
-            this.txtTenKhachHang.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTenKhachHang.Margin = new System.Windows.Forms.Padding(6);
             this.txtTenKhachHang.Name = "txtTenKhachHang";
             this.txtTenKhachHang.Size = new System.Drawing.Size(330, 31);
             this.txtTenKhachHang.TabIndex = 2;
@@ -95,7 +98,7 @@ namespace AirPort
             // txtSDT
             // 
             this.txtSDT.Location = new System.Drawing.Point(227, 444);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(6);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(330, 31);
             this.txtSDT.TabIndex = 3;
@@ -103,7 +106,7 @@ namespace AirPort
             // txtCMND
             // 
             this.txtCMND.Location = new System.Drawing.Point(228, 331);
-            this.txtCMND.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtCMND.Margin = new System.Windows.Forms.Padding(6);
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(330, 31);
             this.txtCMND.TabIndex = 1;
@@ -163,7 +166,7 @@ namespace AirPort
             // 
             this.cboHangVe.FormattingEnabled = true;
             this.cboHangVe.Location = new System.Drawing.Point(228, 505);
-            this.cboHangVe.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboHangVe.Margin = new System.Windows.Forms.Padding(6);
             this.cboHangVe.Name = "cboHangVe";
             this.cboHangVe.Size = new System.Drawing.Size(330, 33);
             this.cboHangVe.TabIndex = 4;
@@ -203,7 +206,7 @@ namespace AirPort
             // 
             this.cboMaChuyenBay.FormattingEnabled = true;
             this.cboMaChuyenBay.Location = new System.Drawing.Point(228, 27);
-            this.cboMaChuyenBay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cboMaChuyenBay.Margin = new System.Windows.Forms.Padding(6);
             this.cboMaChuyenBay.Name = "cboMaChuyenBay";
             this.cboMaChuyenBay.Size = new System.Drawing.Size(330, 33);
             this.cboMaChuyenBay.TabIndex = 0;
@@ -212,7 +215,7 @@ namespace AirPort
             // txtSanBayDi
             // 
             this.txtSanBayDi.Location = new System.Drawing.Point(228, 124);
-            this.txtSanBayDi.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSanBayDi.Margin = new System.Windows.Forms.Padding(6);
             this.txtSanBayDi.Name = "txtSanBayDi";
             this.txtSanBayDi.ReadOnly = true;
             this.txtSanBayDi.Size = new System.Drawing.Size(330, 31);
@@ -222,7 +225,7 @@ namespace AirPort
             // txtSanBayDen
             // 
             this.txtSanBayDen.Location = new System.Drawing.Point(228, 172);
-            this.txtSanBayDen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSanBayDen.Margin = new System.Windows.Forms.Padding(6);
             this.txtSanBayDen.Name = "txtSanBayDen";
             this.txtSanBayDen.ReadOnly = true;
             this.txtSanBayDen.Size = new System.Drawing.Size(330, 31);
@@ -232,7 +235,7 @@ namespace AirPort
             // txtThoiGianKhoiHanh
             // 
             this.txtThoiGianKhoiHanh.Location = new System.Drawing.Point(228, 224);
-            this.txtThoiGianKhoiHanh.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtThoiGianKhoiHanh.Margin = new System.Windows.Forms.Padding(6);
             this.txtThoiGianKhoiHanh.Name = "txtThoiGianKhoiHanh";
             this.txtThoiGianKhoiHanh.ReadOnly = true;
             this.txtThoiGianKhoiHanh.Size = new System.Drawing.Size(330, 31);
@@ -242,7 +245,7 @@ namespace AirPort
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 686);
+            this.label11.Location = new System.Drawing.Point(10, 728);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(86, 25);
@@ -251,8 +254,8 @@ namespace AirPort
             // 
             // txtGiaTien
             // 
-            this.txtGiaTien.Location = new System.Drawing.Point(228, 679);
-            this.txtGiaTien.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtGiaTien.Location = new System.Drawing.Point(228, 721);
+            this.txtGiaTien.Margin = new System.Windows.Forms.Padding(6);
             this.txtGiaTien.Name = "txtGiaTien";
             this.txtGiaTien.ReadOnly = true;
             this.txtGiaTien.Size = new System.Drawing.Size(266, 31);
@@ -273,7 +276,7 @@ namespace AirPort
             // txtThoiGIanBay
             // 
             this.txtThoiGIanBay.Location = new System.Drawing.Point(228, 279);
-            this.txtThoiGIanBay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtThoiGIanBay.Margin = new System.Windows.Forms.Padding(6);
             this.txtThoiGIanBay.Name = "txtThoiGIanBay";
             this.txtThoiGIanBay.ReadOnly = true;
             this.txtThoiGIanBay.Size = new System.Drawing.Size(330, 31);
@@ -293,7 +296,7 @@ namespace AirPort
             // txtMaTuyenBay
             // 
             this.txtMaTuyenBay.Location = new System.Drawing.Point(228, 74);
-            this.txtMaTuyenBay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtMaTuyenBay.Margin = new System.Windows.Forms.Padding(6);
             this.txtMaTuyenBay.Name = "txtMaTuyenBay";
             this.txtMaTuyenBay.ReadOnly = true;
             this.txtMaTuyenBay.Size = new System.Drawing.Size(330, 31);
@@ -328,7 +331,7 @@ namespace AirPort
             this.btnDoiVe.FlatAppearance.BorderSize = 0;
             this.btnDoiVe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDoiVe.Location = new System.Drawing.Point(446, 37);
-            this.btnDoiVe.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDoiVe.Margin = new System.Windows.Forms.Padding(6);
             this.btnDoiVe.Name = "btnDoiVe";
             this.btnDoiVe.Size = new System.Drawing.Size(82, 79);
             this.btnDoiVe.TabIndex = 65;
@@ -342,7 +345,7 @@ namespace AirPort
             this.btnHuyVe.FlatAppearance.BorderSize = 0;
             this.btnHuyVe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuyVe.Location = new System.Drawing.Point(556, 37);
-            this.btnHuyVe.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnHuyVe.Margin = new System.Windows.Forms.Padding(6);
             this.btnHuyVe.Name = "btnHuyVe";
             this.btnHuyVe.Size = new System.Drawing.Size(82, 79);
             this.btnHuyVe.TabIndex = 66;
@@ -390,7 +393,7 @@ namespace AirPort
             this.btnMuaVe.FlatAppearance.BorderSize = 0;
             this.btnMuaVe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMuaVe.Location = new System.Drawing.Point(28, 37);
-            this.btnMuaVe.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnMuaVe.Margin = new System.Windows.Forms.Padding(6);
             this.btnMuaVe.Name = "btnMuaVe";
             this.btnMuaVe.Size = new System.Drawing.Size(82, 79);
             this.btnMuaVe.TabIndex = 5;
@@ -404,7 +407,7 @@ namespace AirPort
             this.btnDatVe.FlatAppearance.BorderSize = 0;
             this.btnDatVe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDatVe.Location = new System.Drawing.Point(144, 35);
-            this.btnDatVe.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDatVe.Margin = new System.Windows.Forms.Padding(6);
             this.btnDatVe.Name = "btnDatVe";
             this.btnDatVe.Size = new System.Drawing.Size(82, 79);
             this.btnDatVe.TabIndex = 6;
@@ -474,7 +477,7 @@ namespace AirPort
             this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.White;
             this.btnThoat.Location = new System.Drawing.Point(1808, 6);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(6);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(82, 79);
             this.btnThoat.TabIndex = 10;
@@ -521,7 +524,7 @@ namespace AirPort
             // txtTimKiem
             // 
             this.txtTimKiem.Location = new System.Drawing.Point(860, 33);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(6);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(246, 31);
             this.txtTimKiem.TabIndex = 7;
@@ -533,7 +536,7 @@ namespace AirPort
             this.btnTimKiem.FlatAppearance.BorderSize = 0;
             this.btnTimKiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimKiem.Location = new System.Drawing.Point(1116, 25);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(6);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(50, 46);
             this.btnTimKiem.TabIndex = 8;
@@ -542,6 +545,9 @@ namespace AirPort
             // 
             // gbxTTVe
             // 
+            this.gbxTTVe.Controls.Add(this.label23);
+            this.gbxTTVe.Controls.Add(this.txtKyGui);
+            this.gbxTTVe.Controls.Add(this.label22);
             this.gbxTTVe.Controls.Add(this.txtViTri);
             this.gbxTTVe.Controls.Add(this.label21);
             this.gbxTTVe.Controls.Add(this.btnChiTietGheTrong);
@@ -579,6 +585,44 @@ namespace AirPort
             this.gbxTTVe.TabStop = false;
             this.gbxTTVe.Text = "Thông tin vé";
             // 
+            // txtKyGui
+            // 
+            this.txtKyGui.Location = new System.Drawing.Point(227, 670);
+            this.txtKyGui.Margin = new System.Windows.Forms.Padding(6);
+            this.txtKyGui.Name = "txtKyGui";
+            this.txtKyGui.Size = new System.Drawing.Size(267, 31);
+            this.txtKyGui.TabIndex = 74;
+            this.txtKyGui.Leave += new System.EventHandler(this.txtKyGui_Leave);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(10, 676);
+            this.label22.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(72, 25);
+            this.label22.TabIndex = 73;
+            this.label22.Text = "Ký gửi";
+            // 
+            // txtViTri
+            // 
+            this.txtViTri.Location = new System.Drawing.Point(227, 619);
+            this.txtViTri.Margin = new System.Windows.Forms.Padding(6);
+            this.txtViTri.Name = "txtViTri";
+            this.txtViTri.Size = new System.Drawing.Size(330, 31);
+            this.txtViTri.TabIndex = 72;
+            this.txtViTri.TextChanged += new System.EventHandler(this.txtViTri_TextChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(10, 623);
+            this.label21.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(97, 25);
+            this.label21.TabIndex = 71;
+            this.label21.Text = "Vị trí ghế";
+            // 
             // btnChiTietGheTrong
             // 
             this.btnChiTietGheTrong.Location = new System.Drawing.Point(430, 560);
@@ -593,7 +637,7 @@ namespace AirPort
             // txtSoGheTrong
             // 
             this.txtSoGheTrong.Location = new System.Drawing.Point(230, 562);
-            this.txtSoGheTrong.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtSoGheTrong.Margin = new System.Windows.Forms.Padding(6);
             this.txtSoGheTrong.Name = "txtSoGheTrong";
             this.txtSoGheTrong.ReadOnly = true;
             this.txtSoGheTrong.Size = new System.Drawing.Size(188, 31);
@@ -602,7 +646,7 @@ namespace AirPort
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(510, 685);
+            this.label14.Location = new System.Drawing.Point(510, 727);
             this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(56, 25);
@@ -619,24 +663,15 @@ namespace AirPort
             this.label15.TabIndex = 63;
             this.label15.Text = "Số ghế trống";
             // 
-            // label21
+            // label23
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(10, 625);
-            this.label21.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(97, 25);
-            this.label21.TabIndex = 71;
-            this.label21.Text = "Vị trí ghế";
-            // 
-            // txtViTri
-            // 
-            this.txtViTri.Location = new System.Drawing.Point(227, 621);
-            this.txtViTri.Margin = new System.Windows.Forms.Padding(6);
-            this.txtViTri.Name = "txtViTri";
-            this.txtViTri.Size = new System.Drawing.Size(330, 31);
-            this.txtViTri.TabIndex = 72;
-            this.txtViTri.TextChanged += new System.EventHandler(this.txtViTri_TextChanged);
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(515, 674);
+            this.label23.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(42, 25);
+            this.label23.TabIndex = 75;
+            this.label23.Text = "KG";
             // 
             // frmBanVe
             // 
@@ -716,5 +751,8 @@ namespace AirPort
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txtViTri;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtKyGui;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

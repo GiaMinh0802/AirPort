@@ -37,6 +37,7 @@ namespace DAL
                            GiaTien = v.GIATIEN,
                            NgayGioGD = v.NGAYGIOGD,
                            VeGhe = v.VEGHE,
+                           KyGui = v.KYGUI,
                            LoaiVe = v.LOAIVE
                        };
             DataTable dt = cv.LINQResultToDataTable(dtVe);
@@ -57,6 +58,7 @@ namespace DAL
                 insert.GIATIEN = dto.GiaTien;
                 insert.NGAYGIOGD = dto.NgayGioGD;
                 insert.LOAIVE = dto.LoaiVe;
+                insert.KYGUI = dto.Kygui;
                 insert.VEGHE = dto.VeGhe;
                 db.VECHUYENBAYs.InsertOnSubmit(insert);
                 db.SubmitChanges();
@@ -106,15 +108,15 @@ namespace DAL
                        where System.Data.Linq.SqlClient.SqlMethods.Like(k.SDT, "%" + SDT + "%")
                        select new
                        {
-                           MaVe = v.MAHANGVE,
+                           MaVe = v.MAVE,
                            TenKhachHang = k.TENKHACHHANG,
                            CMND = k.CMND,
                            MaChuyenBay = v.MACHUYENBAY,
                            TenHangVe = h.TENHANGVE,
                            GiaTien = v.GIATIEN,
                            NgayGioGD = v.NGAYGIOGD,
-                           NgayHuy = v.NGAYHUY,
                            VeGhe = v.VEGHE,
+                           KyGui = v.KYGUI,
                            LoaiVe = v.LOAIVE
                        };
             DataTable dt = cv.LINQResultToDataTable(dtVe);

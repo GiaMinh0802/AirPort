@@ -427,8 +427,6 @@ namespace DAL
 		
 		private decimal _GIATIEN;
 		
-		private System.Nullable<System.DateTime> _NGAYHUY;
-		
 		private string _MANHANVIEN;
 		
 		private System.Nullable<System.DateTime> _NGAYGIOGD;
@@ -436,6 +434,8 @@ namespace DAL
 		private string _LOAIVE;
 		
 		private string _VEGHE;
+		
+		private System.Nullable<int> _KYGUI;
 		
 		private EntityRef<CHUYENBAY> _CHUYENBAY;
 		
@@ -459,8 +459,6 @@ namespace DAL
     partial void OnMAHANGVEChanged();
     partial void OnGIATIENChanging(decimal value);
     partial void OnGIATIENChanged();
-    partial void OnNGAYHUYChanging(System.Nullable<System.DateTime> value);
-    partial void OnNGAYHUYChanged();
     partial void OnMANHANVIENChanging(string value);
     partial void OnMANHANVIENChanged();
     partial void OnNGAYGIOGDChanging(System.Nullable<System.DateTime> value);
@@ -469,6 +467,8 @@ namespace DAL
     partial void OnLOAIVEChanged();
     partial void OnVEGHEChanging(string value);
     partial void OnVEGHEChanged();
+    partial void OnKYGUIChanging(System.Nullable<int> value);
+    partial void OnKYGUIChanged();
     #endregion
 		
 		public VECHUYENBAY()
@@ -592,26 +592,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYHUY", DbType="Date")]
-		public System.Nullable<System.DateTime> NGAYHUY
-		{
-			get
-			{
-				return this._NGAYHUY;
-			}
-			set
-			{
-				if ((this._NGAYHUY != value))
-				{
-					this.OnNGAYHUYChanging(value);
-					this.SendPropertyChanging();
-					this._NGAYHUY = value;
-					this.SendPropertyChanged("NGAYHUY");
-					this.OnNGAYHUYChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHANVIEN", DbType="VarChar(10)")]
 		public string MANHANVIEN
 		{
@@ -692,6 +672,26 @@ namespace DAL
 					this._VEGHE = value;
 					this.SendPropertyChanged("VEGHE");
 					this.OnVEGHEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_KYGUI", DbType="Int")]
+		public System.Nullable<int> KYGUI
+		{
+			get
+			{
+				return this._KYGUI;
+			}
+			set
+			{
+				if ((this._KYGUI != value))
+				{
+					this.OnKYGUIChanging(value);
+					this.SendPropertyChanging();
+					this._KYGUI = value;
+					this.SendPropertyChanged("KYGUI");
+					this.OnKYGUIChanged();
 				}
 			}
 		}
