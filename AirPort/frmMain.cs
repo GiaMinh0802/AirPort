@@ -151,18 +151,6 @@ namespace AirPort
                 ActiveChildForm(frm);
             }
         }
-        private void thayDoiQuyDinhToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmThayDoiQuyDinh frm = new frmThayDoiQuyDinh();
-            if (!CheckExistForm(frm))
-            {
-                CreateTabPage(frm);
-            }
-            else
-            {
-                ActiveChildForm(frm);
-            }
-        }
         private void quanLyChuyenBayToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmQuanLyChuyenBay frm = new frmQuanLyChuyenBay();

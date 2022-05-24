@@ -49,7 +49,6 @@
     <Compile Include="MayBayDTO.cs" />
     <Compile Include="NhanVienDTO.cs" />
     <Compile Include="SanBayDTO.cs" />
-    <Compile Include="ThamSoDTO.cs" />
     <Compile Include="TinhTrangVeDTO.cs" />
     <Compile Include="TuyenBayDTO.cs" />
     <Compile Include="VeChuyenBayDTO.cs" />

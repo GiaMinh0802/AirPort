@@ -125,12 +125,6 @@
     <Compile Include="frmQuanLyTuyenBay.Designer.cs">
       <DependentUpon>frmQuanLyTuyenBay.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThayDoiQuyDinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmThayDoiQuyDinh.Designer.cs">
-      <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmTinhTrangVe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyTuyenBay.resx">
       <DependentUpon>frmQuanLyTuyenBay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmThayDoiQuyDinh.resx">
-      <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTinhTrangVe.resx">
       <DependentUpon>frmTinhTrangVe.cs</DependentUpon>

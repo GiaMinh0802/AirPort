@@ -61,7 +61,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SanBayDAL.cs" />
-    <Compile Include="ThamSoDAL.cs" />
     <Compile Include="TinhTrangVeDAL.cs" />
     <Compile Include="TuyenBayDAL.cs" />
     <Compile Include="VeChuyenBayDAL.cs" />

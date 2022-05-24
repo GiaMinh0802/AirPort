@@ -49,7 +49,6 @@
     <Compile Include="MayBayBUS.cs" />
     <Compile Include="NhanVienBUS.cs" />
     <Compile Include="SanBayBUS.cs" />
-    <Compile Include="ThamSoBUS.cs" />
     <Compile Include="TinhTrangVeBUS.cs" />
     <Compile Include="TuyenBayBUS.cs" />
     <Compile Include="VeChuyenBayBUS.cs" />
