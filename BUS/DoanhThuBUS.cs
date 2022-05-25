@@ -19,5 +19,9 @@ namespace BUS
         {
             return dal.GetOfThangNam(strThang, strNam);
         }
+        public DataTable GetOfNamDoanhThu()
+        {
+            return dal.GetOfNamDoanhThu();
+        }
     }
 }

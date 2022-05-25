@@ -31,6 +31,13 @@ namespace AirPort
             dtgvNam.DataSource = dtDoanhThuNam;
             dtgvNam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvNam.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+
+            chartNam.Titles.Clear();
+            DataTable chartDoanhThu = DoanhThuNam.GetOfNamDoanhThu();
+            chartNam.DataSource = chartDoanhThu;
+            chartNam.Series["Doanh Thu"].XValueMember = "NAM";
+            chartNam.Series["Doanh Thu"].YValueMembers = "DOANHTHU";
+            chartNam.Titles.Add("Doanh Thu Theo Năm");
         }
     }
 }

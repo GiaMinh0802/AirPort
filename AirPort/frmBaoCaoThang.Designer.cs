@@ -29,6 +29,9 @@ namespace AirPort
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnXemBaoCao = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -36,8 +39,10 @@ namespace AirPort
             this.dtpThangNam = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvThang = new System.Windows.Forms.DataGridView();
+            this.chartThang = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvThang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartThang)).BeginInit();
             this.SuspendLayout();
             // 
             // btnXemBaoCao
@@ -118,14 +123,31 @@ namespace AirPort
             this.dtgvThang.Name = "dtgvThang";
             this.dtgvThang.RowHeadersWidth = 82;
             this.dtgvThang.RowTemplate.Height = 33;
-            this.dtgvThang.Size = new System.Drawing.Size(1878, 860);
+            this.dtgvThang.Size = new System.Drawing.Size(930, 860);
             this.dtgvThang.TabIndex = 124;
+            // 
+            // chartThang
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartThang.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartThang.Legends.Add(legend1);
+            this.chartThang.Location = new System.Drawing.Point(968, 166);
+            this.chartThang.Name = "chartThang";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Doanh Thu";
+            this.chartThang.Series.Add(series1);
+            this.chartThang.Size = new System.Drawing.Size(922, 858);
+            this.chartThang.TabIndex = 125;
+            this.chartThang.Text = "chart1";
             // 
             // frmBaoCaoThang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1047);
+            this.Controls.Add(this.chartThang);
             this.Controls.Add(this.dtgvThang);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpThangNam);
@@ -138,6 +160,7 @@ namespace AirPort
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvThang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartThang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +174,6 @@ namespace AirPort
         private System.Windows.Forms.DateTimePicker dtpThangNam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgvThang;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartThang;
     }
 }

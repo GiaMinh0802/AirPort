@@ -29,6 +29,9 @@ namespace AirPort
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -36,8 +39,10 @@ namespace AirPort
             this.dtpNam = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvNam = new System.Windows.Forms.DataGridView();
+            this.chartNam = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartNam)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,7 +77,7 @@ namespace AirPort
             this.btnThoat.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.White;
             this.btnThoat.Location = new System.Drawing.Point(1809, 6);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(6);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(82, 78);
             this.btnThoat.TabIndex = 40;
@@ -83,7 +88,7 @@ namespace AirPort
             // 
             this.btnXemBaoCao.AutoSize = true;
             this.btnXemBaoCao.Location = new System.Drawing.Point(922, 102);
-            this.btnXemBaoCao.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnXemBaoCao.Margin = new System.Windows.Forms.Padding(6);
             this.btnXemBaoCao.Name = "btnXemBaoCao";
             this.btnXemBaoCao.Size = new System.Drawing.Size(158, 44);
             this.btnXemBaoCao.TabIndex = 123;
@@ -118,14 +123,31 @@ namespace AirPort
             this.dtgvNam.Name = "dtgvNam";
             this.dtgvNam.RowHeadersWidth = 82;
             this.dtgvNam.RowTemplate.Height = 33;
-            this.dtgvNam.Size = new System.Drawing.Size(1878, 852);
+            this.dtgvNam.Size = new System.Drawing.Size(924, 852);
             this.dtgvNam.TabIndex = 129;
+            // 
+            // chartNam
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartNam.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartNam.Legends.Add(legend1);
+            this.chartNam.Location = new System.Drawing.Point(952, 167);
+            this.chartNam.Name = "chartNam";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Doanh Thu";
+            this.chartNam.Series.Add(series1);
+            this.chartNam.Size = new System.Drawing.Size(926, 852);
+            this.chartNam.TabIndex = 130;
+            this.chartNam.Text = "chart1";
             // 
             // frmBaoCaoNam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1900, 1030);
+            this.Controls.Add(this.chartNam);
             this.Controls.Add(this.dtgvNam);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpNam);
@@ -138,6 +160,7 @@ namespace AirPort
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvNam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartNam)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +174,6 @@ namespace AirPort
         private System.Windows.Forms.DateTimePicker dtpNam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgvNam;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartNam;
     }
 }

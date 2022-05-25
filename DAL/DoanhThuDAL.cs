@@ -40,5 +40,16 @@ namespace DAL
             DataTable dt = cv.LINQResultToDataTable(query);
             return dt;
         }
+        public DataTable GetOfNamDoanhThu()
+        {
+            var query = from i in db.DOANHTHUNAMs
+                        select new
+                        {
+                            i.NAM,
+                            i.DOANHTHU
+                        };
+            DataTable dt = cv.LINQResultToDataTable(query);
+            return dt;
+        }
     }
 }
