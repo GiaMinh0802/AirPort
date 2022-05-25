@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ChuyenBayBUS.cs" />
     <Compile Include="CTChuyenBayBUS.cs" />
+    <Compile Include="DoanhThuBUS.cs" />
     <Compile Include="DonGiaBUS.cs" />
     <Compile Include="HangVeBUS.cs" />
     <Compile Include="KhachHangBUS.cs" />

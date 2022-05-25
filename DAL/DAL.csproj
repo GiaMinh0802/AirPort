@@ -50,6 +50,7 @@
     <Compile Include="ChuyenBayDAL.cs" />
     <Compile Include="ConvertToDataTable.cs" />
     <Compile Include="CTChuyenBayDAL.cs" />
+    <Compile Include="DoanhThuDAL.cs" />
     <Compile Include="DonGiaDAL.cs" />
     <Compile Include="HangVeDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,13 @@ namespace AirPort
 
         private void btnXemBaoCao_Click(object sender, EventArgs e)
         {
-
+            string month = dtpThangNam.Value.Month.ToString();
+            string year = dtpThangNam.Value.Year.ToString();
+            DoanhThuBUS DoanhThuThang = new DoanhThuBUS();
+            DataTable dtDoanhThuThang = DoanhThuThang.GetOfThangNam(month, year);
+            dtgvThang.DataSource = dtDoanhThuThang;
+            dtgvThang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvThang.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
         }
     }
 }
